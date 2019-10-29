@@ -30,3 +30,4 @@ C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-
 C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\obj\Debug\netcoreapp2.1\Fortnite_LFG_Hub.dll
 C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\obj\Debug\netcoreapp2.1\Fortnite_LFG_Hub.pdb
 C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\obj\Debug\netcoreapp2.1\Fortnite_LFG_Hub.csproj.CopyComplete
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\obj\Debug\netcoreapp2.1\Razor\Views\Profiles\Index.g.cshtml.cs

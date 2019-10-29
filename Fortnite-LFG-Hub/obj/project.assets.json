@@ -12541,9 +12541,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub.csproj",
-      "projectName": "Fortnite-LFG-Hub",
-      "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub.csproj",
+      "projectUniqueName": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub\\Fortnite_LFG_Hub.csproj",
+      "projectName": "Fortnite_LFG_Hub",
+      "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub\\Fortnite_LFG_Hub.csproj",
       "packagesPath": "C:\\Users\\Roy\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub\\obj\\",
       "projectStyle": "PackageReference",

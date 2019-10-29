@@ -1,7 +1,33 @@
 ﻿
+@model Fortnite_LFG_Hub.Models.ViewModels.EditProfileViewModel
+
 @{
-    ViewData["Title"] = "Test";
+    ViewData["Title"] = "Index";
 }
+<h2>Create new profile</h2>
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Index" asp-controller="Profiles" asp-antiforgery ="true">
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" autocomplete="off" />
+                <span asp-validation-for="Username" class="text-danger"></span> 
+            </div>
 
-<h2>Test</h2>
+            <div class="form-group">
+                <label asp-for="Achievements" class="control-label"></label>
+                <input asp-for="Achievements" class="form-control"
+            </div>
 
+        </form>
+    </div>
+</div>
+
+@*@foreach (Profile profile in Model)
+{
+    @Html.DisplayFor(m => profile.name);
+    <br />
+    @Html.DisplayFor(m => profile.achievement);
+    <br />
+    <br />
+}*@
