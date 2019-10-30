@@ -13,23 +13,25 @@ namespace Fortnite_LFG_Hub.Models.ViewModels
         [RegularExpression(@"^[a-zA-Z0-0_]*$", ErrorMessage = "Your username may only contain alphanumeric characters (a-z, A-Z, 0-9)")]
         public string Username { get; set; }
 
-        public string[] Achievements { get; set; }
+        public string Achievements { get; set; }
 
         [StringLength(1000, ErrorMessage = "Additional text input can not be longer than 1000 characters")]
+        [Display (Name = "Additional Information")]
         public string Freetext { get; set; }
 
-        [Url(ErrorMessage = "Your social platform input has to be a URL")]
+        [Url(ErrorMessage = "Social Platform input has to be a URL")]
+        [Display (Name = "Social URL")]
         public string SocialURL { get; set; }
 
         public EditProfileViewModel()
         {
             this.Username = "Username";
-            this.Achievements[0] = "Achievements";
+            this.Achievements = "Achievements";
             this.Freetext = "Additional Information";
             this.SocialURL = "Social";
         }
 
-        public EditProfileViewModel(string username, string[] achievements, string freetext, string social)
+        public EditProfileViewModel(string username, string achievements, string freetext, string social)
         {
             this.Username = username;
             this.Achievements = achievements;

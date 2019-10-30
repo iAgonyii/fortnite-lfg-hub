@@ -12,8 +12,8 @@ namespace Fortnite_LFG_Hub.Containers
 
         public ProfilesContainer()
         {
-            profiles.Add(new Profile("#1 FNCS Week 1", "iAgonyii", 1));
-            profiles.Add(new Profile("#1 FNCS Week 2", "mitr0", 2));
+           // profiles.Add(new Profile("#1 FNCS Week 1", "iAgonyii", 1));
+           // profiles.Add(new Profile("#1 FNCS Week 2", "mitr0", 2));
         }
 
         public List<Profile> getAllProfiles()
@@ -21,11 +21,11 @@ namespace Fortnite_LFG_Hub.Containers
             return profiles;
         }
 
-        public Profile getProfileDetails(int profileID)
-        {
-            Profile detailsOfProfile = profiles.Find(profile => profile.id == profileID);
-            return detailsOfProfile;
-        }
+       // public Profile getProfileDetails(int profileID)
+       // {
+         //   Profile detailsOfProfile = profiles.Find(profile => profile.id == profileID);
+         //   return detailsOfProfile;
+      //  }
 
     }
 }
