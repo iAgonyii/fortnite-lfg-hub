@@ -16,6 +16,7 @@ namespace Fortnite_LFG_Hub.Controllers
         private ProfilesContainer profileRep = new ProfilesContainer();
 
     // GET: /<controller>/
+        [ValidateAntiForgeryToken]
         public IActionResult Index([Bind("Username,Achievements,Freetext,SocialURL")] EditProfileViewModel edit)
         {
             if(ModelState.IsValid)
@@ -24,8 +25,6 @@ namespace Fortnite_LFG_Hub.Controllers
                 return View(edit);
             }
             return View();
-            
-
         }
     }
 }
