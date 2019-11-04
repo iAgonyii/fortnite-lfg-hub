@@ -17,14 +17,17 @@ namespace Fortnite_LFG_Hub.Controllers
 
     // GET: /<controller>/
         [ValidateAntiForgeryToken]
-        public IActionResult Index([Bind("Username,Achievements,Freetext,SocialURL")] EditProfileViewModel edit)
+        public IActionResult Index([Bind("Username,AchievementsRank,AchievementsEvent,Freetext,SocialURL")] EditProfileViewModel edit)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                Profile prof = new Profile(edit.Username, edit.Achievements, edit.Freetext, edit.SocialURL);
+                Profile prof = new Profile(edit.Username, edit.AchievementsRank, edit.AchievementsEvent, edit.Freetext, edit.SocialURL);
+                return View("Profile", prof);
+            }
+            else
+            {
                 return View(edit);
             }
-            return View();
         }
     }
 }

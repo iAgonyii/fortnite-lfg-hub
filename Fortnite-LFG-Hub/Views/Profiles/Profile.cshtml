@@ -1,7 +1,11 @@
-﻿
+﻿@model  Fortnite_LFG_Hub.Models.Profile
+
 @{
     ViewData["Title"] = "Profile";
 }
 
 <h2>Profile</h2>
+<h3>@Model.Username</h3>
+<h4>@Model.Achievements <br /> @Model.FreeText <br /> @Model.SocialURL</h4>
+
 

@@ -34,6 +34,11 @@ namespace Fortnite_LFG_Hub.Controllers
             return View();
         }
 
+        public IActionResult Profiles()
+        {
+            return View("../Profiles/Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

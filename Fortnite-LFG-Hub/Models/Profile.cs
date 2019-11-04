@@ -7,18 +7,18 @@ namespace Fortnite_LFG_Hub.Models
 {
     public class Profile
     {
-        public string achievement { get; set; }
-        public string name { get; set; }
-        public string freetext { get; set; }
-        public string socialurl { get; set; }
+        public string Username { get; set; }
+        public string Achievements { get; set; }
+        public string FreeText { get; set; }
+        public string SocialURL { get; set; }
 
 
-        public Profile(string n, string a, string f, string u)
+        public Profile(string n, string aR, string aE, string f, string u)
         {
-            this.name = n;
-            this.achievement = a;
-            this.freetext = f;
-            this.socialurl = u;
+            this.Username = n;
+            this.Achievements = aR + " " + "-" + " " + aE;
+            this.FreeText = f;
+            this.SocialURL = u;
         }
     }
 }
