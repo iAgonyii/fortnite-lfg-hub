@@ -9,23 +9,20 @@ namespace Fortnite_LFG_Hub.Models
     public class Profile
     {
         public string Username { get; set; }
-        public string Achievements { get; set; }
+        public List<Achievement> Achievements = new List<Achievement>();
         public string FreeText { get; set; }
         public string SocialURL { get; set; }
-
-
-        public Profile(string n, string aR, string aE, string f, string u)
-        {
-            this.Username = n;
-            this.Achievements = aR + " " + "-" + " " + aE;
-            this.FreeText = f;
-            this.SocialURL = u;
-        }
 
         public Profile(ProfileDTO dto)
         {
             this.Username = dto.Username;
-            this.Achievements = dto.Achievements;
+            foreach(AchievementDTO achvdto in dto.achievementDTOs)
+            {
+                Achievement a = new Achievement();
+                a.Rank = achvdto.Rank;
+                a.Event = achvdto.Event;
+                this.Achievements.Add(a);
+            }
             this.FreeText = dto.FreeText;
             this.SocialURL = dto.SocialURL;
         }

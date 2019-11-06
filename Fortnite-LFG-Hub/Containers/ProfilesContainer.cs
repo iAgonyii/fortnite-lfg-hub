@@ -16,16 +16,5 @@ namespace Fortnite_LFG_Hub.Containers
            // profiles.Add(new Profile("#1 FNCS Week 2", "mitr0", 2));
         }
 
-        public List<Profile> getAllProfiles()
-        {
-            return profiles;
-        }
-
-       // public Profile getProfileDetails(int profileID)
-       // {
-         //   Profile detailsOfProfile = profiles.Find(profile => profile.id == profileID);
-         //   return detailsOfProfile;
-      //  }
-
     }
 }
