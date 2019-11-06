@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,6 +20,14 @@ namespace Fortnite_LFG_Hub.Models
             this.Achievements = aR + " " + "-" + " " + aE;
             this.FreeText = f;
             this.SocialURL = u;
+        }
+
+        public Profile(ProfileDTO dto)
+        {
+            this.Username = dto.Username;
+            this.Achievements = dto.Achievements;
+            this.FreeText = dto.FreeText;
+            this.SocialURL = dto.SocialURL;
         }
     }
 }

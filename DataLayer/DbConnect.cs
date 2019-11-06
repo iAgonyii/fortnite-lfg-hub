@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data.SqlClient;
-using MySql.Data;
 
 namespace DataLayer
 {
