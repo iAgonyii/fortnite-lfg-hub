@@ -27,4 +27,10 @@ namespace Fortnite_LFG_Hub.Models
             this.SocialURL = dto.SocialURL;
         }
     }
+
+    public class Achievement
+    {
+        public int Rank;
+        public string Event;
+    }
 }

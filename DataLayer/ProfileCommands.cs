@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
+using System.Linq;
 
 namespace DataLayer
 {
@@ -37,23 +39,38 @@ namespace DataLayer
             using (conn)
             {
                 conn.Open();
-                using (command = new MySqlCommand("begin;" +
-                    " insert into profile(Username,TextInfo) values(@username,@textinfo);" +
-                    " set @userid = LAST_INSERT_ID(); " +
-                    " insert into achievement(Rank,Event,UserId) values(@rank,@event,@userid);" +
-                    " insert into social(URL,UserId) values(@url,@userid);" +
-                    " COMMIT;", conn))
+
+                command = new MySqlCommand();
+
+                string sql = "insert into achievement(Rank,Tourney,UserId) values ";
+                string valueSQL = "";
+
+                command.Parameters.AddWithValue("username", dto.Username);
+                command.Parameters.AddWithValue("textinfo", dto.FreeText);
+                command.Parameters.AddWithValue("url", dto.SocialURL);
+
+                for (int i = 0; i < dto.achievementDTOs.Count; i++)
                 {
-                    command.Parameters.AddWithValue("username", dto.Username);
-                    command.Parameters.AddWithValue("textinfo", dto.FreeText);
-
-                    //string[] parts = dto.Achievements.Split(' ');
-
-                   // command.Parameters.AddWithValue("rank", parts[0]);
-                    //command.Parameters.AddWithValue("event", parts[2]);
-                    command.Parameters.AddWithValue("url", dto.SocialURL);
-                    command.ExecuteNonQuery();
+                    if (i == dto.achievementDTOs.Count - 1)
+                    {
+                        valueSQL += "(@rank" + i + ",@ev" + i + ",@userid)";
+                        command.Parameters.AddWithValue("rank" + i, dto.achievementDTOs[i].Rank);
+                        command.Parameters.AddWithValue("ev" + i, dto.achievementDTOs[i].Event);
+                    }
+                    else
+                    {
+                        valueSQL += "(@rank" + i + ",@ev" + i + ",@userid),";
+                        command.Parameters.AddWithValue("rank" + i, dto.achievementDTOs[i].Rank);
+                        command.Parameters.AddWithValue("ev" + i, dto.achievementDTOs[i].Event);
+                    }
                 }
+
+                sql += valueSQL;
+                sql += ";";
+
+                command.Connection = conn;
+                command.CommandText = "BEGIN; insert into profile(Username,TextInfo) values(@username,@textinfo); set @userid = LAST_INSERT_ID(); " + sql + "insert into social(`URL`,UserId) values(@url,@userid); COMMIT;";
+                command.ExecuteNonQuery();
             }
         }
     }

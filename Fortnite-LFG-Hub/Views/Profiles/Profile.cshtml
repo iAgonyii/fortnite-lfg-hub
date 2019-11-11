@@ -6,12 +6,21 @@
 
 <h2>Profile</h2>
 <h3>@Model.Username</h3> <br />
-<h4>@foreach(Achievement achievement in Model.Achievements)
+<h4>
+@foreach (Achievement achievement in Model.Achievements)
 {
-    @Html.DisplayFor(a => achievement.Rank);
-    <br />
-    @Html.DisplayFor(a => achievement.Event);
-    <br /> 
+    if (achievement.Rank != 0)
+    {
+        @Html.DisplayFor(a => achievement.Rank);
+        <br />
+        @Html.DisplayFor(a => achievement.Event);
+        <br /> 
+    }
+
+    else
+    {
+        
+    }
 }
     <br /> @Model.FreeText <br /> @Model.SocialURL</h4>
 

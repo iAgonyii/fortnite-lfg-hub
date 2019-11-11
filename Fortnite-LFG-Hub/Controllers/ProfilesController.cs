@@ -17,12 +17,12 @@ namespace Fortnite_LFG_Hub.Controllers
 
     // GET: /<controller>/
         [ValidateAntiForgeryToken]
-        public IActionResult Index([Bind("Username,AchievementsRank1,AchievementsEvent1,AchievementsRank2,AchievementsEvent2,AchievementsRank3,AchievementsEvent3,Freetext,SocialURL")] EditProfileViewModel edit)
+        public IActionResult Index([Bind] EditProfileViewModel edit)
         {
             if (ModelState.IsValid)
             {
                 ProfileDTO dto = CreateDtoFromInput(edit);
-                //commands.SaveNewProfile(dto);
+                commands.SaveNewProfile(dto);
                 Profile prof = new Profile(dto);
                 return View("Profile", prof);
             }
@@ -34,22 +34,22 @@ namespace Fortnite_LFG_Hub.Controllers
 
         public ProfileDTO CreateDtoFromInput(EditProfileViewModel input)
         {
+            List<AchievementDTO> adtos = new List<AchievementDTO>()
+            {
+                new AchievementDTO { Rank = input.AchievementsRank1, Event = input.AchievementsEvent1},
+                new AchievementDTO { Rank = (int)input.AchievementsRank2, Event = input.AchievementsEvent2},
+                new AchievementDTO { Rank = (int)input.AchievementsRank3, Event = input.AchievementsEvent3},
+            };
+
+            foreach(AchievementDTO adto in adtos)
+            {
+                if(adto.Rank == 0 && adto.Event == "")
+                {
+                    adtos.Remove(adto);
+                }
+            }
+
             ProfileDTO dto = new ProfileDTO();
-
-            List<AchievementDTO> adtos = new List<AchievementDTO>();
-            AchievementDTO adto = new AchievementDTO();
-            AchievementDTO adto2 = new AchievementDTO();
-            AchievementDTO adto3 = new AchievementDTO();
-            adto.Rank = Convert.ToInt32(input.AchievementsRank1);
-            adto.Event = input.AchievementsEvent1;
-            adto2.Rank = Convert.ToInt32(input.AchievementsRank2);
-            adto2.Event = input.AchievementsEvent2;
-            adto3.Rank = Convert.ToInt32(input.AchievementsRank3);
-            adto3.Event = input.AchievementsEvent3;
-            adtos.Add(adto);
-            adtos.Add(adto2);
-            adtos.Add(adto3);
-
 
             dto.Username = input.Username;
             dto.achievementDTOs = adtos;

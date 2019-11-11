@@ -13,13 +13,15 @@ namespace Fortnite_LFG_Hub.Models.ViewModels
         [RegularExpression(@"^[a-zA-Z0-0_]*$", ErrorMessage = "Your username may only contain alphanumeric characters (a-z, A-Z, 0-9)")]
         public string Username { get; set; }
 
+        [Required(ErrorMessage="Atleast one achievement is required")]
         public int AchievementsRank1 { get; set; }
+        [Required(ErrorMessage = "Atleast one achievement is required")]
         public string AchievementsEvent1 { get; set; }
 
-        public int AchievementsRank2 { get; set; }
+        public int? AchievementsRank2 { get; set; }
         public string AchievementsEvent2 { get; set; }
 
-        public int AchievementsRank3 { get; set; }
+        public int? AchievementsRank3 { get; set; }
         public string AchievementsEvent3 { get; set; }
 
         [StringLength(1000, ErrorMessage = "Additional text input can not be longer than 1000 characters")]
