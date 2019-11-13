@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Fortnite_LFG_Hub.Models
-{
+{ 
     public class Profile
     {
         public string Username { get; set; }

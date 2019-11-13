@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Fortnite_LFG_Hub.Models;
 
 namespace Fortnite_LFG_Hub.Containers
@@ -12,8 +9,7 @@ namespace Fortnite_LFG_Hub.Containers
 
         public ProfilesContainer()
         {
-           // profiles.Add(new Profile("#1 FNCS Week 1", "iAgonyii", 1));
-           // profiles.Add(new Profile("#1 FNCS Week 2", "mitr0", 2));
+
         }
 
     }
