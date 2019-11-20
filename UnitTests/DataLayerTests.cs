@@ -26,8 +26,8 @@ namespace UnitTests
 
             List<AchievementDTO> achievs = new List<AchievementDTO>()
             {
-                new AchievementDTO() { Rank = 6352, Event = "Hype Nite Week 2" },
-                new AchievementDTO() { Rank = 2323, Event = "Squads FNCS Week 1"}
+                new AchievementDTO() { Rank = 6352, Event = "Winter_Royale_Qualifiers" },
+                new AchievementDTO() { Rank = 2323, Event = "Luxe_Cup_Finals" }
             };
 
             ProfileDTO profile = new ProfileDTO()
@@ -43,6 +43,16 @@ namespace UnitTests
             inserted = true;
 
             Assert.IsTrue(inserted);
+        }
+
+        [TestMethod]
+        public void GetProfileDtoFromSearch()
+        {
+            string search = "RoyDev";
+            ProfileCommands commands = new ProfileCommands();
+            ProfileDTO profile = commands.GetProfileData(search);
+
+            Assert.AreEqual("RoyDeveloper", profile.Username);
         }
     }
 

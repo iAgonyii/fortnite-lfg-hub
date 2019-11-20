@@ -1,0 +1,36 @@
+﻿@model List<Fortnite_LFG_Hub.Models.Profile>
+@{
+    ViewData["Title"] = "ProfilesRepo";
+}
+
+<h2>ProfilesRepo</h2>
+@foreach (Profile profile in Model)
+{
+    @Html.DisplayFor(p => profile.Username)
+    <br />
+    foreach (Achievement achievement in profile.Achievements)
+    {
+        string replacedEvent = achievement.Event.ToString().Replace("_", " ");
+        @Html.DisplayFor(a => achievement.Rank) <span> - </span> @Html.DisplayFor(e => replacedEvent)
+        <br />
+    }
+    if (!string.IsNullOrWhiteSpace(profile.FreeText))
+    {
+        @Html.DisplayFor(p => profile.FreeText)
+    }
+    else
+    {
+        <span>This user has not shared any additional information</span>
+    }
+    <br />
+    if (!string.IsNullOrWhiteSpace(profile.SocialURL))
+    {
+        @Html.DisplayFor(p => profile.SocialURL)
+    }
+    else
+    {
+        <span>This user has not linked any social platforms</span>
+    }
+    <br />
+    <br />
+}

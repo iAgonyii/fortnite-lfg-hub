@@ -32,20 +32,25 @@ namespace Fortnite_LFG_Hub.Controllers
             }
         }
 
+        public IActionResult ProfilesRepo()
+        {
+            return View(profileRep.GetProfiles());
+        }
+
         public ProfileDTO CreateDtoFromInput(EditProfileViewModel input)
         {
             List<AchievementDTO> adtos = new List<AchievementDTO>()
             {
-                new AchievementDTO { Rank = input.AchievementsRank1, Event = input.AchievementsEvent1},
-                new AchievementDTO { Rank = (int)input.AchievementsRank2, Event = input.AchievementsEvent2},
-                new AchievementDTO { Rank = (int)input.AchievementsRank3, Event = input.AchievementsEvent3},
+                new AchievementDTO { Rank = input.AchievementsRank1, Event = input.event1.ToString()},
+                new AchievementDTO { Rank = input.AchievementsRank2.GetValueOrDefault(), Event = input.event2.ToString()},
+                new AchievementDTO { Rank = input.AchievementsRank3.GetValueOrDefault(), Event = input.event3.ToString()},
             };
 
-            foreach(AchievementDTO adto in adtos)
+            for(int i = 0; i < adtos.Count; i++)
             {
-                if(adto.Rank == 0 && adto.Event == "")
+                if(adtos[i].Rank == 0)
                 {
-                    adtos.Remove(adto);
+                    adtos.Remove(adtos[i]);
                 }
             }
 
