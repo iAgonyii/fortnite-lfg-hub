@@ -8,13 +8,13 @@
 <div class="row">
     <div class="col-md-5">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <form asp-action="Index" asp-controller="Profiles" asp-antiforgery="true">
+        <form asp-action="IndexValidation" asp-controller="Profiles" asp-antiforgery="true">
             <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" autocomplete="off" />
-                <span asp-validation-for="Username" class="text-danger"></span>
+                <label asp-for="profile.Username" class="control-label"></label>
+                <input asp-for="profile.Username" class="form-control" autocomplete="off" />
+                <span asp-validation-for="profile.Username" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="AchievementsRank1" class="control-label"></label> <br />
                 <span asp-validation-for="AchievementsRank1" class="text-danger"></span>
                 <table id="submissionTable">
@@ -39,18 +39,36 @@
                         <td width="590"><select asp-for="event3" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
                     </tr>
                 </table>
+            </div>*@
+
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td><b>Place</b></td>
+                        <td></td>
+                        <td><b>Event</b></td>
+                    </tr>
+                    @for (int i = 0; i < Model.profile.Achievements.Count; i++)
+                    {
+                        <tr>
+                            <td width="135"><input type="number" min="1" asp-for="profile.Achievements[i].Rank" class="form-control" /></td>
+                            <td width="20"><span></span></td>
+                            <td width="590"><select asp-for="profile.Achievements[i].Event" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
+                        </tr>
+                    }
+                </table>
             </div>
 
             <div class="form-group">
-                <label asp-for="Freetext" class="control-label"></label>
-                <input asp-for="Freetext" class="form-control" autocomplete="off" />
-                <span asp-validation-for="Freetext" class="text-danger"></span>
+                <label asp-for="profile.FreeText" class="control-label"></label>
+                <input asp-for="profile.FreeText" class="form-control" autocomplete="off" />
+                <span asp-validation-for="profile.FreeText" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="SocialURL" class="control-label"></label>
-                <input asp-for="SocialURL" class="form-control" autocomplete="off" />
-                <span asp-validation-for="SocialURL" class="text-danger"></span>
+                <label asp-for="profile.SocialURL" class="control-label"></label>
+                <input asp-for="profile.SocialURL" class="form-control" autocomplete="off" />
+                <span asp-validation-for="profile.SocialURL" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -63,12 +81,3 @@
 <form asp-action="ProfilesRepo" asp-controller="Profiles">
     <input type="submit" value="ProfilesRepo" />
 </form>
-
-@*@foreach (Profile profile in Model)
-{
-    @Html.DisplayFor(m => profile.name);
-    <br />
-    @Html.DisplayFor(m => profile.achievement);
-    <br />
-    <br />
-}*@

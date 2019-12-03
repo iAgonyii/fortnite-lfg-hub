@@ -15,20 +15,27 @@ namespace Fortnite_LFG_Hub.Controllers
         private ProfilesContainer profileRep = new ProfilesContainer();
         private ProfileCommands commands = new ProfileCommands();
 
-    // GET: /<controller>/
+        // GET: /<controller>/
+
+        //public IActionResult Index()
+        //{
+        //    EditProfileViewModel vmodel = new EditProfileViewModel();
+        //    vmodel.profile.Achievements = new List<Achievement> { new Achievement(), new Achievement(), new Achievement() };
+        //    return View("Index", vmodel);
+        //}
+
         [ValidateAntiForgeryToken]
-        public IActionResult Index([Bind] EditProfileViewModel edit)
+        public IActionResult IndexValidation(EditProfileViewModel edit)
         {
             if (ModelState.IsValid)
             {
-                ProfileDTO dto = CreateDtoFromInput(edit);
-                commands.SaveNewProfile(dto);
-                Profile prof = new Profile(dto);
-                return View("Profile", prof);
+                //ProfileDTO dto = CreateDtoFromInput(edit.profile);
+                //commands.SaveNewProfile(dto);
+                return View("Profile", edit.profile);
             }
             else
             {
-                return View(edit);
+                return View("Index", edit);
             }
         }
 
@@ -37,29 +44,26 @@ namespace Fortnite_LFG_Hub.Controllers
             return View(profileRep.GetProfiles());
         }
 
-        public ProfileDTO CreateDtoFromInput(EditProfileViewModel input)
+        public ProfileDTO CreateDtoFromInput(Profile input)
         {
-            List<AchievementDTO> adtos = new List<AchievementDTO>()
-            {
-                new AchievementDTO { Rank = input.AchievementsRank1, Event = input.event1.ToString()},
-                new AchievementDTO { Rank = input.AchievementsRank2.GetValueOrDefault(), Event = input.event2.ToString()},
-                new AchievementDTO { Rank = input.AchievementsRank3.GetValueOrDefault(), Event = input.event3.ToString()},
-            };
-
-            for(int i = 0; i < adtos.Count; i++)
-            {
-                if(adtos[i].Rank == 0)
-                {
-                    adtos.Remove(adtos[i]);
-                }
-            }
-
             ProfileDTO dto = new ProfileDTO();
-
             dto.Username = input.Username;
-            dto.achievementDTOs = adtos;
-            dto.FreeText = input.Freetext;
+            dto.FreeText = input.FreeText;
             dto.SocialURL = input.SocialURL;
+            List<AchievementDTO> adtos = new List<AchievementDTO>();
+            foreach(Achievement achievement in input.Achievements)
+            {
+                adtos.Add(new AchievementDTO() { Rank = (int)achievement.Rank, Event = achievement.Event.ToString() });
+            }
+            dto.achievementDTOs = adtos;
+
+            //for(int i = 0; i < adtos.Count; i++)
+            //{
+            //    if(adtos[i].Rank == 0)
+            //    {
+            //        adtos.Remove(adtos[i]);
+            //    }
+            //}
 
             return dto;
         }

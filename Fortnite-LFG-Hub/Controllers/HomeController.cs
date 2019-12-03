@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Fortnite_LFG_Hub.Models;
+using Fortnite_LFG_Hub.Models.ViewModels;
 
 namespace Fortnite_LFG_Hub.Controllers
 {
@@ -36,7 +37,8 @@ namespace Fortnite_LFG_Hub.Controllers
 
         public IActionResult Profiles()
         {
-            return View("../Profiles/Index");
+            EditProfileViewModel vm = new EditProfileViewModel();
+            return View("../Profiles/Index", vm);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
