@@ -35,4 +35,5 @@ C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-
 C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\bin\Debug\netcoreapp2.1\DataLayer.dll
 C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\bin\Debug\netcoreapp2.1\DataLayer.pdb
 C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\obj\Debug\netcoreapp2.1\Razor\Views\Profiles\ProfilesRepo.g.cshtml.cs
-C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\obj\Debug\netcoreapp2.1\Razor\Views\User\Index.g.cshtml.cs
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\obj\Debug\netcoreapp2.1\Razor\Views\User\Register.g.cshtml.cs
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\obj\Debug\netcoreapp2.1\Razor\Views\User\Auth.g.cshtml.cs

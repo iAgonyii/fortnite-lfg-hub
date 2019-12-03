@@ -10,7 +10,7 @@ namespace Fortnite_LFG_Hub.Models
     public class Profile
     {
         [Required]
-        [StringLength(32, MinimumLength = 3, ErrorMessage = "Your username has to be between 3 and 32 characters long")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "Your username has to be between 3 and 32 characters long")]
         [RegularExpression(@"^[A-Za-z0-9-_\\s]*$", ErrorMessage = "Your username may only contain alphanumeric characters (a-z, A-Z, 0-9)")]
         public string Username { get; set; }
         public List<Achievement> Achievements;

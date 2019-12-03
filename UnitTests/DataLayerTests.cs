@@ -1,5 +1,7 @@
 using DataLayer;
+using DataLayer.DTOs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 
 namespace UnitTests
@@ -7,18 +9,10 @@ namespace UnitTests
     [TestClass]
     public class DataLayerTests
     {
-        //[TestMethod]
-       //// public void GetProfileDataForSearchInput()
-       // {
-       //     ProfileDTO ExpectedDto = new ProfileDTO();
-       //     ExpectedDto.Username = "iAgonyii"; ExpectedDto.Achievements = "44 - Contender cash cup"; ExpectedDto.FreeText = "Nothing"; ExpectedDto.SocialURL = "https://twitter.com/iagonyii";
+        ProfileCommands profileCommands = new ProfileCommands();
+        UserCommands userCommands = new UserCommands();
 
-       //     ProfileCommands profileCommands = new ProfileCommands();
-       //     ProfileDTO ActualDto = profileCommands.GetProfileData("iAgonyii");
-
-       //     Assert.AreEqual(ExpectedDto.Achievements, ActualDto.Achievements);
-       // 
-
+        // Test can only run once to avoid duplicates
         [TestMethod]
         public void AddProfileToDatabase()
         {
@@ -38,10 +32,13 @@ namespace UnitTests
                 achievementDTOs = achievs
             };
 
-            ProfileCommands commands = new ProfileCommands();
-            commands.SaveNewProfile(profile);
-            inserted = true;
-
+            try
+            {
+                profileCommands.SaveNewProfile(profile);
+                inserted = true;
+            }
+            catch (Exception) { }
+            
             Assert.IsTrue(inserted);
         }
 
@@ -49,10 +46,25 @@ namespace UnitTests
         public void GetProfileDtoFromSearch()
         {
             string search = "RoyDev";
-            ProfileCommands commands = new ProfileCommands();
-            ProfileDTO profile = commands.GetProfileData(search);
+
+            ProfileDTO profile = profileCommands.GetProfileData(search);
 
             Assert.AreEqual("RoyDeveloper", profile.Username);
+        }
+
+        [TestMethod]
+        public void AddNewUserToDatabase()
+        {
+            bool inserted = false;
+            UserDTO dto = new UserDTO() { Username = "TestUser", Password = "TestPassword" };
+
+            try
+            {
+                userCommands.SaveNewUser(dto);
+                inserted = true;
+            }
+            catch (Exception) { }
+            Assert.IsTrue(inserted);
         }
     }
 
