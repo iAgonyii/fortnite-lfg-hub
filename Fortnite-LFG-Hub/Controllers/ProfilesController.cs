@@ -31,6 +31,7 @@ namespace Fortnite_LFG_Hub.Controllers
             {
                 //ProfileDTO dto = CreateDtoFromInput(edit.profile);
                 //commands.SaveNewProfile(dto);
+                Session["Username"] = edit.profile.Username;
                 return View("Profile", edit.profile);
             }
             else
