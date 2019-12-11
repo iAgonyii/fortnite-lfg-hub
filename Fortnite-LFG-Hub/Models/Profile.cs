@@ -9,16 +9,23 @@ namespace Fortnite_LFG_Hub.Models
 { 
     public class Profile
     {
+        public int UserId { get; set; }
         [Required]
         [StringLength(20, MinimumLength = 3, ErrorMessage = "Your username has to be between 3 and 32 characters long")]
         [RegularExpression(@"^[A-Za-z0-9-_\\s]*$", ErrorMessage = "Your username may only contain alphanumeric characters (a-z, A-Z, 0-9)")]
         public string Username { get; set; }
+        public string Password { get; set; }
+        public bool LoggedIn { get; set; }
+
         public List<Achievement> Achievements;
 
         [StringLength(1000, ErrorMessage = "Additional text input can not be longer than 1000 characters")]
         [Display (Name = "Additional Information")]
         public string FreeText { get; set; }
         public string SocialURL { get; set; }
+        public bool Looking { get; set; }
+        public byte[] Picture { get; set; }
+        public string Region { get; set; }
 
         public Profile()
         {
@@ -28,7 +35,9 @@ namespace Fortnite_LFG_Hub.Models
         {
             Achievements = new List<Achievement>();
 
+            this.UserId = dto.UserId;
             this.Username = dto.Username;
+            
             foreach(AchievementDTO achvdto in dto.achievementDTOs)
             {
                 Achievement a = new Achievement();
@@ -38,6 +47,9 @@ namespace Fortnite_LFG_Hub.Models
             }
             this.FreeText = dto.FreeText;
             this.SocialURL = dto.SocialURL;
+            this.Looking = dto.Looking;
+            this.Picture = dto.Picture;
+            this.Region = dto.Region;
         }
     }
 

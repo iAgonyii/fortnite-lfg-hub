@@ -2,6 +2,7 @@
 using Fortnite_LFG_Hub.Containers;
 using Fortnite_LFG_Hub.Models;
 using Fortnite_LFG_Hub.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace Fortnite_LFG_Hub.Controllers
             {
                 //ProfileDTO dto = CreateDtoFromInput(edit.profile);
                 //commands.SaveNewProfile(dto);
-                Session["Username"] = edit.profile.Username;
+
                 return View("Profile", edit.profile);
             }
             else
@@ -44,6 +45,50 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             return View(profileRep.GetProfiles());
         }
+
+        public IActionResult LoginIndex()
+        {
+            Profile user = new Profile();
+            return View("Login", user);
+        }
+
+        public IActionResult Login(Profile user)
+        {
+            if (ModelState.IsValid)
+            {
+                if (commands.CheckCredentials(user.Username, user.Password))
+                {
+                    user.LoggedIn = true;
+                    HttpContext.Session.Set("UserProfile", user);
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError("Invalid", "Credentials do not match any registered user");
+                return View(user);
+            }
+            return View(user);
+        }
+
+        public IActionResult RegisterIndex()
+        {
+            Profile user = new Profile();
+            return View("Register", user);
+        }
+
+        public IActionResult Register(Profile user)
+        {
+            if (ModelState.IsValid)
+            {
+                ProfileDTO dto = new ProfileDTO() { Username = user.Username, Password = user.Password };
+                //commands.RegisterNewProfile(dto);
+                user.LoggedIn = true;
+                HttpContext.Session.Set("UserProfile", user);
+                ViewBag.UserProfile = HttpContext.Session.Get<Profile>("UserProfile");
+                return RedirectToAction("Index", "Home");
+            }
+            return View(user);
+        }
+
+
 
         public ProfileDTO CreateDtoFromInput(Profile input)
         {

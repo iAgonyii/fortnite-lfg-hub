@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DataLayer
 {
-    public class ProfileCommands: IProfileCommands
+    public class ProfileCommands : IProfileCommands
     {
         MySqlConnection conn = new MySqlConnection(DbConnect.connectionstring);
         MySqlCommand command;
@@ -39,14 +39,14 @@ namespace DataLayer
         public List<ProfileDTO> GetProfiles()
         {
             List<ProfileDTO> profileDTOs = new List<ProfileDTO>();
-            using(conn)
+            using (conn)
             {
                 conn.Open();
                 using (command = new MySqlCommand("SELECT p.UserId, p.Username, COALESCE(p.TextInfo, '') as TextInfo, (SELECT COALESCE(GROUP_CONCAT(COALESCE(a.Rank, ''), '#', COALESCE(a.Tourney, '')), '') FROM achievement a WHERE p.UserId = a.UserId) as achievements, (SELECT COALESCE(GROUP_CONCAT(COALESCE(s.platform, ''), '#', COALESCE(s.URL, '')), '') FROM social s WHERE p.UserId = s.UserId) as socials FROM profile p", conn))
                 {
-                    using(reader = command.ExecuteReader())
+                    using (reader = command.ExecuteReader())
                     {
-                        while(reader.Read())
+                        while (reader.Read())
                         {
                             ProfileDTO dto = new ProfileDTO();
                             dto.Username = reader.GetString(1);
@@ -61,7 +61,7 @@ namespace DataLayer
             return profileDTOs;
         }
 
-        public void SaveNewProfile(ProfileDTO dto)
+        public void UpdateProfile(ProfileDTO dto)
         {
             using (conn)
             {
@@ -72,8 +72,10 @@ namespace DataLayer
                 string sql = "insert into achievement(Rank,Tourney,UserId) values ";
                 string valueSQL = "";
 
-                command.Parameters.AddWithValue("username", dto.Username);
                 command.Parameters.AddWithValue("textinfo", dto.FreeText);
+                //command.Parameters.AddWithValue("looking", dto.Looking);
+                //command.Parameters.AddWithValue("picture", dto.Picture);
+                //command.Parameters.AddWithValue("region", dto.Region);
                 command.Parameters.AddWithValue("url", dto.SocialURL);
 
                 for (int i = 0; i < dto.achievementDTOs.Count; i++)
@@ -96,8 +98,48 @@ namespace DataLayer
                 sql += ";";
 
                 command.Connection = conn;
-                command.CommandText = "BEGIN; insert into profile(Username,TextInfo) values(@username,@textinfo); set @userid = LAST_INSERT_ID(); " + sql + "insert into social(`URL`,UserId) values(@url,@userid); COMMIT;";
+                command.CommandText = "BEGIN; insert into profile(TextInfo, Looking, Picture, Region) values(@textinfo, @looking, @picture, @region); set @userid = LAST_INSERT_ID(); " + sql + "insert into social(`URL`,UserId) values(@url,@userid); COMMIT;";
                 command.ExecuteNonQuery();
+            }
+        }
+
+        public void RegisterNewProfile(ProfileDTO dto)
+        {
+            using (conn)
+            {
+                conn.Open();
+                using (command = new MySqlCommand("INSERT INTO Profile(Username, Password) VALUES(@username, @password)", conn))
+                {
+                    command.Parameters.AddWithValue("username", dto.Username);
+                    command.Parameters.AddWithValue("password", dto.Password);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public bool CheckCredentials(string username, string password)
+        {
+            using (conn)
+            {
+                conn.Open();
+                using (command = new MySqlCommand("SELECT * FROM Profile where Username=@username AND Password=@password", conn))
+                {
+                    command.Parameters.AddWithValue("username", username);
+                    command.Parameters.AddWithValue("password", password);
+
+                    using (reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
             }
         }
 
