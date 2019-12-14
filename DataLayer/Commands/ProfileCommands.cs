@@ -18,17 +18,21 @@ namespace DataLayer
             using (conn)
             {
                 conn.Open();
-                using (command = new MySqlCommand("SELECT p.UserId, p.Username, COALESCE(p.TextInfo, '') as TextInfo, (SELECT COALESCE(GROUP_CONCAT(COALESCE(a.Rank, ''), '#', COALESCE(a.Tourney, '')), '') FROM achievement a WHERE p.UserId = a.UserId) as achievements, (SELECT COALESCE(GROUP_CONCAT(COALESCE(s.platform, ''), '#', COALESCE(s.URL, '')), '') FROM social s WHERE p.UserId = s.UserId) as socials FROM profile p WHERE p.Username LIKE @searchInput", conn))
+                using (command = new MySqlCommand("SELECT p.UserId, p.Username, p.TextInfo, p.Looking, p.Picture, p.Region, (SELECT COALESCE(GROUP_CONCAT(COALESCE(a.Rank, ''), '#', COALESCE(a.Tourney, '')), '') FROM achievement a WHERE p.UserId = a.UserId) as achievements, (SELECT s.URL FROM social s WHERE p.UserId = s.UserId) as socials FROM profile p WHERE p.Username = @searchInput", conn))
                 {
-                    command.Parameters.AddWithValue("searchInput", "%" + searchInput + "%");
+                    command.Parameters.AddWithValue("searchInput", searchInput);
                     using (reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
+                            dto.UserId = reader.GetInt32(0);
                             dto.Username = reader.GetString(1);
                             dto.FreeText = reader.GetString(2);
-                            dto.achievementDTOs = FormatConcatDataToAchievementDtos(reader.GetString(3));
-                            dto.SocialURL = reader.GetString(4);
+                            dto.Looking = reader.GetString(3);
+                            dto.Picture = reader.GetString(4);
+                            dto.Region = reader.GetString(5);
+                            dto.achievementDTOs = FormatConcatDataToAchievementDtos(reader.GetString(6));
+                            dto.SocialURL = reader.GetString(7);
                         }
                     }
                 }

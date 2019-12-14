@@ -42,7 +42,7 @@ namespace Fortnite_LFG_Hub
                 // Make the session cookie essential
                 options.Cookie.IsEssential = true;
             });
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

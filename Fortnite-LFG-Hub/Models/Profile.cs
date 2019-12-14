@@ -23,13 +23,13 @@ namespace Fortnite_LFG_Hub.Models
         [Display (Name = "Additional Information")]
         public string FreeText { get; set; }
         public string SocialURL { get; set; }
-        public bool Looking { get; set; }
-        public byte[] Picture { get; set; }
+        public string Looking { get; set; }
+        public string Picture { get; set; }
         public string Region { get; set; }
 
         public Profile()
         {
-            Achievements = new List<Achievement> { new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), };
+            Achievements = new List<Achievement> { new Achievement() { Rank = 40, Event = Events.Katowice_Royale_2019_DUOS }, new Achievement(), new Achievement(), new Achievement(), new Achievement(), };
         }
         public Profile(ProfileDTO dto)
         {
