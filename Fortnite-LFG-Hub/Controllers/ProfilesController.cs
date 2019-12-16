@@ -54,7 +54,7 @@ namespace Fortnite_LFG_Hub.Controllers
         public IActionResult LoginIndex()
         {
             Profile user = new Profile();
-            return View("Login", user);
+            return View("Login", HttpContext.Session.Get<Profile>("UserProfile"));
         }
 
         public IActionResult Login(Profile user)
@@ -76,8 +76,7 @@ namespace Fortnite_LFG_Hub.Controllers
 
         public IActionResult RegisterIndex()
         {
-            Profile user = new Profile();
-            return View("Register", user);
+            return View("Register", HttpContext.Session.Get<Profile>("UserProfile"));
         }
 
         public IActionResult Register(Profile user)
