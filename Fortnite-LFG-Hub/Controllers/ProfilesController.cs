@@ -41,11 +41,6 @@ namespace Fortnite_LFG_Hub.Controllers
             }
         }
 
-        //public IActionResult Profile()
-        //{
-        //    return View("Profile", HttpContext.Session.Get<Profile>("UserProfile"));
-        //}
-
         public IActionResult Profile(string id)
         {
             Profile profile = new Profile(commands.GetProfileData(id));
@@ -103,8 +98,10 @@ namespace Fortnite_LFG_Hub.Controllers
         public ProfileDTO CreateDtoFromInput(Profile input)
         {
             ProfileDTO dto = new ProfileDTO();
-            dto.Username = input.Username;
             dto.FreeText = input.FreeText;
+            dto.Region = input.Region;
+            dto.Picture = input.Picture;
+            dto.Looking = input.Looking;
             dto.SocialURL = input.SocialURL;
             List<AchievementDTO> adtos = new List<AchievementDTO>();
             foreach(Achievement achievement in input.Achievements)
