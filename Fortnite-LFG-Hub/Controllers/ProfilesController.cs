@@ -25,21 +25,21 @@ namespace Fortnite_LFG_Hub.Controllers
         //    return View("Index", vmodel);
         //}
 
-        //[ValidateAntiForgeryToken]
-        //public IActionResult IndexValidation(EditProfileViewModel edit)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //ProfileDTO dto = CreateDtoFromInput(edit.profile);
-        //        //commands.SaveNewProfile(dto);
+        [ValidateAntiForgeryToken]
+        public IActionResult IndexValidation(EditProfileViewModel edit)
+        {
+            if (ModelState.IsValid)
+            {
+                //ProfileDTO dto = CreateDtoFromInput(edit.profile);
+                //commands.UpdateProfile(dto);
 
-        //        return View(Profile());
-        //    }
-        //    else
-        //    {
-        //        return View("Index", edit);
-        //    }
-        //}
+                return View(Profile(HttpContext.Session.Get<Profile>("UserProfile").Username));
+            }
+            else
+            {
+                return View("Index", edit);
+            }
+        }
 
         //public IActionResult Profile()
         //{

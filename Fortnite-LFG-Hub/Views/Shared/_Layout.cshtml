@@ -41,7 +41,7 @@
                         Profile profile = HttpContextAccessor.HttpContext.Session.Get<Profile>("UserProfile");
                         if (profile != null && profile.LoggedIn)
                         {
-                            <li><a asp-controller="Profiles" asp-action="Profile">@profile.Username</a></li>
+                            <li><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@profile.Username">@profile.Username</a></li>
                         }
                     }
                 </ul>

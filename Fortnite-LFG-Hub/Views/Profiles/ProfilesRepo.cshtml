@@ -6,7 +6,7 @@
 <h2>ProfilesRepo</h2>
 @foreach (Profile profile in Model)
 {
-    @Html.DisplayFor(p => profile.Username)
+    <a asp-controller="Profiles" asp-action="Profile" asp-route-id="@profile.Username">@Html.DisplayFor(p => profile.Username)</a>
     <br />
     foreach (Achievement achievement in profile.Achievements)
     {
