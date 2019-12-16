@@ -85,10 +85,9 @@ namespace Fortnite_LFG_Hub.Controllers
             if (ModelState.IsValid)
             {
                 ProfileDTO dto = new ProfileDTO() { Username = user.Username, Password = user.Password };
-                //commands.RegisterNewProfile(dto);
+                commands.RegisterNewProfile(dto);
                 user.LoggedIn = true;
                 HttpContext.Session.Set("UserProfile", user);
-                //HttpContext.Session.Get<Profile>("UserProfile");
                 return RedirectToAction("Index", "Home");
             }
             return View(user);

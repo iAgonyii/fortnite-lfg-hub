@@ -29,7 +29,7 @@ namespace Fortnite_LFG_Hub.Models
 
         public Profile()
         {
-            Achievements = new List<Achievement> { new Achievement() { Rank = 40, Event = Events.Katowice_Royale_2019_DUOS }, new Achievement(), new Achievement(), new Achievement(), new Achievement(), };
+            Achievements = new List<Achievement> { new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), };
         }
         public Profile(ProfileDTO dto)
         {
