@@ -26,7 +26,8 @@ namespace Fortnite_LFG_Hub.Controllers
         //}
 
         [ValidateAntiForgeryToken]
-        public IActionResult IndexValidation(EditProfileViewModel edit)
+        [Route("Edit")]
+        public IActionResult EditProfile(EditProfileViewModel edit)
         {
             if (ModelState.IsValid)
             {

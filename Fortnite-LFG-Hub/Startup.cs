@@ -69,6 +69,11 @@ namespace Fortnite_LFG_Hub
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+                //routes.MapRoute(
+                //    name: "edit",
+                //    template: "{controller=Profiles}/{id}/{action=Edit}"
+                //    );
             });
         }
     }
