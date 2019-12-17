@@ -4,6 +4,7 @@ using Fortnite_LFG_Hub.Models;
 using Fortnite_LFG_Hub.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 
@@ -26,19 +27,35 @@ namespace Fortnite_LFG_Hub.Controllers
         //}
 
         [ValidateAntiForgeryToken]
-        [Route("Edit")]
-        public IActionResult EditProfile(EditProfileViewModel edit)
+        [HttpPost]
+        //[Route("{controller}/{action}/{id}/Edit")]
+        public IActionResult EditProfile(string id, EditProfileViewModel edit)
         {
             if (ModelState.IsValid)
             {
                 //ProfileDTO dto = CreateDtoFromInput(edit.profile);
                 //commands.UpdateProfile(dto);
-
                 return View(Profile(HttpContext.Session.Get<Profile>("UserProfile").Username));
             }
             else
             {
                 return View("Index", edit);
+            }
+        }
+
+        public IActionResult EditProfile(string id)
+        {
+            if (HttpContext.Session.Get<Profile>("UserProfile") == null)
+            {
+                return Content("You are not logged in.");
+            }
+            else if(id != HttpContext.Session.Get<Profile>("UserProfile").Username)
+            {
+                return Content("You are not allowed to edit this profile.");
+            }
+            else
+            {
+                return View("Index", new EditProfileViewModel());
             }
         }
 
