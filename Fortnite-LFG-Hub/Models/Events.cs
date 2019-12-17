@@ -9,7 +9,7 @@ namespace Fortnite_LFG_Hub.Models
     public enum Events
     {
         [Display(Name = "Select event...")]
-        Select_Event,
+        _,
         Winter_Royale_Qualifiers,
         Winter_Royale_Finals,
         Katowice_Royale_2019_SOLOS,

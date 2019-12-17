@@ -32,15 +32,19 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li><a asp-area="" asp-controller="Profiles" asp-action="LoginIndex">Log In</a></li>
-                    <li><a asp-area="" asp-controller="Profiles" asp-action="RegisterIndex">Register</a></li>
                     @{
                         Profile profile = HttpContextAccessor.HttpContext.Session.Get<Profile>("UserProfile");
-                        if (profile != null && profile.LoggedIn)
+
+                        if (profile == null)
+                        {
+                            <li><a asp-area="" asp-controller="Profiles" asp-action="LoginIndex">Log In</a></li>
+                            <li><a asp-area="" asp-controller="Profiles" asp-action="RegisterIndex">Register</a></li>
+                        }
+
+                        else if (profile != null && profile.LoggedIn)
                         {
                             <li><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@profile.Username">@profile.Username</a></li>
+                            <li><a asp-controller="Profiles" asp-action="Logout">Log out</a></li>
                         }
                     }
                 </ul>

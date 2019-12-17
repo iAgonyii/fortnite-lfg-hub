@@ -23,19 +23,26 @@ namespace DataLayer
                     command.Parameters.AddWithValue("searchInput", searchInput);
                     using (reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if(reader.HasRows)
                         {
-                            dto.UserId = reader.GetInt32(0);
-                            dto.Username = reader.GetString(1);
-                            dto.FreeText = reader.GetString(2);
-                            dto.Looking = reader.GetString(3);
-                            dto.Picture = reader.GetString(4);
-                            dto.Region = reader.GetString(5);
-                            dto.achievementDTOs = FormatConcatDataToAchievementDtos(reader.GetString(6));
-                            if (!reader.IsDBNull(7))
+                            while (reader.Read())
                             {
-                                dto.SocialURL = reader.GetString(7);
+                                dto.UserId = reader.GetInt32(0);
+                                dto.Username = reader.GetString(1);
+                                dto.FreeText = reader.GetString(2);
+                                dto.Looking = reader.GetString(3);
+                                dto.Picture = reader.GetString(4);
+                                dto.Region = reader.GetString(5);
+                                dto.achievementDTOs = FormatConcatDataToAchievementDtos(reader.GetString(6));
+                                if (!reader.IsDBNull(7))
+                                {
+                                    dto.SocialURL = reader.GetString(7);
+                                }
                             }
+                        }
+                        else
+                        {
+                            throw new Exception("No profile found for this user");
                         }
                     }
                 }

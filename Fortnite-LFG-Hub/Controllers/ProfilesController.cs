@@ -28,7 +28,7 @@ namespace Fortnite_LFG_Hub.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        [Route("edit/{id}")]
+        [Route("user/{id}/edit")]
         public IActionResult EditProfile(string id, EditProfileViewModel edit)
         {
             if (ModelState.IsValid)
@@ -43,16 +43,16 @@ namespace Fortnite_LFG_Hub.Controllers
             }
         }
 
-        [Route("edit/{id}")]
+        [Route("user/{id}/edit")]
         public IActionResult EditProfile(string id)
         {
             if (HttpContext.Session.Get<Profile>("UserProfile") == null)
             {
-                return Content("You are not logged in.");
+                return View("Error", new Error() { errorMessage = "You are not logged in." });
             }
             else if (id != HttpContext.Session.Get<Profile>("UserProfile").Username)
             {
-                return Content("You are not allowed to edit this profile.");
+                return View("Error", new Error() { errorMessage = "You are not allowed to edit this profile." });
             }
             else
             {
@@ -60,11 +60,19 @@ namespace Fortnite_LFG_Hub.Controllers
             }
         }
 
-        [Route("{id}")]
+        [Route("user/{id}")]
         public IActionResult Profile(string id)
         {
-            Profile profile = new Profile(commands.GetProfileData(id));
-            return View("Profile", profile);
+            try
+            {
+                Profile profile = new Profile(commands.GetProfileData(id));
+                return View("Profile", profile);
+            }
+            
+            catch(Exception)
+            {
+                return View("Error", new Error() { errorMessage = "No profile found for this user" });
+            }
         }
 
         public IActionResult ProfilesRepo()
@@ -117,6 +125,13 @@ namespace Fortnite_LFG_Hub.Controllers
                 return RedirectToAction("Index", "Home");
             }
             return View(user);
+        }
+
+        [Route("error")]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
 
 
