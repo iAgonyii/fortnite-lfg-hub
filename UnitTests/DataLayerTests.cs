@@ -1,5 +1,4 @@
 using DataLayer;
-using DataLayer.DTOs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -10,36 +9,26 @@ namespace UnitTests
     public class DataLayerTests
     {
         ProfileCommands profileCommands = new ProfileCommands();
-        UserCommands userCommands = new UserCommands();
 
-        // Test can only run once to avoid duplicates
+        // Test can only run once with the same values.
         [TestMethod]
-        public void AddProfileToDatabase()
+        public void UpdateProfile()
         {
-            bool inserted = false;
+            List<AchievementDTO> achvs = new List<AchievementDTO>() { new AchievementDTO() { Rank = 60, Event = "Wintyale 2018" }, new AchievementDTO() { Rank = 120, Event = "FNCS quads" }, };
+            ProfileDTO profile = new ProfileDTO() { UserId = 60, FreeText = "Test", SocialURL = "TeL.com", Looking = "True", Region = "EU", Picture = "TestPic", achievementDTOs = achvs };
 
-            List<AchievementDTO> achievs = new List<AchievementDTO>()
-            {
-                new AchievementDTO() { Rank = 6352, Event = "Winter_Royale_Qualifiers" },
-                new AchievementDTO() { Rank = 2323, Event = "Luxe_Cup_Finals" }
-            };
-
-            ProfileDTO profile = new ProfileDTO()
-            {
-                Username = "RoyDeveloper",
-                FreeText = "Hello this is a unit test. You are not supposed to be seeing this :)",
-                SocialURL = "https://google.com",
-                achievementDTOs = achievs
-            };
-
+            bool updated = false;
             try
             {
-                profileCommands.SaveNewProfile(profile);
-                inserted = true;
+                profileCommands.UpdateProfile(profile);
+                updated = true;
             }
-            catch (Exception) { }
-            
-            Assert.IsTrue(inserted);
+            catch(Exception)
+            {
+
+            }
+            Assert.IsTrue(updated);
+
         }
 
         [TestMethod]
@@ -50,21 +39,6 @@ namespace UnitTests
             ProfileDTO profile = profileCommands.GetProfileData(search);
 
             Assert.AreEqual("RoyDeveloper", profile.Username);
-        }
-
-        [TestMethod]
-        public void AddNewUserToDatabase()
-        {
-            bool inserted = false;
-            UserDTO dto = new UserDTO() { Username = "TestUser", Password = "TestPassword" };
-
-            try
-            {
-                userCommands.SaveNewUser(dto);
-                inserted = true;
-            }
-            catch (Exception) { }
-            Assert.IsTrue(inserted);
         }
     }
 

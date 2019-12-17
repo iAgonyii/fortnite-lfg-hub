@@ -100,20 +100,17 @@ namespace DataLayer
             using(conn)
             {
                 conn.Open();
-                using(command = new MySqlCommand("INSERT INTO social(URL,UserId) VALUES (@url, @userid) ON DUPLICATE KEY UPDATE URL = VALUES (@url)",conn))
+                using(command = new MySqlCommand("INSERT INTO social (URL,UserId) VALUES (@url, @userid) ON DUPLICATE KEY UPDATE URL = @url", conn))
                 {
                     command.Parameters.AddWithValue("url", dto.SocialURL);
                     command.Parameters.AddWithValue("userid", dto.UserId);
+                    command.ExecuteNonQuery();
                 }
             }
         }
 
-        public void UpdateProfile(ProfileDTO dto)
+        public void UpdateAchievements(ProfileDTO dto)
         {
-            //UpdateInfo()
-            //UpdateAchievements()
-            //UpdateSocial()
-            //Make childs^ private
             using (conn)
             {
                 conn.Open();
@@ -123,11 +120,7 @@ namespace DataLayer
                 string sql = "insert into achievement(Rank,Tourney,UserId) values ";
                 string valueSQL = "";
 
-                command.Parameters.AddWithValue("textinfo", dto.FreeText);
-                command.Parameters.AddWithValue("looking", dto.Looking);
-                command.Parameters.AddWithValue("picture", dto.Picture);
-                command.Parameters.AddWithValue("region", dto.Region);
-                command.Parameters.AddWithValue("url", dto.SocialURL);
+                command.Parameters.AddWithValue("userid", dto.UserId);
 
                 for (int i = 0; i < dto.achievementDTOs.Count; i++)
                 {
@@ -145,13 +138,20 @@ namespace DataLayer
                     }
                 }
 
-                sql += valueSQL;
-                sql += ";";
+                sql += valueSQL + ";";
 
                 command.Connection = conn;
-                command.CommandText = "BEGIN; insert into profile(TextInfo, Looking, Picture, Region) values(@textinfo, @looking, @picture, @region); set @userid = LAST_INSERT_ID(); " + sql + "insert into social(`URL`,UserId) values(@url,@userid); COMMIT;";
+                command.CommandText = "BEGIN; DELETE FROM achievement WHERE UserId=@userid; " + sql + "COMMIT;";
                 command.ExecuteNonQuery();
             }
+        }
+
+        public void UpdateProfile(ProfileDTO dto)
+        {
+            UpdateSocial(dto);
+            UpdateAchievements(dto);
+            UpdateInfo(dto);
+            
         }
 
         public void RegisterNewProfile(ProfileDTO dto)
