@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fortnite_LFG_Hub.Models
 { 
-    public class Profile: IProfile
+    public class Profile: IProfile, Editable
     {
         public int UserId { get; set; }
         [Required]
@@ -18,7 +18,7 @@ namespace Fortnite_LFG_Hub.Models
         public string Password { get; set; }
         public bool LoggedIn { get; set; }
 
-        public List<Achievement> Achievements;
+        public List<Achievement> Achievements { get; set; }
 
         [StringLength(1000, ErrorMessage = "Additional text input can not be longer than 1000 characters")]
         [Display (Name = "Additional Information")]
