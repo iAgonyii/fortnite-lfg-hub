@@ -17,14 +17,7 @@ namespace Fortnite_LFG_Hub.Controllers
         private ProfilesContainer profileRep = new ProfilesContainer();
         private ProfileCommands commands = new ProfileCommands();
 
-        // GET: /<controller>/
-
-        //public IActionResult Index()
-        //{
-        //    EditProfileViewModel vmodel = new EditProfileViewModel();
-        //    vmodel.profile.Achievements = new List<Achievement> { new Achievement(), new Achievement(), new Achievement() };
-        //    return View("Index", vmodel);
-        //}
+        // GET: /<controller>/       
 
         [ValidateAntiForgeryToken]
         [HttpPost]
@@ -139,6 +132,7 @@ namespace Fortnite_LFG_Hub.Controllers
         public ProfileDTO CreateDtoFromInput(Profile input)
         {
             ProfileDTO dto = new ProfileDTO();
+            dto.UserId = HttpContext.Session.Get<Profile>("UserProfile").UserId;
             dto.FreeText = input.FreeText;
             dto.Region = input.Region;
             dto.Picture = input.Picture;
@@ -147,18 +141,12 @@ namespace Fortnite_LFG_Hub.Controllers
             List<AchievementDTO> adtos = new List<AchievementDTO>();
             foreach(Achievement achievement in input.Achievements)
             {
-                adtos.Add(new AchievementDTO() { Rank = (int)achievement.Rank, Event = achievement.Event.ToString() });
+                if (achievement.Rank != null && achievement.Event != Events._)
+                {
+                    adtos.Add(new AchievementDTO() { Rank = (int)achievement.Rank, Event = achievement.Event.ToString() });
+                }
             }
             dto.achievementDTOs = adtos;
-
-            //for(int i = 0; i < adtos.Count; i++)
-            //{
-            //    if(adtos[i].Rank == 0)
-            //    {
-            //        adtos.Remove(adtos[i]);
-            //    }
-            //}
-
             return dto;
         }
     }

@@ -7,7 +7,7 @@
 
 <h2>Login</h2>
 @{
-    if (Model == null)
+    if (HttpContextAccessor.HttpContext.Session.Get<Profile>("UserProfile") == null)
     {
         <div class="row">
             <div class="col-md-3">

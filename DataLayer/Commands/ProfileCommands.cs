@@ -78,8 +78,42 @@ namespace DataLayer
             return profileDTOs;
         }
 
+        public void UpdateInfo(ProfileDTO dto)
+        {
+            using(conn)
+            {
+                conn.Open();
+                using(command = new MySqlCommand("UPDATE profile SET TextInfo = @textinfo, Looking = @looking, Picture = @picture, Region = @region WHERE UserId = @userid", conn))
+                {
+                    command.Parameters.AddWithValue("textinfo", dto.FreeText);
+                    command.Parameters.AddWithValue("looking", dto.Looking);
+                    command.Parameters.AddWithValue("picture", dto.Picture);
+                    command.Parameters.AddWithValue("region", dto.Region);
+                    command.Parameters.AddWithValue("userid", dto.UserId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateSocial(ProfileDTO dto)
+        {
+            using(conn)
+            {
+                conn.Open();
+                using(command = new MySqlCommand("INSERT INTO social(URL,UserId) VALUES (@url, @userid) ON DUPLICATE KEY UPDATE URL = VALUES (@url)",conn))
+                {
+                    command.Parameters.AddWithValue("url", dto.SocialURL);
+                    command.Parameters.AddWithValue("userid", dto.UserId);
+                }
+            }
+        }
+
         public void UpdateProfile(ProfileDTO dto)
         {
+            //UpdateInfo()
+            //UpdateAchievements()
+            //UpdateSocial()
+            //Make childs^ private
             using (conn)
             {
                 conn.Open();
@@ -90,9 +124,9 @@ namespace DataLayer
                 string valueSQL = "";
 
                 command.Parameters.AddWithValue("textinfo", dto.FreeText);
-                //command.Parameters.AddWithValue("looking", dto.Looking);
-                //command.Parameters.AddWithValue("picture", dto.Picture);
-                //command.Parameters.AddWithValue("region", dto.Region);
+                command.Parameters.AddWithValue("looking", dto.Looking);
+                command.Parameters.AddWithValue("picture", dto.Picture);
+                command.Parameters.AddWithValue("region", dto.Region);
                 command.Parameters.AddWithValue("url", dto.SocialURL);
 
                 for (int i = 0; i < dto.achievementDTOs.Count; i++)
