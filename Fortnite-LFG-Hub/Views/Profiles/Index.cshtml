@@ -9,37 +9,32 @@
     <div class="col-md-5">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <form asp-action="EditProfile" asp-controller="Profiles" asp-antiforgery="true">
-            <div class="form-group">
-                <label asp-for="profile.Username" class="control-label"></label>
-                <input asp-for="profile.Username" class="form-control" autocomplete="off" />
-                <span asp-validation-for="profile.Username" class="text-danger"></span>
-            </div>
             @*<div class="form-group">
-                <label asp-for="AchievementsRank1" class="control-label"></label> <br />
-                <span asp-validation-for="AchievementsRank1" class="text-danger"></span>
-                <table id="submissionTable">
-                    <tr>
-                        <td><b>Place</b></td>
-                        <td></td>
-                        <td><b>Event</b></td>
-                    </tr>
-                    <tr id="tablerow0">
-                        <td width="135"><input type="number" min="1" asp-for="AchievementsRank1" class="form-control" /></td>
-                        <td width="20"><span></span></td>
-                        <td width="590"><select asp-for="event1" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
-                    </tr>
-                    <tr id="tablerow1">
-                        <td width="135"><input type="number" min="1" asp-for="AchievementsRank2" class="form-control" /></td>
-                        <td width="20"><span></span></td>
-                        <td width="590"><select asp-for="event2" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
-                    </tr>
-                    <tr id="tablerow2">
-                        <td width="135"><input type="number" min="1" asp-for="AchievementsRank3" class="form-control" /></td>
-                        <td width="20"><span></span></td>
-                        <td width="590"><select asp-for="event3" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
-                    </tr>
-                </table>
-            </div>*@
+            <label asp-for="AchievementsRank1" class="control-label"></label> <br />
+            <span asp-validation-for="AchievementsRank1" class="text-danger"></span>
+            <table id="submissionTable">
+                <tr>
+                    <td><b>Place</b></td>
+                    <td></td>
+                    <td><b>Event</b></td>
+                </tr>
+                <tr id="tablerow0">
+                    <td width="135"><input type="number" min="1" asp-for="AchievementsRank1" class="form-control" /></td>
+                    <td width="20"><span></span></td>
+                    <td width="590"><select asp-for="event1" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
+                </tr>
+                <tr id="tablerow1">
+                    <td width="135"><input type="number" min="1" asp-for="AchievementsRank2" class="form-control" /></td>
+                    <td width="20"><span></span></td>
+                    <td width="590"><select asp-for="event2" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
+                </tr>
+                <tr id="tablerow2">
+                    <td width="135"><input type="number" min="1" asp-for="AchievementsRank3" class="form-control" /></td>
+                    <td width="20"><span></span></td>
+                    <td width="590"><select asp-for="event3" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
+                </tr>
+            </table>
+        </div>*@
 
             <div class="form-group">
                 <table>
@@ -57,6 +52,17 @@
                         </tr>
                     }
                 </table>
+            </div>
+            <div class="form-group">
+                <label asp-for="profile.Looking" class="control-label"></label>
+                <input type="checkbox" asp-for="profile.Looking" class="form-control" autocomplete="off" />
+                <span asp-validation-for="profile.Looking" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="profile.Region" class="control-label"></label>
+                <select asp-for="profile.Region" asp-items="@Html.GetEnumSelectList<Regions>()" class="form-control"></select>
+                <span asp-validation-for="profile.Region" class="text-danger"></span>
             </div>
 
             <div class="form-group">

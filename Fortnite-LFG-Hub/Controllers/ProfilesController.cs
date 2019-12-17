@@ -134,7 +134,7 @@ namespace Fortnite_LFG_Hub.Controllers
             ProfileDTO dto = new ProfileDTO();
             dto.UserId = HttpContext.Session.Get<Profile>("UserProfile").UserId;
             dto.FreeText = input.FreeText;
-            dto.Region = input.Region;
+            dto.Region = input.Region.ToString();
             dto.Picture = input.Picture;
             dto.Looking = input.Looking;
             dto.SocialURL = input.SocialURL;

@@ -1,4 +1,5 @@
 ﻿using DataLayer;
+using Fortnite_LFG_Hub.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fortnite_LFG_Hub.Models
 { 
-    public class Profile
+    public class Profile: IProfile
     {
         public int UserId { get; set; }
         [Required]
@@ -23,9 +24,9 @@ namespace Fortnite_LFG_Hub.Models
         [Display (Name = "Additional Information")]
         public string FreeText { get; set; }
         public string SocialURL { get; set; }
-        public string Looking { get; set; }
+        public bool Looking { get; set; }
         public string Picture { get; set; }
-        public string Region { get; set; }
+        public Regions Region { get; set; }
 
         public Profile()
         {
@@ -49,7 +50,7 @@ namespace Fortnite_LFG_Hub.Models
             this.SocialURL = dto.SocialURL;
             this.Looking = dto.Looking;
             this.Picture = dto.Picture;
-            this.Region = dto.Region;
+            this.Region = (Regions)Enum.Parse(typeof(Regions), dto.Region);
         }
     }
 

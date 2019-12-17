@@ -153,7 +153,7 @@ Write(Model.Username);
             WriteLiteral("            ");
             EndContext();
             BeginContext(711, 115, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd2e7b70dc5c41d587017c241544d2e0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "20cbc41174714f8bb44a7b8b608c742a", async() => {
                 BeginContext(810, 12, true);
                 WriteLiteral("Edit Profile");
                 EndContext();

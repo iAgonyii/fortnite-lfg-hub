@@ -30,7 +30,7 @@ namespace DataLayer
                                 dto.UserId = reader.GetInt32(0);
                                 dto.Username = reader.GetString(1);
                                 dto.FreeText = reader.GetString(2);
-                                dto.Looking = reader.GetString(3);
+                                dto.Looking = Convert.ToBoolean(reader.GetString(3));
                                 dto.Picture = reader.GetString(4);
                                 dto.Region = reader.GetString(5);
                                 dto.achievementDTOs = FormatConcatDataToAchievementDtos(reader.GetString(6));
@@ -63,12 +63,16 @@ namespace DataLayer
                         while (reader.Read())
                         {
                             ProfileDTO dto = new ProfileDTO();
+                            dto.UserId = reader.GetInt32(0);
                             dto.Username = reader.GetString(1);
                             dto.FreeText = reader.GetString(2);
-                            dto.achievementDTOs = FormatConcatDataToAchievementDtos(reader.GetString(3));
-                            if(!reader.IsDBNull(4))
+                            dto.Looking = Convert.ToBoolean(reader.GetString(3));
+                            dto.Picture = reader.GetString(4);
+                            dto.Region = reader.GetString(5);
+                            dto.achievementDTOs = FormatConcatDataToAchievementDtos(reader.GetString(6));
+                            if (!reader.IsDBNull(7))
                             {
-                                dto.SocialURL = reader.GetString(4);
+                                dto.SocialURL = reader.GetString(7);
                             }
                             profileDTOs.Add(dto);
                         }
@@ -86,7 +90,7 @@ namespace DataLayer
                 using(command = new MySqlCommand("UPDATE profile SET TextInfo = @textinfo, Looking = @looking, Picture = @picture, Region = @region WHERE UserId = @userid", conn))
                 {
                     command.Parameters.AddWithValue("textinfo", dto.FreeText);
-                    command.Parameters.AddWithValue("looking", dto.Looking);
+                    command.Parameters.AddWithValue("looking", dto.Looking.ToString());
                     command.Parameters.AddWithValue("picture", dto.Picture);
                     command.Parameters.AddWithValue("region", dto.Region);
                     command.Parameters.AddWithValue("userid", dto.UserId);
