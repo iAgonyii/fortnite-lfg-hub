@@ -35,12 +35,6 @@ namespace Fortnite_LFG_Hub.Controllers
             return View();
         }
 
-        public IActionResult Profiles()
-        {
-            EditProfileViewModel vm = new EditProfileViewModel();
-            return View("../Profiles/Index", vm);
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

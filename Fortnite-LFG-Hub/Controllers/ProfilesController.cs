@@ -28,7 +28,7 @@ namespace Fortnite_LFG_Hub.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        //[Route("{controller}/{action}/{id}/Edit")]
+        [Route("edit/{id}")]
         public IActionResult EditProfile(string id, EditProfileViewModel edit)
         {
             if (ModelState.IsValid)
@@ -43,13 +43,14 @@ namespace Fortnite_LFG_Hub.Controllers
             }
         }
 
+        [Route("edit/{id}")]
         public IActionResult EditProfile(string id)
         {
             if (HttpContext.Session.Get<Profile>("UserProfile") == null)
             {
                 return Content("You are not logged in.");
             }
-            else if(id != HttpContext.Session.Get<Profile>("UserProfile").Username)
+            else if (id != HttpContext.Session.Get<Profile>("UserProfile").Username)
             {
                 return Content("You are not allowed to edit this profile.");
             }
@@ -59,6 +60,7 @@ namespace Fortnite_LFG_Hub.Controllers
             }
         }
 
+        [Route("{id}")]
         public IActionResult Profile(string id)
         {
             Profile profile = new Profile(commands.GetProfileData(id));
@@ -70,12 +72,15 @@ namespace Fortnite_LFG_Hub.Controllers
             return View(profileRep.GetProfiles());
         }
 
+        [Route("login")]
         public IActionResult LoginIndex()
         {
             Profile user = new Profile();
             return View("Login", HttpContext.Session.Get<Profile>("UserProfile"));
         }
 
+        [HttpPost]
+        [Route("login")]
         public IActionResult Login(Profile user)
         {
             if (ModelState.IsValid)
@@ -93,11 +98,14 @@ namespace Fortnite_LFG_Hub.Controllers
             return View(user);
         }
 
+        [Route("register")]
         public IActionResult RegisterIndex()
         {
             return View("Register", HttpContext.Session.Get<Profile>("UserProfile"));
         }
 
+        [HttpPost]
+        [Route("register")]
         public IActionResult Register(Profile user)
         {
             if (ModelState.IsValid)

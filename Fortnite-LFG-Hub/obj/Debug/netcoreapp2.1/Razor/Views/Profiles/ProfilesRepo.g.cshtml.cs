@@ -70,7 +70,7 @@ using Fortnite_LFG_Hub.Models;
             WriteLiteral("    ");
             EndContext();
             BeginContext(163, 126, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9e2d0e0b0c274c519ce8ffec4e024aab", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0a35afcb4234398b25e53b2519bde0c", async() => {
                 BeginContext(247, 38, false);
 #line 9 "C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\Views\Profiles\ProfilesRepo.cshtml"
                                                                                   Write(Html.DisplayFor(p => profile.Username));
