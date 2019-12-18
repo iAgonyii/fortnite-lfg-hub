@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fortnite_LFG_Hub.Models
 { 
-    public class Profile: IProfile, Editable
+    public class Profile
     {
         public int UserId { get; set; }
         [Required]
@@ -18,13 +18,13 @@ namespace Fortnite_LFG_Hub.Models
         public string Password { get; set; }
         public bool LoggedIn { get; set; }
 
-        public List<Achievement> Achievements { get; set; }
+        public List<Achievement> Achievements;
 
         [StringLength(1000, ErrorMessage = "Additional text input can not be longer than 1000 characters")]
         [Display (Name = "Additional Information")]
         public string FreeText { get; set; }
         public string SocialURL { get; set; }
-        public bool Looking { get; set; }
+        public string Looking { get; set; }
         public string Picture { get; set; }
         public Regions Region { get; set; }
 
@@ -50,13 +50,11 @@ namespace Fortnite_LFG_Hub.Models
             this.SocialURL = dto.SocialURL;
             this.Looking = dto.Looking;
             this.Picture = dto.Picture;
-            this.Region = (Regions)Enum.Parse(typeof(Regions), dto.Region);
+            if (!String.IsNullOrWhiteSpace(dto.Region))
+            {
+                this.Region = (Regions)Enum.Parse(typeof(Regions), dto.Region);
+            }
+            
         }
-    }
-
-    public class Achievement
-    {
-        public int? Rank;
-        public Events Event;
     }
 }

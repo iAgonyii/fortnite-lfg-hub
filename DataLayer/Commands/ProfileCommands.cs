@@ -30,7 +30,7 @@ namespace DataLayer
                                 dto.UserId = reader.GetInt32(0);
                                 dto.Username = reader.GetString(1);
                                 dto.FreeText = reader.GetString(2);
-                                dto.Looking = Convert.ToBoolean(reader.GetString(3));
+                                dto.Looking = reader.GetString(3);
                                 dto.Picture = reader.GetString(4);
                                 dto.Region = reader.GetString(5);
                                 dto.achievementDTOs = FormatConcatDataToAchievementDtos(reader.GetString(6));
@@ -56,7 +56,7 @@ namespace DataLayer
             using (conn)
             {
                 conn.Open();
-                using (command = new MySqlCommand("SELECT p.UserId, p.Username, COALESCE(p.TextInfo, '') as TextInfo, (SELECT COALESCE(GROUP_CONCAT(COALESCE(a.Rank, ''), '#', COALESCE(a.Tourney, '')), '') FROM achievement a WHERE p.UserId = a.UserId) as achievements, (SELECT COALESCE(s.URL, '') FROM social s WHERE p.UserId = s.UserId) as socials FROM profile p", conn))
+                using (command = new MySqlCommand("SELECT p.UserId, p.Username, p.TextInfo, p.Looking, p.Picture, p.Region, (SELECT COALESCE(GROUP_CONCAT(COALESCE(a.Rank, ''), '#', COALESCE(a.Tourney, '')), '') FROM achievement a WHERE p.UserId = a.UserId) as achievements, (SELECT COALESCE(s.URL, '') FROM social s WHERE p.UserId = s.UserId) as socials FROM profile p", conn))
                 {
                     using (reader = command.ExecuteReader())
                     {
@@ -66,7 +66,7 @@ namespace DataLayer
                             dto.UserId = reader.GetInt32(0);
                             dto.Username = reader.GetString(1);
                             dto.FreeText = reader.GetString(2);
-                            dto.Looking = Convert.ToBoolean(reader.GetString(3));
+                            dto.Looking = reader.GetString(3);
                             dto.Picture = reader.GetString(4);
                             dto.Region = reader.GetString(5);
                             dto.achievementDTOs = FormatConcatDataToAchievementDtos(reader.GetString(6));

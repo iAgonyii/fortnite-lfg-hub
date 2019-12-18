@@ -1,10 +1,10 @@
 ﻿
-@model Fortnite_LFG_Hub.Models.ViewModels.EditProfileViewModel
+@model Fortnite_LFG_Hub.Models.EditProfile
 
 @{
     ViewData["Title"] = "Index";
 }
-<h2>Create new profile</h2>
+<h2>Edit profile details</h2>
 <div class="row">
     <div class="col-md-5">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -43,38 +43,38 @@
                         <td></td>
                         <td><b>Event</b></td>
                     </tr>
-                    @for (int i = 0; i < Model.profile.Achievements.Count; i++)
+                    @for (int i = 0; i < Model.Achievements.Count; i++)
                     {
                         <tr>
-                            <td width="135"><input type="number" min="1" asp-for="profile.Achievements[i].Rank" class="form-control" /></td>
+                            <td width="135"><input type="number" min="1" asp-for="Achievements[i].Rank" class="form-control" /></td>
                             <td width="20"><span></span></td>
-                            <td width="590"><select asp-for="profile.Achievements[i].Event" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
+                            <td width="590"><select asp-for="Achievements[i].Event" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
                         </tr>
                     }
                 </table>
             </div>
             <div class="form-group">
-                <label asp-for="profile.Looking" class="control-label"></label>
-                <input type="checkbox" asp-for="profile.Looking" class="form-control" autocomplete="off" />
-                <span asp-validation-for="profile.Looking" class="text-danger"></span>
+                <label asp-for="Looking" class="control-label"></label>
+                <input type="checkbox" asp-for="Looking" class="form-control" autocomplete="off" />
+                <span asp-validation-for="Looking" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="profile.Region" class="control-label"></label>
-                <select asp-for="profile.Region" asp-items="@Html.GetEnumSelectList<Regions>()" class="form-control"></select>
-                <span asp-validation-for="profile.Region" class="text-danger"></span>
+                <label asp-for="Region" class="control-label"></label>
+                <select asp-for="Region" asp-items="@Html.GetEnumSelectList<Regions>()" class="form-control"></select>
+                <span asp-validation-for=" Region" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="profile.FreeText" class="control-label"></label>
-                <input asp-for="profile.FreeText" class="form-control" autocomplete="off" />
-                <span asp-validation-for="profile.FreeText" class="text-danger"></span>
+                <label asp-for="FreeText" class="control-label"></label>
+                <input asp-for="FreeText" class="form-control" autocomplete="off" />
+                <span asp-validation-for="FreeText" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="profile.SocialURL" class="control-label"></label>
-                <input asp-for="profile.SocialURL" class="form-control" autocomplete="off" />
-                <span asp-validation-for="profile.SocialURL" class="text-danger"></span>
+                <label asp-for="SocialURL" class="control-label"></label>
+                <input asp-for="SocialURL" class="form-control" autocomplete="off" />
+                <span asp-validation-for="SocialURL" class="text-danger"></span>
             </div>
 
             <div class="form-group">

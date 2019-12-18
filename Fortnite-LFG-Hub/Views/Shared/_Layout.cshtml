@@ -41,7 +41,7 @@
                             <li><a asp-area="" asp-controller="Profiles" asp-action="RegisterIndex">Register</a></li>
                         }
 
-                        else if (profile != null && profile.LoggedIn)
+                        else if (profile != null)
                         {
                             <li><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@profile.Username">@profile.Username</a></li>
                             <li><a asp-controller="Profiles" asp-action="Logout">Log out</a></li>

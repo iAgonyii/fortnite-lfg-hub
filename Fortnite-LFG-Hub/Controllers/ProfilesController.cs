@@ -22,7 +22,7 @@ namespace Fortnite_LFG_Hub.Controllers
         [ValidateAntiForgeryToken]
         [HttpPost]
         [Route("user/{id}/edit")]
-        public IActionResult EditProfile(string id, EditProfileViewModel edit)
+        public IActionResult EditProfile(string id, EditProfile edit)
         {
             if (ModelState.IsValid)
             {
@@ -49,7 +49,7 @@ namespace Fortnite_LFG_Hub.Controllers
             }
             else
             {
-                return View("Index", new EditProfileViewModel());
+                return View("Index", new EditProfile());
             }
         }
 
