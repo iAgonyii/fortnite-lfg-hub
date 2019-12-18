@@ -21,14 +21,15 @@
 
 @{
     Profile sessionProfile = HttpContextAccessor.HttpContext.Session.Get<Profile>("UserProfile");
-    if(sessionProfile != null)
+    if (sessionProfile != null)
     {
-        if(sessionProfile.Username == Model.Username)
+        if (sessionProfile.Username == Model.Username)
         {
             <a type="button" asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.Username">Edit Profile</a>
-        }            
+            <a type="button" asp-controller="Profiles" asp-action="EditProfileAchievements" asp-route-id="@Model.Username">Edit Profile Achievements</a>
+        }
     }
-                  
-}                                                            
+
+}
 
 

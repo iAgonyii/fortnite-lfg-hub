@@ -9,6 +9,7 @@ namespace Fortnite_LFG_Hub.Models
     public enum Regions
     {
         [Display(Name="Select region")]
+        _,
         Europe,
         NA_East,
         NA_West,

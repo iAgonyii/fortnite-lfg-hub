@@ -1,5 +1,5 @@
 ﻿
-@model Fortnite_LFG_Hub.Models.EditProfile
+@model Fortnite_LFG_Hub.Models.ViewModels.EditProfileViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -8,35 +8,36 @@
 <div class="row">
     <div class="col-md-5">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <partial name="EditAchievements", model="Model.EditAchievementsProfile.Achievements" />
         <form asp-action="EditProfile" asp-controller="Profiles" asp-antiforgery="true">
             @*<div class="form-group">
-            <label asp-for="AchievementsRank1" class="control-label"></label> <br />
-            <span asp-validation-for="AchievementsRank1" class="text-danger"></span>
-            <table id="submissionTable">
-                <tr>
-                    <td><b>Place</b></td>
-                    <td></td>
-                    <td><b>Event</b></td>
-                </tr>
-                <tr id="tablerow0">
-                    <td width="135"><input type="number" min="1" asp-for="AchievementsRank1" class="form-control" /></td>
-                    <td width="20"><span></span></td>
-                    <td width="590"><select asp-for="event1" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
-                </tr>
-                <tr id="tablerow1">
-                    <td width="135"><input type="number" min="1" asp-for="AchievementsRank2" class="form-control" /></td>
-                    <td width="20"><span></span></td>
-                    <td width="590"><select asp-for="event2" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
-                </tr>
-                <tr id="tablerow2">
-                    <td width="135"><input type="number" min="1" asp-for="AchievementsRank3" class="form-control" /></td>
-                    <td width="20"><span></span></td>
-                    <td width="590"><select asp-for="event3" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
-                </tr>
-            </table>
-        </div>*@
+                <label asp-for="AchievementsRank1" class="control-label"></label> <br />
+                <span asp-validation-for="AchievementsRank1" class="text-danger"></span>
+                <table id="submissionTable">
+                    <tr>
+                        <td><b>Place</b></td>
+                        <td></td>
+                        <td><b>Event</b></td>
+                    </tr>
+                    <tr id="tablerow0">
+                        <td width="135"><input type="number" min="1" asp-for="AchievementsRank1" class="form-control" /></td>
+                        <td width="20"><span></span></td>
+                        <td width="590"><select asp-for="event1" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
+                    </tr>
+                    <tr id="tablerow1">
+                        <td width="135"><input type="number" min="1" asp-for="AchievementsRank2" class="form-control" /></td>
+                        <td width="20"><span></span></td>
+                        <td width="590"><select asp-for="event2" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
+                    </tr>
+                    <tr id="tablerow2">
+                        <td width="135"><input type="number" min="1" asp-for="AchievementsRank3" class="form-control" /></td>
+                        <td width="20"><span></span></td>
+                        <td width="590"><select asp-for="event3" asp-items="@Html.GetEnumSelectList<Events>()" class="form-control"></select></td>
+                    </tr>
+                </table>
+            </div>*@
 
-            <div class="form-group">
+            @*<div class="form-group">
                 <table>
                     <tr>
                         <td><b>Place</b></td>
@@ -52,29 +53,32 @@
                         </tr>
                     }
                 </table>
-            </div>
+            </div>*@
+
+
+
             <div class="form-group">
-                <label asp-for="Looking" class="control-label"></label>
-                <input type="checkbox" asp-for="Looking" class="form-control" autocomplete="off" />
-                <span asp-validation-for="Looking" class="text-danger"></span>
+                <label asp-for="EditProfile.Looking" class="control-label"></label>
+                <input type="checkbox" asp-for="EditProfile.Looking" class="form-control" autocomplete="off" />
+                <span asp-validation-for="EditProfile.Looking" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Region" class="control-label"></label>
-                <select asp-for="Region" asp-items="@Html.GetEnumSelectList<Regions>()" class="form-control"></select>
-                <span asp-validation-for=" Region" class="text-danger"></span>
+                <label asp-for="EditProfile.Region" class="control-label"></label>
+                <select asp-for="EditProfile.Region" asp-items="@Html.GetEnumSelectList<Regions>()" class="form-control"></select>
+                <span asp-validation-for=" EditProfile.Region" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="FreeText" class="control-label"></label>
-                <input asp-for="FreeText" class="form-control" autocomplete="off" />
-                <span asp-validation-for="FreeText" class="text-danger"></span>
+                <label asp-for="EditProfile.FreeText" class="control-label"></label>
+                <input asp-for="EditProfile.FreeText" class="form-control" autocomplete="off" />
+                <span asp-validation-for="EditProfile.FreeText" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="SocialURL" class="control-label"></label>
-                <input asp-for="SocialURL" class="form-control" autocomplete="off" />
-                <span asp-validation-for="SocialURL" class="text-danger"></span>
+                <label asp-for="EditProfile.SocialURL" class="control-label"></label>
+                <input asp-for="EditProfile.SocialURL" class="form-control" autocomplete="off" />
+                <span asp-validation-for="EditProfile.SocialURL" class="text-danger"></span>
             </div>
 
             <div class="form-group">

@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace Fortnite_LFG_Hub.Models
 {
-    public class EditProfile
+    public class EditProfile: IProfile
     {
-
-        public List<Achievement> Achievements;
-
         [StringLength(1000, ErrorMessage = "Additional text input can not be longer than 1000 characters")]
         [Display(Name = "Additional Information")]
         public string FreeText { get; set; }
@@ -22,7 +19,7 @@ namespace Fortnite_LFG_Hub.Models
 
         public EditProfile()
         {
-            Achievements = new List<Achievement> { new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), };
+
         }
     }
 }

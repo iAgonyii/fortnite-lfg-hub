@@ -7,7 +7,7 @@ namespace Fortnite_LFG_Hub.Models
 {
     public class Achievement
     {
-        public int? Rank;
-        public Events Event;
+        public int? Rank { get; set; }
+        public Events Event { get; set; }
     }
 }

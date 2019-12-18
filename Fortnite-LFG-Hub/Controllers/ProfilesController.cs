@@ -22,7 +22,23 @@ namespace Fortnite_LFG_Hub.Controllers
         [ValidateAntiForgeryToken]
         [HttpPost]
         [Route("user/{id}/edit")]
-        public IActionResult EditProfile(string id, EditProfile edit)
+        public IActionResult EditProfile(string id, EditProfileViewModel edit)
+        {
+            if (ModelState.IsValid)
+            {
+                //ProfileDTO dto = CreateDtoFromInput(edit.profile);
+                //commands.UpdateProfile(dto);
+                return View(Profile(HttpContext.Session.Get<Profile>("UserProfile").Username));
+            }
+            else
+            {
+                return View("Index", edit);
+            }
+        }
+
+        [HttpPost]
+        [Route("user/{id}/edit/achievements")]
+        public IActionResult EditProfileAchievements(string id, List<Achievement> edit)
         {
             if (ModelState.IsValid)
             {
@@ -49,7 +65,7 @@ namespace Fortnite_LFG_Hub.Controllers
             }
             else
             {
-                return View("Index", new EditProfile());
+                return View("Index", new EditProfileViewModel());
             }
         }
 
@@ -82,14 +98,13 @@ namespace Fortnite_LFG_Hub.Controllers
 
         [HttpPost]
         [Route("login")]
-        public IActionResult Login(Profile user)
+        public IActionResult Login(AuthProfile user)
         {
             if (ModelState.IsValid)
             {
                 if (commands.CheckCredentials(user.Username, user.Password))
                 {
                     Profile profile = new Profile(commands.GetProfileData(user.Username));
-                    profile.LoggedIn = true;
                     HttpContext.Session.Set("UserProfile", profile);
                     return RedirectToAction("Index", "Home");
                 }
@@ -107,13 +122,12 @@ namespace Fortnite_LFG_Hub.Controllers
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register(Profile user)
+        public IActionResult Register(AuthProfile user)
         {
             if (ModelState.IsValid)
             {
                 ProfileDTO dto = new ProfileDTO() { Username = user.Username, Password = user.Password };
                 commands.RegisterNewProfile(dto);
-                user.LoggedIn = true;
                 HttpContext.Session.Set("UserProfile", user);
                 return RedirectToAction("Index", "Home");
             }

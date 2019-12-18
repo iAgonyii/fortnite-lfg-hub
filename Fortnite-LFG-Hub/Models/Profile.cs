@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace Fortnite_LFG_Hub.Models
 { 
-    public class Profile
+    public class Profile: IProfile
     {
         public int UserId { get; set; }
         [Required]
         [StringLength(20, MinimumLength = 3, ErrorMessage = "Your username has to be between 3 and 32 characters long")]
         [RegularExpression(@"^[A-Za-z0-9-_\\s]*$", ErrorMessage = "Your username may only contain alphanumeric characters (a-z, A-Z, 0-9)")]
         public string Username { get; set; }
-        public string Password { get; set; }
         public bool LoggedIn { get; set; }
 
         public List<Achievement> Achievements;
@@ -30,7 +29,7 @@ namespace Fortnite_LFG_Hub.Models
 
         public Profile()
         {
-            Achievements = new List<Achievement> { new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), };
+            
         }
         public Profile(ProfileDTO dto)
         {
