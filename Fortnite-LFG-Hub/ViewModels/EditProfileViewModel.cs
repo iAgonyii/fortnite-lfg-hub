@@ -8,8 +8,14 @@ namespace Fortnite_LFG_Hub.Models.ViewModels
 {
     public class EditProfileViewModel
     { 
-        public EditAchievementsProfile EditAchievementsProfile { get; set; }
-        public EditProfile EditProfile { get; set; }
+        public List<Achievement> Achievements { get; set; }
+        [StringLength(1000, ErrorMessage = "Additional text input can not be longer than 1000 characters")]
+        [Display(Name = "Additional Information")]
+        public string FreeText { get; set; }
+        public string SocialURL { get; set; }
+        public string Looking { get; set; }
+        public string Picture { get; set; }
+        public Regions Region { get; set; }
 
         //public EditProfileViewModel(string username, int achievementsR1, Events event1, int achievementsR2, Events event2, int achievementsR3, Events event3, string freetext, string social)
         //{
@@ -33,8 +39,7 @@ namespace Fortnite_LFG_Hub.Models.ViewModels
         //}
         public EditProfileViewModel()
         {
-            this.EditAchievementsProfile = new EditAchievementsProfile();
-            this.EditProfile = new EditProfile();
+            Achievements = new List<Achievement>();
         }
     }   
 }

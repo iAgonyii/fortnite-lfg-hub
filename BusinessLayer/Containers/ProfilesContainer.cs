@@ -4,7 +4,7 @@ using Fortnite_LFG_Hub.Models;
 
 namespace Fortnite_LFG_Hub.Containers
 {
-    internal class ProfilesContainer
+    public class ProfilesContainer
     {
         List<Profile> profiles = new List<Profile>();
         
@@ -20,6 +20,12 @@ namespace Fortnite_LFG_Hub.Containers
             }
             return profiles;
         }
-
+        public Profile GetProfileData(string id)
+        {
+            ProfileCommands commands = new ProfileCommands();
+            ProfileDTO dto = commands.GetProfileData(id);
+            Profile profile = new Profile(dto);
+            return profile;
+        }
     }
 }

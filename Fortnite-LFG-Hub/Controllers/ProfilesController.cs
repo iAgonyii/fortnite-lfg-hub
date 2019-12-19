@@ -2,6 +2,7 @@
 using Fortnite_LFG_Hub.Containers;
 using Fortnite_LFG_Hub.Models;
 using Fortnite_LFG_Hub.Models.ViewModels;
+using Fortnite_LFG_Hub.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -14,9 +15,6 @@ namespace Fortnite_LFG_Hub.Controllers
 {
     public class ProfilesController : Controller
     {
-        private ProfilesContainer profileRep = new ProfilesContainer();
-        private ProfileCommands commands = new ProfileCommands();
-
         // GET: /<controller>/       
 
         [ValidateAntiForgeryToken]
@@ -74,10 +72,9 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             try
             {
-                Profile profile = new Profile(commands.GetProfileData(id));
-                return View("Profile", profile);
+                ProfilesContainer container = new ProfilesContainer();
+                return View("Profile", container.GetProfileData(id));
             }
-            
             catch(Exception)
             {
                 return View("Error", new Error() { errorMessage = "No profile found for this user" });
@@ -86,26 +83,34 @@ namespace Fortnite_LFG_Hub.Controllers
 
         public IActionResult ProfilesRepo()
         {
-            return View(profileRep.GetProfiles());
+            ProfilesContainer container = new ProfilesContainer();
+            return View(container.GetProfiles());
         }
 
         [Route("login")]
         public IActionResult LoginIndex()
         {
-            Profile user = new Profile();
-            return View("Login", HttpContext.Session.Get<Profile>("UserProfile"));
+            AuthProfileViewModel authProfileViewModel = new AuthProfileViewModel();
+            if(HttpContext.Session.Get<Profile>("UserProfile") != null)
+            {
+                return View("Login", authProfileViewModel);
+            }
+            else
+            {
+                return View("Error", new Error() { errorMessage = "You are already logged in" });
+            }
         }
 
         [HttpPost]
         [Route("login")]
-        public IActionResult Login(AuthProfile user)
+        public IActionResult Login(AuthProfileViewModel user)
         {
             if (ModelState.IsValid)
             {
-                if (commands.CheckCredentials(user.Username, user.Password))
+                // Check credentials
+                Profile profile = new Profile();
+                if(profile.Login(user.Username, user.Password))
                 {
-                    Profile profile = new Profile(commands.GetProfileData(user.Username));
-                    HttpContext.Session.Set("UserProfile", profile);
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("Username", "Credentials do not match any registered user");

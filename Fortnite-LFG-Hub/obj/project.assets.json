@@ -4861,6 +4861,19 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
+      "BusinessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "DataLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        }
+      },
       "DataLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -13258,6 +13271,11 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
+    "BusinessLayer/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLayer/BusinessLayer.csproj",
+      "msbuildProject": "../BusinessLayer/BusinessLayer.csproj"
+    },
     "DataLayer/1.0.0": {
       "type": "project",
       "path": "../DataLayer/DataLayer.csproj",
@@ -13266,7 +13284,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "DataLayer >= 1.0.0",
+      "BusinessLayer >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.AspNetCore.Session >= 2.1.1",
@@ -13304,8 +13322,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayer\\DataLayer.csproj"
+            "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj"
             }
           }
         }

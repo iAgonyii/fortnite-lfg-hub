@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub\\Fortnite_LFG_Hub.csproj": {}
+    "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj": {}
   },
   "projects": {
     "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj": {
@@ -110,80 +110,6 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.7.0, )"
-            }
-          },
-          "imports": [
-            "net461"
-          ],
-          "assetTargetFallback": true,
-          "warn": true
-        }
-      }
-    },
-    "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub\\Fortnite_LFG_Hub.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub\\Fortnite_LFG_Hub.csproj",
-        "projectName": "Fortnite_LFG_Hub",
-        "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub\\Fortnite_LFG_Hub.csproj",
-        "packagesPath": "C:\\Users\\Roy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\Fortnite-LFG-Hub\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Roy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp2.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp2.1": {
-            "projectReferences": {
-              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj": {
-                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp2.1": {
-          "dependencies": {
-            "Microsoft.AspNetCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.1, )",
-              "autoReferenced": true
-            },
-            "Microsoft.AspNetCore.Razor.Design": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.2, )"
-            },
-            "Microsoft.AspNetCore.Session": {
-              "target": "Package",
-              "version": "[2.1.1, )"
-            },
-            "Microsoft.NETCore.App": {
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[2.1.10, )"
             }
           },
           "imports": [
