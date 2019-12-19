@@ -8,9 +8,11 @@ namespace DataLayer
 {
     public class ProfileCommands : IProfileCommands
     {
-        MySqlConnection conn = new MySqlConnection(DbConnect.connectionstring);
-        MySqlCommand command;
-        MySqlDataReader reader;
+        private MySqlConnection conn = new MySqlConnection(DbConnect.connectionstring);
+        private MySqlCommand command;
+       // private MySqlDataReader reader;
+
+        public MySqlDataReader reader { get; set; }
 
         public ProfileDTO GetProfileData(string searchInput)
         {
@@ -82,7 +84,7 @@ namespace DataLayer
             return profileDTOs;
         }
 
-        public void UpdateInfo(ProfileDTO dto)
+        private void UpdateInfo(ProfileDTO dto)
         {
             using(conn)
             {
@@ -174,15 +176,15 @@ namespace DataLayer
             }
         }
 
-        public bool CheckCredentials(string username, string password)
+        public bool CheckCredentials(ProfileDTO dto)
         {
             using (conn)
             {
                 conn.Open();
                 using (command = new MySqlCommand("SELECT * FROM Profile where Username=@username AND Password=@password", conn))
                 {
-                    command.Parameters.AddWithValue("username", username);
-                    command.Parameters.AddWithValue("password", password);
+                    command.Parameters.AddWithValue("username", dto.Username);
+                    command.Parameters.AddWithValue("password", dto.Password);
 
                     using (reader = command.ExecuteReader())
                     {
@@ -237,5 +239,9 @@ namespace DataLayer
             return adtos;
         }
 
+        public bool CheckCredentials(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
