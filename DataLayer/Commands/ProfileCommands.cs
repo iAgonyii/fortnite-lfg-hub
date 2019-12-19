@@ -10,9 +10,7 @@ namespace DataLayer
     {
         private MySqlConnection conn = new MySqlConnection(DbConnect.connectionstring);
         private MySqlCommand command;
-       // private MySqlDataReader reader;
-
-        public MySqlDataReader reader { get; set; }
+        private MySqlDataReader reader;
 
         public ProfileDTO GetProfileData(string searchInput)
         {
