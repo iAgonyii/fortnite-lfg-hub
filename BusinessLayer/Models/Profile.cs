@@ -1,4 +1,5 @@
 ﻿using DataLayer;
+using DataLayer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -27,10 +28,12 @@ namespace Fortnite_LFG_Hub.Models
         public string Picture { get; set; }
         public Regions Region { get; set; }
 
+        private IProfileCommands commands;
         public Profile()
         {
             
         }
+        
         public Profile(ProfileDTO dto)
         {
             Achievements = new List<Achievement>();
@@ -49,7 +52,7 @@ namespace Fortnite_LFG_Hub.Models
             this.SocialURL = dto.SocialURL;
             this.Looking = dto.Looking;
             this.Picture = dto.Picture;
-            if (!String.IsNullOrWhiteSpace(dto.Region))
+            if (!string.IsNullOrWhiteSpace(dto.Region))
             {
                 this.Region = (Regions)Enum.Parse(typeof(Regions), dto.Region);
             }
@@ -57,14 +60,26 @@ namespace Fortnite_LFG_Hub.Models
 
         public bool Login(string username, string password)
         {
-            this.Username = username;
-            ProfileCommands commands = new ProfileCommands();
-            if (commands.CheckCredentials(username, password))
+            
+            if (commands.CheckCredentials(new ProfileDTO() { Username = username, Password = password }))
             {
-                Profile profile = new Profile(commands.GetProfileData(user.Username));
-               // HttpContext.Session.Set("UserProfile", profile);
+                return true;
+            }
+            else
+            {
+                return false;
             }
 
+        }
 
+        public void Register(string username, string password)
+        {
+            commands.RegisterNewProfile(new ProfileDTO() { Username = username, Password = password });
+        }
+
+        public void UpdateProfileInfo(string freeText, string socialURL, string looking, string picture, Regions region)
+        {
+            commands.UpdateProfileInfo(new ProfileDTO() { FreeText = freeText, SocialURL = socialURL, Looking = looking, Picture = picture, Region = region.ToString() });
+        }
     }
 }

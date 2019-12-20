@@ -5,9 +5,8 @@ using System.Text;
 
 namespace DataLayer.Interfaces
 {
-    interface ICommentCommands
+    interface ICommentContainerCommands
     {
-        void AddComment(CommentDTO dto);
-        void DeleteComment(int commentId);
+        List<CommentDTO> GetComments(int profileId);
     }
 }

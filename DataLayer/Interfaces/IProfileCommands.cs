@@ -5,12 +5,10 @@ using System.Text;
 
 namespace DataLayer.Interfaces
 {
-    interface IProfileCommands
+    public interface IProfileCommands
     {
-        ProfileDTO GetProfileData(string input);
-        List<ProfileDTO> GetProfiles();
-        void UpdateProfile(ProfileDTO dto);
+        void UpdateProfileInfo(ProfileDTO dto);
         void RegisterNewProfile(ProfileDTO dto);
-        bool CheckCredentials(string username, string password);
+        bool CheckCredentials(ProfileDTO dto);
     }
 }

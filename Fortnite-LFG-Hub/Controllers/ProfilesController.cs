@@ -127,13 +127,12 @@ namespace Fortnite_LFG_Hub.Controllers
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register(AuthProfile user)
+        public IActionResult Register(AuthProfileViewModel user)
         {
             if (ModelState.IsValid)
             {
-                ProfileDTO dto = new ProfileDTO() { Username = user.Username, Password = user.Password };
-                commands.RegisterNewProfile(dto);
-                HttpContext.Session.Set("UserProfile", user);
+                Profile profile = new Profile();
+                profile.Register(user.Username, user.Password);
                 return RedirectToAction("Index", "Home");
             }
             return View(user);

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DataLayer
 {
-    public class ProfileCommands : IProfileCommands
+    public class ProfileCommands : IProfileCommands, IProfileContainerCommands
     {
         private MySqlConnection conn = new MySqlConnection(DbConnect.connectionstring);
         private MySqlCommand command;
@@ -82,7 +82,7 @@ namespace DataLayer
             return profileDTOs;
         }
 
-        private void UpdateInfo(ProfileDTO dto)
+        public void UpdateProfileInfo(ProfileDTO dto)
         {
             using(conn)
             {
@@ -97,65 +97,6 @@ namespace DataLayer
                     command.ExecuteNonQuery();
                 }
             }
-        }
-
-        public void UpdateSocial(ProfileDTO dto)
-        {
-            using(conn)
-            {
-                conn.Open();
-                using(command = new MySqlCommand("INSERT INTO social (URL,UserId) VALUES (@url, @userid) ON DUPLICATE KEY UPDATE URL = @url", conn))
-                {
-                    command.Parameters.AddWithValue("url", dto.SocialURL);
-                    command.Parameters.AddWithValue("userid", dto.UserId);
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-
-        public void UpdateAchievements(ProfileDTO dto)
-        {
-            using (conn)
-            {
-                conn.Open();
-
-                command = new MySqlCommand();
-
-                string sql = "insert into achievement(Rank,Tourney,UserId) values ";
-                string valueSQL = "";
-
-                command.Parameters.AddWithValue("userid", dto.UserId);
-
-                for (int i = 0; i < dto.achievementDTOs.Count; i++)
-                {
-                    if (i == dto.achievementDTOs.Count - 1)
-                    {
-                        valueSQL += "(@rank" + i + ",@ev" + i + ",@userid)";
-                        command.Parameters.AddWithValue("rank" + i, dto.achievementDTOs[i].Rank);
-                        command.Parameters.AddWithValue("ev" + i, dto.achievementDTOs[i].Event);
-                    }
-                    else
-                    {
-                        valueSQL += "(@rank" + i + ",@ev" + i + ",@userid),";
-                        command.Parameters.AddWithValue("rank" + i, dto.achievementDTOs[i].Rank);
-                        command.Parameters.AddWithValue("ev" + i, dto.achievementDTOs[i].Event);
-                    }
-                }
-
-                sql += valueSQL + ";";
-
-                command.Connection = conn;
-                command.CommandText = "BEGIN; DELETE FROM achievement WHERE UserId=@userid; " + sql + "COMMIT;";
-                command.ExecuteNonQuery();
-            }
-        }
-
-        public void UpdateProfile(ProfileDTO dto)
-        {
-            UpdateSocial(dto);
-            UpdateAchievements(dto);
-            UpdateInfo(dto);
-            
         }
 
         public void RegisterNewProfile(ProfileDTO dto)
