@@ -5,11 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <ProjectReference Include="..\DataLayerDTO\DataLayerDTO.csproj" />
+    <ProjectReference Include="..\DataLayerInteface\DataLayerInterface.csproj" />
   </ItemGroup>
 
 </Project>

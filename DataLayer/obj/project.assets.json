@@ -1297,6 +1297,26 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "DataLayerDTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/DataLayerDTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataLayerDTO.dll": {}
+        }
+      },
+      "DataLayerInterface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/DataLayerInterface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataLayerInterface.dll": {}
+        }
       }
     }
   },
@@ -5057,10 +5077,22 @@
         "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "DataLayerDTO/1.0.0": {
+      "type": "project",
+      "path": "../DataLayerDTO/DataLayerDTO.csproj",
+      "msbuildProject": "../DataLayerDTO/DataLayerDTO.csproj"
+    },
+    "DataLayerInterface/1.0.0": {
+      "type": "project",
+      "path": "../DataLayerInteface/DataLayerInterface.csproj",
+      "msbuildProject": "../DataLayerInteface/DataLayerInterface.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "DataLayerDTO >= 1.0.0",
+      "DataLayerInterface >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0",
       "MySql.Data >= 8.0.18",
       "System.Data.SqlClient >= 4.7.0"
@@ -5095,7 +5127,14 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\DataLayerDTO\\DataLayerDTO.csproj": {
+              "projectPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\DataLayerDTO\\DataLayerDTO.csproj"
+            },
+            "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\DataLayerInteface\\DataLayerInterface.csproj": {
+              "projectPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\DataLayerInteface\\DataLayerInterface.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

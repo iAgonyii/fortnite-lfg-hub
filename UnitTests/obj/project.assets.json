@@ -2072,6 +2072,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "DataLayerDTO": "1.0.0",
+          "DataLayerInterface": "1.0.0",
           "MySql.Data": "8.0.18",
           "System.Data.SqlClient": "4.7.0"
         },
@@ -2080,6 +2082,26 @@
         },
         "runtime": {
           "bin/placeholder/DataLayer.dll": {}
+        }
+      },
+      "DataLayerDTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/DataLayerDTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataLayerDTO.dll": {}
+        }
+      },
+      "DataLayerInterface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/DataLayerInterface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataLayerInterface.dll": {}
         }
       }
     }
@@ -7237,6 +7259,16 @@
       "type": "project",
       "path": "../DataLayer/DataLayer.csproj",
       "msbuildProject": "../DataLayer/DataLayer.csproj"
+    },
+    "DataLayerDTO/1.0.0": {
+      "type": "project",
+      "path": "../DataLayerDTO/DataLayerDTO.csproj",
+      "msbuildProject": "../DataLayerDTO/DataLayerDTO.csproj"
+    },
+    "DataLayerInterface/1.0.0": {
+      "type": "project",
+      "path": "../DataLayerInteface/DataLayerInterface.csproj",
+      "msbuildProject": "../DataLayerInteface/DataLayerInterface.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -7256,9 +7288,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\UnitTests\\UnitTests.csproj",
-      "projectName": "UnitTests",
-      "projectPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\UnitTests\\UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\UnitTests\\UnitTestData.csproj",
+      "projectName": "UnitTestData",
+      "projectPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\UnitTests\\UnitTestData.csproj",
       "packagesPath": "C:\\Users\\iAgonyii\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\UnitTests\\obj\\",
       "projectStyle": "PackageReference",
