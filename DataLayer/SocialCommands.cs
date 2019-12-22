@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataLayer.Commands
+namespace DataLayer
 {
     public class SocialCommands : ISocialCommands
     {

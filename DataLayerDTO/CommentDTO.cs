@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataLayer.DTOs
+namespace DataLayerDTO
 {
-    class CommentDTO
+    public struct CommentDTO
     {
     }
 }

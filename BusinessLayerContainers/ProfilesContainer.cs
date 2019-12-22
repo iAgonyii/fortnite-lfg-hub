@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
-using DataLayer;
-using Fortnite_LFG_Hub.Models;
+using BusinessLayer;
 
-namespace Fortnite_LFG_Hub.Containers
+namespace BusinessLayerContainer
 {
     public class ProfilesContainer
     {
-        List<Profile> profiles = new List<Profile>();
+        List<Profile> profiles;
         
         public List<Profile> GetProfiles()
         {
-            List<Profile> profiles = new List<Profile>();
+            profiles = new List<Profile>();
             ProfileCommands pcommands = new ProfileCommands();
             // Make profiles from dtos
             foreach(ProfileDTO pdto in pcommands.GetProfiles())

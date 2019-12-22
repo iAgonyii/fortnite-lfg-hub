@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Fortnite_LFG_Hub.Models
+namespace BusinessLayer
 {
     public enum Regions
     {

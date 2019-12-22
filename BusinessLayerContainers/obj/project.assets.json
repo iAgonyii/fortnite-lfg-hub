@@ -207,6 +207,43 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "BusinessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "DataLayerDTO": "1.0.0",
+          "DataLayerInterface": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        }
+      },
+      "DataLayerDTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/DataLayerDTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataLayerDTO.dll": {}
+        }
+      },
+      "DataLayerInterface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "DataLayerDTO": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataLayerInterface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataLayerInterface.dll": {}
+        }
       }
     }
   },
@@ -680,10 +717,26 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "BusinessLayer/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLayer/BusinessLayer.csproj",
+      "msbuildProject": "../BusinessLayer/BusinessLayer.csproj"
+    },
+    "DataLayerDTO/1.0.0": {
+      "type": "project",
+      "path": "../DataLayerDTO/DataLayerDTO.csproj",
+      "msbuildProject": "../DataLayerDTO/DataLayerDTO.csproj"
+    },
+    "DataLayerInterface/1.0.0": {
+      "type": "project",
+      "path": "../DataLayerInteface/DataLayerInterface.csproj",
+      "msbuildProject": "../DataLayerInteface/DataLayerInterface.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "BusinessLayer >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -716,7 +769,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\BusinessLayer\\BusinessLayer.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

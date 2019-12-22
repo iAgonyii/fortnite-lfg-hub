@@ -1,9 +1,9 @@
-﻿using DataLayer.DTOs;
+﻿using DataLayerDTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataLayer.Interfaces
+namespace DataLayerInterface
 {
     interface ICommentContainerCommands
     {

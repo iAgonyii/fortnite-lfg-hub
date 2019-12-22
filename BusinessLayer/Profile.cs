@@ -1,12 +1,12 @@
-﻿using DataLayer;
-using DataLayer.Interfaces;
+﻿using DataLayerDTO;
+using DataLayerInterface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Fortnite_LFG_Hub.Models
+namespace BusinessLayer
 { 
     public class Profile
     {

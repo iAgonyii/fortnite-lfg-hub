@@ -1,9 +1,10 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DataLayerDTO;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataLayer.Interfaces
+namespace DataLayerInterface
 {
     public interface IProfileCommands
     {

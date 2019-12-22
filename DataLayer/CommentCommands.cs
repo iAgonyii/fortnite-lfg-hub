@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataLayer.Commands
+namespace DataLayer
 {
     class CommentCommands : ICommentCommands, ICommentContainerCommands
     {

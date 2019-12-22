@@ -4643,6 +4643,9 @@
       "DataLayerInterface/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "DataLayerDTO": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/DataLayerInterface.dll": {}
         },

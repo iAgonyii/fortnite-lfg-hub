@@ -14,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataLayerDTO\DataLayerDTO.csproj" />
+    <ProjectReference Include="..\DataLayerInteface\DataLayerInterface.csproj" />
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
   </ItemGroup>
 
