@@ -1,4 +1,5 @@
-﻿using DataLayer.Interfaces;
+﻿using DataLayerDTO;
+using DataLayerInterface;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace DataLayer
             using (conn)
             {
                 conn.Open();
-                using (command = new MySqlCommand("SELECT p.UserId, p.Username, p.TextInfo, p.Looking, p.Picture, p.Region, (SELECT COALESCE(GROUP_CONCAT(COALESCE(a.Rank, ''), '#', COALESCE(a.Tourney, '')), '') FROM achievement a WHERE p.UserId = a.UserId) as achievements, (SELECT COALESCE(s.URL, '') FROM social s WHERE p.UserId = s.UserId) as socials FROM profile p WHERE p.Username = @searchInput", conn))
+                using (command = new MySqlCommand("SELECT p.UserId, p.Username, p.TextInfo, p.Looking, p.Picture, p.Region FROM profile p WHERE p.Username = @searchInput", conn))
                 {
                     command.Parameters.AddWithValue("searchInput", searchInput);
                     using (reader = command.ExecuteReader())
@@ -33,11 +34,6 @@ namespace DataLayer
                                 dto.Looking = reader.GetString(3);
                                 dto.Picture = reader.GetString(4);
                                 dto.Region = reader.GetString(5);
-                                dto.achievementDTOs = FormatConcatDataToAchievementDtos(reader.GetString(6));
-                                if (!reader.IsDBNull(7))
-                                {
-                                    dto.SocialURL = reader.GetString(7);
-                                }
                             }
                         }
                         else

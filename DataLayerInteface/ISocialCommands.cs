@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataLayer.Interfaces
 {
-    interface ISocialCommands
+    public interface ISocialCommands
     {
         void UpdateSocial(string url);
         string GetSocial(int profileid);

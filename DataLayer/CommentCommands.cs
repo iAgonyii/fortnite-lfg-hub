@@ -1,5 +1,5 @@
-﻿using DataLayer.DTOs;
-using DataLayer.Interfaces;
+﻿using DataLayerDTO;
+using DataLayerInterface;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;

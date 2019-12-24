@@ -11,9 +11,21 @@ namespace DataLayer
         private MySqlConnection conn = new MySqlConnection(DbConnect.connectionstring);
         private MySqlCommand command;
         private MySqlDataReader reader;
+
         public string GetSocial(int profileid)
         {
-            throw new NotImplementedException();
+            using (conn)
+            {
+                conn.Open();
+                using (command = new MySqlCommand("SELECT URL FROM social WHERE UserId = @profileid", conn))
+                {
+                    command.Parameters.AddWithValue("profileid", profileid);
+                    using (reader = command.ExecuteReader())
+                    {
+                        return reader.GetString(0);
+                    }   
+                }
+            }
         }
 
         public void UpdateSocial(string url)

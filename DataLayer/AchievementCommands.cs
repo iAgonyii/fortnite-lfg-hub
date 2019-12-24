@@ -1,5 +1,5 @@
-﻿using DataLayer;
-using DataLayerDTO;
+﻿using DataLayerDTO;
+using DataLayerInterface;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,23 @@ namespace DataLayer
         private MySqlDataReader reader;
         public List<AchievementDTO> GetAchievements(int profileid)
         {
-            throw new NotImplementedException();
+            using (conn)
+            {
+                conn.Open();
+                using(command = new MySqlCommand("SELECT Rank, Tourney FROM achievement WHERE UserId = @profileid", conn))
+                {
+                    command.Parameters.AddWithValue("profileid", profileid);
+                    using(reader = command.ExecuteReader())
+                    {
+                        List<AchievementDTO> dtos = new List<AchievementDTO>();
+                        while(reader.Read())
+                        {
+                            dtos.Add(new AchievementDTO() { Rank = reader.GetInt32(0), Event = reader.GetString(1) });
+                        }
+                        return dtos;
+                    }
+                }
+            }
         }
 
         public void UpdateAchievements(List<AchievementDTO> dtos)

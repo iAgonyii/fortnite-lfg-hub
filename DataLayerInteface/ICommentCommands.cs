@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataLayerInterface
 {
-    interface ICommentCommands
+    public interface ICommentCommands
     {
         void AddComment(CommentDTO dto);
         void DeleteComment(int commentId);

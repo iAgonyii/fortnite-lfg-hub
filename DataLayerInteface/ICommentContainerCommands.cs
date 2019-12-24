@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataLayerInterface
 {
-    interface ICommentContainerCommands
+    public interface ICommentContainerCommands
     {
         List<CommentDTO> GetComments(int profileId);
     }

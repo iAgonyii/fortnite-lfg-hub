@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataLayerInterface
 {
-    interface IAchievementCommands
+    public interface IAchievementCommands
     {
         void UpdateAchievements(List<AchievementDTO> dtos);
         List<AchievementDTO> GetAchievements(int profileid);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataLayerInterface
 {
-    interface IProfileContainerCommands
+    public interface IProfileContainerCommands
     {
         ProfileDTO GetProfileData(string input);
         List<ProfileDTO> GetProfiles();
