@@ -33,7 +33,7 @@ namespace DataLayer
             }
         }
 
-        public void UpdateAchievements(List<AchievementDTO> dtos)
+        public void UpdateAchievements(List<AchievementDTO> dtos, int profileid)
         {
             using (conn)
             {
@@ -44,7 +44,7 @@ namespace DataLayer
                 string sql = "insert into achievement(Rank,Tourney,UserId) values ";
                 string valueSQL = "";
 
-                //command.Parameters.AddWithValue("userid", dto.UserId);
+                command.Parameters.AddWithValue("userid", profileid);
 
                 for (int i = 0; i < dtos.Count; i++)
                 {

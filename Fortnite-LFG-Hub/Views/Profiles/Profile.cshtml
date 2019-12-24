@@ -1,4 +1,4 @@
-﻿@model Fortnite_LFG_Hub.Models.Profile
+﻿@model BusinessLayer.Profile
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
@@ -9,7 +9,7 @@
 <h3>@Model.Username</h3>
 <br />
 <h4>
-    @foreach (Achievement achievement in Model.Achievements)
+    @foreach (var achievement in Model.Achievements)
     {
         @Html.DisplayFor(a => achievement.Rank);
         <br />
@@ -20,13 +20,12 @@
 </h4>
 
 @{
-    Profile sessionProfile = HttpContextAccessor.HttpContext.Session.Get<Profile>("UserProfile");
-    if (sessionProfile != null)
+    
+    if (HttpContextAccessor.HttpContext.Session != null)
     {
-        if (sessionProfile.Username == Model.Username)
+        if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == Model.UserId)
         {
-            <a type="button" asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.Username">Edit Profile</a>
-            <a type="button" asp-controller="Profiles" asp-action="EditProfileAchievements" asp-route-id="@Model.Username">Edit Profile Achievements</a>
+            <a type="button" asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Profile</a>
         }
     }
 

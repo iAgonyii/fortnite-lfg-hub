@@ -1,4 +1,5 @@
-﻿using DataLayerDTO;
+﻿using DataLayer;
+using DataLayerDTO;
 using DataLayerInterface;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,6 @@ namespace BusinessLayer
     public class Profile
     {
         public int UserId { get; set; }
-        [Required]
-        [StringLength(20, MinimumLength = 3, ErrorMessage = "Your username has to be between 3 and 32 characters long")]
-        [RegularExpression(@"^[A-Za-z0-9-_\\s]*$", ErrorMessage = "Your username may only contain alphanumeric characters (a-z, A-Z, 0-9)")]
         public string Username { get; set; }
         public string Password { get; set; }
         public bool LoggedIn { get; set; }
@@ -24,11 +22,10 @@ namespace BusinessLayer
         [Display (Name = "Additional Information")]
         public string FreeText { get; set; }
         public string SocialURL { get; set; }
-        public string Looking { get; set; }
+        public bool Looking { get; set; }
         public string Picture { get; set; }
-        public Regions Region { get; set; }
+        public string Region { get; set; }
 
-        private IProfileCommands commands;
         public Profile()
         {
             
@@ -36,31 +33,28 @@ namespace BusinessLayer
         
         public Profile(ProfileDTO dto)
         {
-            Achievements = new List<Achievement>();
-
             this.UserId = dto.UserId;
             this.Username = dto.Username;
-            
-            foreach(AchievementDTO achvdto in dto.achievementDTOs)
-            {
-                Achievement a = new Achievement();
-                a.Rank = achvdto.Rank;
-                a.Event = (Events)Enum.Parse(typeof(Events), achvdto.Event);
-                this.Achievements.Add(a);
-            }
             this.FreeText = dto.FreeText;
             this.SocialURL = dto.SocialURL;
-            this.Looking = dto.Looking;
+            if(!string.IsNullOrWhiteSpace(dto.Looking))
+            { 
+                this.Looking = bool.Parse(dto.Looking);
+            }
             this.Picture = dto.Picture;
-            if (!string.IsNullOrWhiteSpace(dto.Region))
+            this.Region = dto.Region;
+            if(dto.achievementDTOs != null)
             {
-                this.Region = (Regions)Enum.Parse(typeof(Regions), dto.Region);
+                this.Achievements = DtosToAchievements(dto.achievementDTOs);
             }
         }
 
+
+
+        private IProfileCommands commands;
         public bool Login(string username, string password)
         {
-            
+            commands = new ProfileCommands();
             if (commands.CheckCredentials(new ProfileDTO() { Username = username, Password = password }))
             {
                 return true;
@@ -69,17 +63,56 @@ namespace BusinessLayer
             {
                 return false;
             }
-
         }
 
         public void Register(string username, string password)
         {
+            commands = new ProfileCommands();
             commands.RegisterNewProfile(new ProfileDTO() { Username = username, Password = password });
         }
 
-        public void UpdateProfileInfo(string freeText, string socialURL, string looking, string picture, Regions region)
+        public void UpdateProfileInfo(string freeText, string socialURL, bool looking, string picture, string region)
         {
-            commands.UpdateProfileInfo(new ProfileDTO() { FreeText = freeText, SocialURL = socialURL, Looking = looking, Picture = picture, Region = region.ToString() });
+            commands = new ProfileCommands();
+            commands.UpdateProfileInfo(new ProfileDTO() { FreeText = freeText, SocialURL = socialURL, Looking = looking.ToString(), Picture = picture, Region = region.ToString() });
+        }
+
+        private IAchievementCommands achievementCommands;
+        public void UpdateProfileAchievements(List<Achievement> achievements, int id)
+        {
+            achievementCommands = new AchievementCommands();
+            List<AchievementDTO> dtos = achievementsToDtos(achievements);
+            achievementCommands.UpdateAchievements(dtos, id);
+        }
+
+        public int GetUserIdForName(string username)
+        {
+            commands = new ProfileCommands();
+            this.UserId = commands.GetUserIdForName(username);
+            return this.UserId;
+        }
+
+        private List<AchievementDTO> achievementsToDtos(List<Achievement> achievements)
+        {
+            List<AchievementDTO> dtos = new List<AchievementDTO>();
+            foreach(Achievement achievement in achievements)
+            {
+                if(achievement.Rank != null)
+                {
+                    dtos.Add(new AchievementDTO() { Rank = Convert.ToInt32(achievement.Rank), Event = achievement.Event.ToString() });
+                }
+            }
+            return dtos;
+        }
+
+        private List<Achievement> DtosToAchievements(List<AchievementDTO> adtos)
+        {
+            List<Achievement> achvs = new List<Achievement>();
+            foreach(AchievementDTO dto in adtos)
+            {
+                achvs.Add(new Achievement() { Rank = dto.Rank, Event = (Events)Enum.Parse(typeof(Events), dto.Event) });
+            }
+            return achvs;
         }
     }
 }

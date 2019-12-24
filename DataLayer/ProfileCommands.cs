@@ -13,13 +13,13 @@ namespace DataLayer
         private MySqlCommand command;
         private MySqlDataReader reader;
 
-        public ProfileDTO GetProfileData(string searchInput)
+        public ProfileDTO GetProfileData(int searchInput)
         {
             ProfileDTO dto = new ProfileDTO();
             using (conn)
             {
                 conn.Open();
-                using (command = new MySqlCommand("SELECT p.UserId, p.Username, p.TextInfo, p.Looking, p.Picture, p.Region FROM profile p WHERE p.Username = @searchInput", conn))
+                using (command = new MySqlCommand("SELECT p.UserId, p.Username, p.TextInfo, p.Looking, p.Picture, p.Region FROM profile p WHERE p.UserId = @searchInput", conn))
                 {
                     command.Parameters.AddWithValue("searchInput", searchInput);
                     using (reader = command.ExecuteReader())
@@ -97,17 +97,24 @@ namespace DataLayer
 
         public void RegisterNewProfile(ProfileDTO dto)
         {
-            using (conn)
+            if(!UsernameIsTaken(dto.Username))
             {
-                conn.Open();
-                using (command = new MySqlCommand("INSERT INTO Profile(Username, Password) VALUES(@username, @password)", conn))
+                using (conn)
                 {
-                    command.Parameters.AddWithValue("username", dto.Username);
-                    command.Parameters.AddWithValue("password", dto.Password);
+                    conn.Open();
+                    using (command = new MySqlCommand("INSERT INTO Profile(Username, Password) VALUES(@username, @password)", conn))
+                    {
+                        command.Parameters.AddWithValue("username", dto.Username);
+                        command.Parameters.AddWithValue("password", dto.Password);
 
 
-                    command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
+                    }
                 }
+            }
+            else
+            {
+                throw new Exception("This username is already taken");
             }
         }
 
@@ -136,7 +143,48 @@ namespace DataLayer
             }
         }
 
+        public int GetUserIdForName(string username)
+        {
+            int id = 0;
+            using (conn)
+            {
+                conn.Open();
+                using (command = new MySqlCommand("SELECT UserId from Profile where Username = @username", conn))
+                {
+                    command.Parameters.AddWithValue("username", username);
+                    using (reader = command.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            id = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            return id;
+        }
 
+        private bool UsernameIsTaken(string username)
+        {
+            bool taken = false;
+            using(conn)
+            {
+                conn.Open();
+                using (command = new MySqlCommand("SELECT UserId from Profile where Username = @username", conn))
+                {
+                    command.Parameters.AddWithValue("username", username);
+                    using(reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            taken = reader.HasRows;
+                        }
+                        
+                    }
+                }
+            }
+            return taken;
+        }
 
 
         // Data formatting methods

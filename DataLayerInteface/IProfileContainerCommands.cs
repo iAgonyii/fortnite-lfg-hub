@@ -7,7 +7,7 @@ namespace DataLayerInterface
 {
     public interface IProfileContainerCommands
     {
-        ProfileDTO GetProfileData(string input);
+        ProfileDTO GetProfileData(int input);
         List<ProfileDTO> GetProfiles();
     }
 }

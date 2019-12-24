@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "DataLayerInterface/1.0.0": {
+        "dependencies": {
+          "DataLayerDTO": "1.0.0"
+        },
+        "runtime": {
+          "DataLayerInterface.dll": {}
+        }
+      },
+      "DataLayerDTO/1.0.0": {
+        "runtime": {
+          "DataLayerDTO.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DataLayerInterface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataLayerDTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

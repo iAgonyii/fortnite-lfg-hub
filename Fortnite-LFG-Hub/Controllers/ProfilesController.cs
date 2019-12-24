@@ -1,5 +1,5 @@
-﻿using DataLayer;
-using Fortnite_LFG_Hub.Containers;
+﻿using BusinessLayer;
+using BusinessLayerContainer;
 using Fortnite_LFG_Hub.Models;
 using Fortnite_LFG_Hub.Models.ViewModels;
 using Fortnite_LFG_Hub.ViewModels;
@@ -20,13 +20,13 @@ namespace Fortnite_LFG_Hub.Controllers
         [ValidateAntiForgeryToken]
         [HttpPost]
         [Route("user/{id}/edit")]
-        public IActionResult EditProfile(string id, EditProfileViewModel edit)
+        public IActionResult EditProfile(int id, EditProfileViewModel edit)
         {
             if (ModelState.IsValid)
             {
-                //ProfileDTO dto = CreateDtoFromInput(edit.profile);
-                //commands.UpdateProfile(dto);
-                return View(Profile(HttpContext.Session.Get<Profile>("UserProfile").Username));
+                Profile profile = new Profile();
+                profile.UpdateProfileInfo(edit.FreeText, edit.SocialURL, edit.Looking, edit.Picture, edit.Region);
+                return RedirectToAction("Profile", id);
             }
             else
             {
@@ -35,14 +35,13 @@ namespace Fortnite_LFG_Hub.Controllers
         }
 
         [HttpPost]
-        [Route("user/{id}/edit/achievements")]
-        public IActionResult EditProfileAchievements(string id, List<Achievement> edit)
+        public IActionResult EditProfileAchievements(int id, List<Achievement> edit)
         {
             if (ModelState.IsValid)
             {
-                //ProfileDTO dto = CreateDtoFromInput(edit.profile);
-                //commands.UpdateProfile(dto);
-                return View(Profile(HttpContext.Session.Get<Profile>("UserProfile").Username));
+                Profile profile = new Profile();
+                profile.UpdateProfileAchievements(edit, id);
+                return RedirectToAction("Profile", id);
             }
             else
             {
@@ -51,34 +50,40 @@ namespace Fortnite_LFG_Hub.Controllers
         }
 
         [Route("user/{id}/edit")]
-        public IActionResult EditProfile(string id)
+        public IActionResult EditProfile(int id)
         {
-            if (HttpContext.Session.Get<Profile>("UserProfile") == null)
+            if (HttpContext.Session == null)
             {
                 return View("Error", new Error() { errorMessage = "You are not logged in." });
             }
-            else if (id != HttpContext.Session.Get<Profile>("UserProfile").Username)
-            {
-                return View("Error", new Error() { errorMessage = "You are not allowed to edit this profile." });
-            }
             else
             {
-                return View("Index", new EditProfileViewModel());
+                if (HttpContext.Session.Get<int>("UserId") != id)
+                {
+                    return View("Error", new Error() { errorMessage = "You are not allowed to edit this profile." });
+                }
+                ProfilesContainer container = new ProfilesContainer();
+                Profile profile = container.GetProfileData(id);
+                EditProfileViewModel vm = new EditProfileViewModel() { Achievements = profile.Achievements, FreeText = profile.FreeText, Looking = profile.Looking, Picture = profile.Picture, SocialURL = profile.SocialURL, Region = profile.Region };
+
+                return View("Index", vm);
             }
         }
 
         [Route("user/{id}")]
-        public IActionResult Profile(string id)
+        public IActionResult Profile(int id)
         {
+            Profile profile;
             try
             {
                 ProfilesContainer container = new ProfilesContainer();
-                return View("Profile", container.GetProfileData(id));
+                profile = container.GetProfileData(id);
             }
-            catch(Exception)
+            catch(Exception e)
             {
-                return View("Error", new Error() { errorMessage = "No profile found for this user" });
+                return View("Error", new Error() { errorMessage = e.ToString() });
             }
+            return View("Profile", profile);
         }
 
         public IActionResult ProfilesRepo()
@@ -87,85 +92,6 @@ namespace Fortnite_LFG_Hub.Controllers
             return View(container.GetProfiles());
         }
 
-        [Route("login")]
-        public IActionResult LoginIndex()
-        {
-            AuthProfileViewModel authProfileViewModel = new AuthProfileViewModel();
-            if(HttpContext.Session.Get<Profile>("UserProfile") != null)
-            {
-                return View("Login", authProfileViewModel);
-            }
-            else
-            {
-                return View("Error", new Error() { errorMessage = "You are already logged in" });
-            }
-        }
 
-        [HttpPost]
-        [Route("login")]
-        public IActionResult Login(AuthProfileViewModel user)
-        {
-            if (ModelState.IsValid)
-            {
-                // Check credentials
-                Profile profile = new Profile();
-                if(profile.Login(user.Username, user.Password))
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                ModelState.AddModelError("Username", "Credentials do not match any registered user");
-                return View(user);
-            }
-            return View(user);
-        }
-
-        [Route("register")]
-        public IActionResult RegisterIndex()
-        {
-            return View("Register", HttpContext.Session.Get<Profile>("UserProfile"));
-        }
-
-        [HttpPost]
-        [Route("register")]
-        public IActionResult Register(AuthProfileViewModel user)
-        {
-            if (ModelState.IsValid)
-            {
-                Profile profile = new Profile();
-                profile.Register(user.Username, user.Password);
-                return RedirectToAction("Index", "Home");
-            }
-            return View(user);
-        }
-
-        [Route("error")]
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
-        }
-
-
-
-        public ProfileDTO CreateDtoFromInput(Profile input)
-        {
-            ProfileDTO dto = new ProfileDTO();
-            dto.UserId = HttpContext.Session.Get<Profile>("UserProfile").UserId;
-            dto.FreeText = input.FreeText;
-            dto.Region = input.Region.ToString();
-            dto.Picture = input.Picture;
-            dto.Looking = input.Looking;
-            dto.SocialURL = input.SocialURL;
-            List<AchievementDTO> adtos = new List<AchievementDTO>();
-            foreach(Achievement achievement in input.Achievements)
-            {
-                if (achievement.Rank != null && achievement.Event != Events._)
-                {
-                    adtos.Add(new AchievementDTO() { Rank = (int)achievement.Rank, Event = achievement.Event.ToString() });
-                }
-            }
-            dto.achievementDTOs = adtos;
-            return dto;
-        }
     }
 }

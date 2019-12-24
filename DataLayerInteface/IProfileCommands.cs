@@ -1,8 +1,4 @@
 ﻿using DataLayerDTO;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DataLayerInterface
 {
@@ -11,5 +7,6 @@ namespace DataLayerInterface
         void UpdateProfileInfo(ProfileDTO dto);
         void RegisterNewProfile(ProfileDTO dto);
         bool CheckCredentials(ProfileDTO dto);
+        int GetUserIdForName(string username);
     }
 }

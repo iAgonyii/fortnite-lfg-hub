@@ -33,18 +33,18 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     @{
-                        Profile profile = HttpContextAccessor.HttpContext.Session.Get<Profile>("UserProfile");
-
-                        if (profile == null)
+                        string Username = HttpContextAccessor.HttpContext.Session.Get<string>("Username");
+                        int UserId = HttpContextAccessor.HttpContext.Session.Get<int>("UserId");
+                        if (Username == null)
                         {
-                            <li><a asp-area="" asp-controller="Profiles" asp-action="LoginIndex">Log In</a></li>
-                            <li><a asp-area="" asp-controller="Profiles" asp-action="RegisterIndex">Register</a></li>
+                            <li><a asp-area="" asp-controller="Auth" asp-action="LoginIndex">Log In</a></li>
+                            <li><a asp-area="" asp-controller="Auth" asp-action="RegisterIndex">Register</a></li>
                         }
 
-                        else if (profile != null)
+                        else
                         {
-                            <li><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@profile.Username">@profile.Username</a></li>
-                            <li><a asp-controller="Profiles" asp-action="Logout">Log out</a></li>
+                            <li><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@UserId">@Username</a></li>
+                            <li><a asp-controller="Auth" asp-action="Logout">Log out</a></li>
                         }
                     }
                 </ul>

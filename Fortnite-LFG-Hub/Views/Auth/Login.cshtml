@@ -1,18 +1,18 @@
 ﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
-@model Fortnite_LFG_Hub.Models.AuthProfile
+@model Fortnite_LFG_Hub.ViewModels.AuthProfileViewModel
 
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Login";
 }
 
-<h2>Register</h2>
+<h2>Login</h2>
 @{
-    if (Model == null)
+    if (HttpContextAccessor.HttpContext.Session.Get<string>("Username") == null)
     {
         <div class="row">
             <div class="col-md-3">
-                <form asp-action="Register" asp-controller="Profiles" class="text-center">
-                    <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
+                <form asp-action="Login" asp-controller="Auth" class="text-center">
+                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                     <span asp-validation-for="Username" class="alert-danger"></span>
                     <span asp-validation-for="Password" class="alert-danger"></span>
                     <input asp-for="Username" type="text" class="form-control" placeholder="Username" />
@@ -22,7 +22,7 @@
                             <input type="checkbox">Remember me
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-primary btn-block">Create account</button>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
                 </form>
             </div>
         </div>
@@ -32,5 +32,3 @@
         <div class="alert-danger"><p>You are already logged in.</p></div>
     }
 }
-
-

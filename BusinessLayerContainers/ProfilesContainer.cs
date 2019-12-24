@@ -1,28 +1,39 @@
 ﻿using System.Collections.Generic;
 using BusinessLayer;
+using DataLayer;
+using DataLayerDTO;
+using DataLayerInterface;
 
 namespace BusinessLayerContainer
 {
     public class ProfilesContainer
     {
         List<Profile> profiles;
-        
+        private IProfileContainerCommands commands;
+        private IAchievementCommands aCommands;
+
         public List<Profile> GetProfiles()
         {
             profiles = new List<Profile>();
-            ProfileCommands pcommands = new ProfileCommands();
+            commands = new ProfileCommands();
+
             // Make profiles from dtos
-            foreach(ProfileDTO pdto in pcommands.GetProfiles())
+            foreach (ProfileDTO pdto in commands.GetProfiles())
             {
                 Profile profile = new Profile(pdto);
                 profiles.Add(profile);
             }
+
             return profiles;
         }
-        public Profile GetProfileData(string id)
+        public Profile GetProfileData(int id)
         {
-            ProfileCommands commands = new ProfileCommands();
+            commands = new ProfileCommands();
+            aCommands = new AchievementCommands();
+
             ProfileDTO dto = commands.GetProfileData(id);
+            dto.achievementDTOs = aCommands.GetAchievements(id);
+
             Profile profile = new Profile(dto);
             return profile;
         }
