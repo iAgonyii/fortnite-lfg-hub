@@ -28,7 +28,7 @@ namespace DataLayer
             }
         }
 
-        public void UpdateSocial(string url)
+        public void UpdateSocial(int UserId, string url)
         {
             using (conn)
             {
@@ -36,7 +36,7 @@ namespace DataLayer
                 using (command = new MySqlCommand("INSERT INTO social (URL,UserId) VALUES (@url, @userid) ON DUPLICATE KEY UPDATE URL = @url", conn))
                 {
                     command.Parameters.AddWithValue("url", url);
-                    //command.Parameters.AddWithValue("userid", dto.UserId);
+                    command.Parameters.AddWithValue("userid", UserId);
                     command.ExecuteNonQuery();
                 }
             }

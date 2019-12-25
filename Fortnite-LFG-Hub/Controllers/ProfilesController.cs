@@ -26,7 +26,7 @@ namespace Fortnite_LFG_Hub.Controllers
             if (ModelState.IsValid)
             {
                 ProfileLogic logic = new ProfileLogic();
-                logic.UpdateProfileInfo(edit.FreeText, edit.SocialURL, edit.Looking, edit.Picture, edit.Region);
+                logic.UpdateProfileInfo(id, edit.FreeText, edit.SocialURL, edit.Looking, edit.Picture, edit.Region);
                 return RedirectToAction("Profile", id);
             }
             else
@@ -65,7 +65,12 @@ namespace Fortnite_LFG_Hub.Controllers
                 }
                 ProfilesContainer container = new ProfilesContainer();
                 Profile profile = container.GetProfileData(id);
-                EditProfileViewModel vm = new EditProfileViewModel() { Achievements = profile.Achievements, FreeText = profile.FreeText, Looking = profile.Looking, Picture = profile.Picture, SocialURL = profile.SocialURL, Region = profile.Region };
+                EditProfileViewModel vm = new EditProfileViewModel() { FreeText = profile.FreeText, Looking = profile.Looking, Picture = profile.Picture, SocialURL = profile.SocialURL, Region = profile.Region };
+
+                for(int i = 0; i < profile.Achievements.Count; i++)
+                {
+                    vm.Achievements[i] = profile.Achievements[i];
+                }
 
                 return View("Index", vm);
             }

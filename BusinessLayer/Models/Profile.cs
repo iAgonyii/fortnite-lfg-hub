@@ -34,7 +34,10 @@ namespace BusinessLayer
                 this.Looking = bool.Parse(dto.Looking);
             }
             this.Picture = dto.Picture;
-            this.Region = (Regions)Enum.Parse(typeof(Regions), dto.Region);
+            if (!string.IsNullOrWhiteSpace(dto.Region))
+            {
+                this.Region = (Regions)Enum.Parse(typeof(Regions), dto.Region);
+            }
             if (dto.achievementDTOs != null)
             {
                 ProfileLogic logic = new ProfileLogic();

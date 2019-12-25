@@ -29,10 +29,18 @@ namespace BusinessLayer.Logic
             commands.RegisterNewProfile(new ProfileDTO() { Username = username, Password = password });
         }
 
-        public void UpdateProfileInfo(string freeText, string socialURL, bool looking, string picture, Regions region)
+        public void UpdateProfileInfo(int id, string freeText, string socialURL, bool looking, string picture, Regions region)
         {
             commands = new ProfileCommands();
-            commands.UpdateProfileInfo(new ProfileDTO() { FreeText = freeText, SocialURL = socialURL, Looking = looking.ToString(), Picture = picture, Region = region.ToString() });
+            if(freeText == null)
+            {
+                freeText = "";
+            }
+            if(picture == null)
+            {
+                picture = "";
+            }
+            commands.UpdateProfileInfo(new ProfileDTO() { UserId = id, FreeText = freeText, SocialURL = socialURL, Looking = looking.ToString(), Picture = picture, Region = region.ToString() });
         }
 
         private IAchievementCommands achievementCommands;

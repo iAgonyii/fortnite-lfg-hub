@@ -1,4 +1,5 @@
-﻿using DataLayerDTO;
+﻿using DataLayer.Interfaces;
+using DataLayerDTO;
 using DataLayerInterface;
 using MySql.Data.MySqlClient;
 using System;
@@ -80,6 +81,11 @@ namespace DataLayer
 
         public void UpdateProfileInfo(ProfileDTO dto)
         {
+            if (dto.SocialURL != null)
+            {
+                ISocialCommands commands = new SocialCommands();
+                commands.UpdateSocial(dto.UserId, dto.SocialURL);
+            }
             using(conn)
             {
                 conn.Open();

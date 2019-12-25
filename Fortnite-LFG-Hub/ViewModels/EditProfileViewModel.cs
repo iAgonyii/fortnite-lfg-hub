@@ -20,7 +20,7 @@ namespace Fortnite_LFG_Hub.Models.ViewModels
 
         public EditProfileViewModel()
         {
-            
+            this.Achievements = new List<Achievement>() { new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(),};
         }
     }   
 }
