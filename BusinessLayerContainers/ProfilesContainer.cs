@@ -11,6 +11,7 @@ namespace BusinessLayerContainer
         List<Profile> profiles;
         private IProfileContainerCommands commands;
         private IAchievementCommands aCommands;
+        private ISocialCommands sCommands;
 
         public List<Profile> GetProfiles()
         {
@@ -30,9 +31,11 @@ namespace BusinessLayerContainer
         {
             commands = new ProfileCommands();
             aCommands = new AchievementCommands();
+            sCommands = new SocialCommands();
 
             ProfileDTO dto = commands.GetProfileData(id);
             dto.achievementDTOs = aCommands.GetAchievements(id);
+            dto.SocialURL = sCommands.GetSocial(id);
 
             Profile profile = new Profile(dto);
             return profile;

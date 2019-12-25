@@ -5,22 +5,53 @@
     ViewData["Title"] = "Profile";
 }
 
-<h2>Profile</h2>
-<h3>@Model.Username</h3>
+<h1>@Model.Username</h1> <!-- Picture should come here too -->
 <br />
-<h4>
-    @foreach (var achievement in Model.Achievements)
-    {
-        @Html.DisplayFor(a => achievement.Rank);
-        <br />
-        @Html.DisplayFor(a => achievement.Event);
-        <br />
-    }
-    <br /> @Model.FreeText <br /> @Model.SocialURL
-</h4>
-
 @{
-    
+    if (Model.Region != BusinessLayer.Regions._)
+    {
+        <h3>@Model.Region.ToString()</h3>
+    }
+    if (Model.Looking)
+    {
+        <h3 color="green">LFG</h3>
+    }
+    else
+    {
+        <h3 color="red">NOT LFG</h3>
+    }
+}
+<br />
+
+@foreach (var achievement in Model.Achievements)
+{
+    <h4>#@achievement.Rank</h4>
+    string replacedEvent = achievement.Event.ToString().Replace("_", " ");
+    <h4>@replacedEvent</h4>
+    <br />
+}
+@{
+    if (!string.IsNullOrWhiteSpace(Model.FreeText))
+    {
+        <h5>@Model.FreeText</h5>
+    }
+    else
+    {
+        <span>This user has not shared any additional information</span>
+    }
+    <br />
+    if (!string.IsNullOrWhiteSpace(Model.SocialURL))
+    {
+    <a href="@Model.SocialURL"><h5>Twitter</h5></a>
+    }
+    else
+    {
+        <span>This user has not linked a social platform</span>
+    }
+}
+<br />
+@{
+
     if (HttpContextAccessor.HttpContext.Session != null)
     {
         if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == Model.UserId)

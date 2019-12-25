@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataLayer.Interfaces
+namespace DataLayerInterface
 {
     public interface ISocialCommands
     {

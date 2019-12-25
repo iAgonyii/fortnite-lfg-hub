@@ -1,4 +1,4 @@
-﻿using DataLayer.Interfaces;
+﻿using DataLayerInterface;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,6 +14,7 @@ namespace DataLayer
 
         public string GetSocial(int profileid)
         {
+            string url = "";
             using (conn)
             {
                 conn.Open();
@@ -22,10 +23,14 @@ namespace DataLayer
                     command.Parameters.AddWithValue("profileid", profileid);
                     using (reader = command.ExecuteReader())
                     {
-                        return reader.GetString(0);
+                        while(reader.Read())
+                        {
+                            url = reader.GetString(0);
+                        }
                     }   
                 }
             }
+            return url;
         }
 
         public void UpdateSocial(int UserId, string url)
