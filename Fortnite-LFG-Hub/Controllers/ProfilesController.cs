@@ -92,13 +92,5 @@ namespace Fortnite_LFG_Hub.Controllers
             }
             return View("Profile", profile);
         }
-
-        public IActionResult ProfilesRepo()
-        {
-            ProfilesContainer container = new ProfilesContainer();
-            return View(container.GetProfiles());
-        }
-
-
     }
 }
