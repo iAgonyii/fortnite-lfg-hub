@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using BusinessLayer.Logic;
 using BusinessLayerContainer;
 using Fortnite_LFG_Hub.Models;
 using Fortnite_LFG_Hub.Models.ViewModels;
@@ -24,8 +25,8 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             if (ModelState.IsValid)
             {
-                Profile profile = new Profile();
-                profile.UpdateProfileInfo(edit.FreeText, edit.SocialURL, edit.Looking, edit.Picture, edit.Region);
+                ProfileLogic logic = new ProfileLogic();
+                logic.UpdateProfileInfo(edit.FreeText, edit.SocialURL, edit.Looking, edit.Picture, edit.Region);
                 return RedirectToAction("Profile", id);
             }
             else
@@ -39,8 +40,8 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             if (ModelState.IsValid)
             {
-                Profile profile = new Profile();
-                profile.UpdateProfileAchievements(edit, id);
+                ProfileLogic logic = new ProfileLogic();
+                logic.UpdateProfileAchievements(edit, id);
                 return RedirectToAction("Profile", id);
             }
             else

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BusinessLayer;
+using BusinessLayer.Logic;
 using Fortnite_LFG_Hub.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,11 +22,11 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             if (ModelState.IsValid)
             {
-                Profile profile = new Profile();
-                if (profile.Login(user.Username, user.Password))
+                ProfileLogic logic = new ProfileLogic();
+                if (logic.Login(user.Username, user.Password))
                 {
                     HttpContext.Session.Set("Username", user.Username);
-                    HttpContext.Session.Set("UserId", profile.GetUserIdForName(user.Username));
+                    HttpContext.Session.Set("UserId", logic.GetUserIdForName(user.Username));
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("Username", "Credentials do not match any registered user");
@@ -47,10 +47,10 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             if (ModelState.IsValid)
             {
-                Profile profile = new Profile();
+                ProfileLogic logic = new ProfileLogic();
                 try
                 {
-                    profile.Register(user.Username, user.Password);
+                    logic.Register(user.Username, user.Password);
                 }
                 catch (Exception)
                 {
@@ -58,7 +58,7 @@ namespace Fortnite_LFG_Hub.Controllers
                     return View(user);
                 }
                 HttpContext.Session.Set("Username", user.Username);
-                HttpContext.Session.Set("UserId", profile.GetUserIdForName(user.Username));
+                HttpContext.Session.Set("UserId", logic.GetUserIdForName(user.Username));
                 return RedirectToAction("Index", "Home");
             }
             return View(user);

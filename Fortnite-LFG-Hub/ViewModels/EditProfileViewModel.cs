@@ -16,7 +16,7 @@ namespace Fortnite_LFG_Hub.Models.ViewModels
         public string SocialURL { get; set; }
         public bool Looking { get; set; }
         public string Picture { get; set; }
-        public string Region { get; set; }
+        public Regions Region { get; set; }
 
         public EditProfileViewModel()
         {
