@@ -36,6 +36,7 @@ namespace Fortnite_LFG_Hub.Controllers
         }
 
         [HttpPost]
+        [Route("user/{id}/edit/achievements")]
         public IActionResult EditProfileAchievements(int id, List<Achievement> edit)
         {
             if (ModelState.IsValid)
