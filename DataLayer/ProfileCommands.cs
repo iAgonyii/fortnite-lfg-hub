@@ -227,10 +227,5 @@ namespace DataLayer
             }
             return adtos;
         }
-
-        public bool CheckCredentials(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -1,0 +1,12 @@
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestBusiness\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestBusiness\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestBusiness\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestBusiness\Debug\netcoreapp2.1\UnitTestBusiness.deps.json
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestBusiness\Debug\netcoreapp2.1\UnitTestBusiness.runtimeconfig.json
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestBusiness\Debug\netcoreapp2.1\UnitTestBusiness.runtimeconfig.dev.json
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestBusiness\Debug\netcoreapp2.1\UnitTestBusiness.dll
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestBusiness\Debug\netcoreapp2.1\UnitTestBusiness.csproj.CoreCompileInputs.cache
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestBusiness\Debug\netcoreapp2.1\UnitTestBusiness.AssemblyInfoInputs.cache
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestBusiness\Debug\netcoreapp2.1\UnitTestBusiness.AssemblyInfo.cs
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestBusiness\Debug\netcoreapp2.1\UnitTestBusiness.csproj.CopyComplete
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestBusiness\Debug\netcoreapp2.1\UnitTestBusiness.dll

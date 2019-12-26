@@ -88,7 +88,7 @@ namespace Fortnite_LFG_Hub.Controllers
             }
             catch(Exception e)
             {
-                return View("Error", new Error() { errorMessage = e.ToString() });
+                return View("Error", new Error() { errorMessage = e.Message });
             }
             return View("Profile", profile);
         }
