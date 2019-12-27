@@ -48,7 +48,10 @@ namespace BusinessLayer.Logic
         {
             achievementCommands = new AchievementCommands();
             List<AchievementDTO> dtos = achievementsToDtos(achievements);
-            achievementCommands.UpdateAchievements(dtos, id);
+            if (dtos.Count > 0)
+            {
+                achievementCommands.UpdateAchievements(dtos, id);
+            }
         }
 
         public int GetUserIdForName(string username)
@@ -63,7 +66,7 @@ namespace BusinessLayer.Logic
             List<AchievementDTO> dtos = new List<AchievementDTO>();
             foreach (Achievement achievement in achievements)
             {
-                if (achievement.Rank != null)
+                if (achievement.Rank != null && achievement.Event != Events._)
                 {
                     dtos.Add(new AchievementDTO() { Rank = Convert.ToInt32(achievement.Rank), Event = achievement.Event.ToString() });
                 }
