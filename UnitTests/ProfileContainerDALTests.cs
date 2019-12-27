@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UnitTestData
 {
-    class ProfileContainerTests
+    class ProfileContainerDALTests
     {
     }
 }
