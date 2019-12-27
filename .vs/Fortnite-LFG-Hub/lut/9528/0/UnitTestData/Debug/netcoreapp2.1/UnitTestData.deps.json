@@ -9,6 +9,7 @@
       "UnitTestData/1.0.0": {
         "dependencies": {
           "BusinessLayer": "1.0.0",
+          "BusinessLayerContainer": "1.0.0",
           "DataLayer": "1.0.0",
           "DataLayerDTO": "1.0.0",
           "DataLayerInterface": "1.0.0",
@@ -1463,6 +1464,17 @@
           "BusinessLayer.dll": {}
         }
       },
+      "BusinessLayerContainer/1.0.0": {
+        "dependencies": {
+          "BusinessLayer": "1.0.0",
+          "DataLayer": "1.0.0",
+          "DataLayerDTO": "1.0.0",
+          "DataLayerInterface": "1.0.0"
+        },
+        "runtime": {
+          "BusinessLayerContainer.dll": {}
+        }
+      },
       "DataLayer/1.0.0": {
         "dependencies": {
           "DataLayerDTO": "1.0.0",
@@ -2197,6 +2209,11 @@
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
     },
     "BusinessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BusinessLayerContainer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

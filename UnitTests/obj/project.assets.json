@@ -2083,6 +2083,22 @@
           "bin/placeholder/BusinessLayer.dll": {}
         }
       },
+      "BusinessLayerContainer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "BusinessLayer": "1.0.0",
+          "DataLayer": "1.0.0",
+          "DataLayerDTO": "1.0.0",
+          "DataLayerInterface": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLayerContainer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLayerContainer.dll": {}
+        }
+      },
       "DataLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -7278,6 +7294,11 @@
       "path": "../BusinessLayer/BusinessLayer.csproj",
       "msbuildProject": "../BusinessLayer/BusinessLayer.csproj"
     },
+    "BusinessLayerContainer/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLayerContainers/BusinessLayerContainer.csproj",
+      "msbuildProject": "../BusinessLayerContainers/BusinessLayerContainer.csproj"
+    },
     "DataLayer/1.0.0": {
       "type": "project",
       "path": "../DataLayer/DataLayer.csproj",
@@ -7297,6 +7318,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "BusinessLayer >= 1.0.0",
+      "BusinessLayerContainer >= 1.0.0",
       "DataLayer >= 1.0.0",
       "DataLayerDTO >= 1.0.0",
       "DataLayerInterface >= 1.0.0",
@@ -7337,6 +7359,9 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\BusinessLayerContainers\\BusinessLayerContainer.csproj": {
+              "projectPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\BusinessLayerContainers\\BusinessLayerContainer.csproj"
+            },
             "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\BusinessLayer\\BusinessLayer.csproj": {
               "projectPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\BusinessLayer\\BusinessLayer.csproj"
             },
