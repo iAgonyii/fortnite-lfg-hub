@@ -26,5 +26,22 @@ namespace UnitTestData
 
             Assert.IsTrue(added);
         }
+
+        [TestMethod]
+        public void DeleteComment()
+        {
+            bool deleted;
+            try
+            {
+                logic.DeleteComment(22);
+                deleted = true;
+            }
+            catch(Exception)
+            {
+                deleted = false;
+            }
+
+            Assert.IsTrue(deleted);
+        }
     }
 }
