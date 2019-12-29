@@ -58,6 +58,7 @@ namespace DataLayer
                     using (reader = command.ExecuteReader())
                     {
                         IAchievementCommands aCommands = new AchievementCommands();
+                        ICommentContainerCommands cCommands = new CommentCommands();
                         ISocialCommands sCommands = new SocialCommands();
                         while (reader.Read())
                         {
@@ -69,6 +70,7 @@ namespace DataLayer
                             dto.Picture = reader.GetString(4);
                             dto.Region = reader.GetString(5);
                             dto.achievementDTOs = aCommands.GetAchievements(dto.UserId);
+                            dto.commentDTOs = cCommands.GetComments(dto.UserId);
                             dto.SocialURL = sCommands.GetSocial(dto.UserId);
                             profileDTOs.Add(dto);
                         }
@@ -194,37 +196,37 @@ namespace DataLayer
 
         // Data formatting methods
 
-        public List<AchievementDTO> FormatConcatDataToAchievementDtos(string concatData)
-        {
-            List<AchievementDTO> adtos = new List<AchievementDTO>();
-            string[] parts;
-            if(!string.IsNullOrWhiteSpace(concatData))
-            {
-                parts = concatData.Split(',');
-            }
-            else
-            {
-                return adtos;
-            }
+        //public List<AchievementDTO> FormatConcatDataToAchievementDtos(string concatData)
+        //{
+        //    List<AchievementDTO> adtos = new List<AchievementDTO>();
+        //    string[] parts;
+        //    if(!string.IsNullOrWhiteSpace(concatData))
+        //    {
+        //        parts = concatData.Split(',');
+        //    }
+        //    else
+        //    {
+        //        return adtos;
+        //    }
             
-            for(int i = 0; i < 10; i++)
-            {
-                if(i >= parts.Length)
-                {
-                    break;
-                }
-                else if(!string.IsNullOrWhiteSpace(parts[i]))
-                {
-                    string[] achievementParts = parts[i].ToString().Split('#');
-                    AchievementDTO adto = new AchievementDTO() { Rank = Convert.ToInt32(achievementParts[0]), Event = achievementParts[1] };
-                    adtos.Add(adto);
-                }
-                else
-                {
-                    break;
-                }
-            }
-            return adtos;
-        }
+        //    for(int i = 0; i < 10; i++)
+        //    {
+        //        if(i >= parts.Length)
+        //        {
+        //            break;
+        //        }
+        //        else if(!string.IsNullOrWhiteSpace(parts[i]))
+        //        {
+        //            string[] achievementParts = parts[i].ToString().Split('#');
+        //            AchievementDTO adto = new AchievementDTO() { Rank = Convert.ToInt32(achievementParts[0]), Event = achievementParts[1] };
+        //            adtos.Add(adto);
+        //        }
+        //        else
+        //        {
+        //            break;
+        //        }
+        //    }
+        //    return adtos;
+        //}
     }
 }

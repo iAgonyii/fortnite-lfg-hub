@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace BusinessLayer
-{ 
+{
     public class Profile
     {
         public int UserId { get; set; }
@@ -29,8 +29,8 @@ namespace BusinessLayer
             this.Username = dto.Username;
             this.FreeText = dto.FreeText;
             this.SocialURL = dto.SocialURL;
-            if(!string.IsNullOrWhiteSpace(dto.Looking))
-            { 
+            if (!string.IsNullOrWhiteSpace(dto.Looking))
+            {
                 this.Looking = bool.Parse(dto.Looking);
             }
             this.Picture = dto.Picture;
@@ -38,16 +38,33 @@ namespace BusinessLayer
             {
                 this.Region = (Regions)Enum.Parse(typeof(Regions), dto.Region);
             }
-            if (dto.achievementDTOs != null)
-            {
-                AchievementLogic logic = new AchievementLogic();
-                this.Achievements = logic.DtosToAchievements(dto.achievementDTOs);
-            }
-            if (dto.commentDTOs != null)
-            {
+            this.Achievements = DtosToAchievements(dto.achievementDTOs);
+            this.Comments = DtosToComments(dto.commentDTOs);
+        }
 
-               // this.Comments = dto.commentDTOs;
+
+
+
+        // Converting dtos to business models
+        private List<Achievement> DtosToAchievements(List<AchievementDTO> dtos)
+        {
+            List<Achievement> achvs = new List<Achievement>();
+            foreach (AchievementDTO dto in dtos)
+            {
+                achvs.Add(new Achievement() { Rank = dto.Rank, Event = (Events)Enum.Parse(typeof(Events), dto.Event) });
             }
+            return achvs;
+        }
+
+        private List<Comment> DtosToComments(List<CommentDTO> dtos)
+        {
+            List<Comment> comments = new List<Comment>();
+            foreach (CommentDTO dto in dtos)
+            {
+                Comment comment = new Comment(dto);
+                comments.Add(comment);
+            }
+            return comments;
         }
     }
 }

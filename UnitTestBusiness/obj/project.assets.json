@@ -7331,9 +7331,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\UnitTestBusiness\\UnitTestBusiness.csproj",
-      "projectName": "UnitTestBusiness",
-      "projectPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\UnitTestBusiness\\UnitTestBusiness.csproj",
+      "projectUniqueName": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\UnitTestBusiness\\UnitTestContainer.csproj",
+      "projectName": "UnitTestContainer",
+      "projectPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\UnitTestBusiness\\UnitTestContainer.csproj",
       "packagesPath": "C:\\Users\\iAgonyii\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\iAgonyii\\Documents\\Skool\\S2\\Individueel\\Project Files\\fortnite-lfg-hub\\UnitTestBusiness\\obj\\",
       "projectStyle": "PackageReference",

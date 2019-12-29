@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayerInterface", "DataL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayerContainer", "BusinessLayerContainers\BusinessLayerContainer.csproj", "{505BA39D-33BF-49B2-AC12-BD2891989ACF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestBusiness", "UnitTestBusiness\UnitTestBusiness.csproj", "{75F5F8E3-DB78-49C9-81AE-2474D28165BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestContainer", "UnitTestBusiness\UnitTestContainer.csproj", "{75F5F8E3-DB78-49C9-81AE-2474D28165BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

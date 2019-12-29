@@ -8,15 +8,15 @@ namespace BusinessLayerContainer
 {
     public class ProfilesContainer
     {
-        List<Profile> profiles;
-        private IProfileContainerCommands commands;
+        public List<Profile> profiles;
+        private readonly IProfileContainerCommands commands = new ProfileCommands();
         private IAchievementCommands aCommands;
+        private ICommentContainerCommands cCommands;
         private ISocialCommands sCommands;
 
         public List<Profile> GetProfiles()
         {
             profiles = new List<Profile>();
-            commands = new ProfileCommands();
 
             // Make profiles from dtos
             foreach (ProfileDTO pdto in commands.GetProfiles())
@@ -29,12 +29,13 @@ namespace BusinessLayerContainer
         }
         public Profile GetProfileData(int id)
         {
-            commands = new ProfileCommands();
             aCommands = new AchievementCommands();
             sCommands = new SocialCommands();
+            cCommands = new CommentCommands();
 
             ProfileDTO dto = commands.GetProfileData(id);
             dto.achievementDTOs = aCommands.GetAchievements(id);
+            dto.commentDTOs = cCommands.GetComments(id);
             dto.SocialURL = sCommands.GetSocial(id);
 
             Profile profile = new Profile(dto);

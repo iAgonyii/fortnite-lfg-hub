@@ -32,15 +32,5 @@ namespace BusinessLayer.Logic
             }
             return dtos;
         }
-
-        public List<Achievement> DtosToAchievements(List<AchievementDTO> adtos)
-        {
-            List<Achievement> achvs = new List<Achievement>();
-            foreach (AchievementDTO dto in adtos)
-            {
-                achvs.Add(new Achievement() { Rank = dto.Rank, Event = (Events)Enum.Parse(typeof(Events), dto.Event) });
-            }
-            return achvs;
-        }
     }
 }
