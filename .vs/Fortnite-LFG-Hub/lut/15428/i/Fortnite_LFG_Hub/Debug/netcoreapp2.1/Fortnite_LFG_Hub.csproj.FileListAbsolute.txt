@@ -4,7 +4,6 @@ C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Fortnite_LFG_Hub.dll
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Fortnite_LFG_Hub.Views.dll
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Fortnite_LFG_Hub.Views.pdb
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Fortnite_LFG_Hub.csprojAssemblyReference.cache
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Fortnite_LFG_Hub.csproj.CoreCompileInputs.cache
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Fortnite_LFG_Hub.RazorAssemblyInfo.cache
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Fortnite_LFG_Hub.RazorAssemblyInfo.cs
@@ -19,6 +18,7 @@ C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Razor\Views\Profiles\Comment.g.cshtml.cs
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Razor\Views\Profiles\EditAchievements.g.cshtml.cs
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Razor\Views\Profiles\Index.g.cshtml.cs
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Razor\Views\Profiles\Profile.g.cshtml.cs
@@ -34,4 +34,3 @@ C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Fortnite_LFG_Hub.Views.pdb
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Fortnite_LFG_Hub.csproj.CopyComplete
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Fortnite_LFG_Hub.dll
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\Fortnite_LFG_Hub\Debug\netcoreapp2.1\Razor\Views\Profiles\Comment.g.cshtml.cs

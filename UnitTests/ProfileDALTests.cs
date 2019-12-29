@@ -97,6 +97,24 @@ namespace UnitTestData
 
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void GetUsernameForId()
+        {
+            string expected = "TestPepega";
+            string result = logic.GetUsernameForId(57);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void GetUsernameForUnknownId()
+        {
+            string expected = "";
+            string result = logic.GetUsernameForId(234124124);
+
+            Assert.AreEqual(expected, result);
+        }
     }
 
 

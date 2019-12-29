@@ -15,5 +15,10 @@ namespace BusinessLayer.Logic
             CommentDTO dto = new CommentDTO() { SourceUser = source, TargetUser = target, CommentText = text };
             commentCommands.AddComment(dto);
         }
+
+        public void DeleteComment(int commentId)
+        {
+            commentCommands.DeleteComment(commentId);
+        }
     }
 }

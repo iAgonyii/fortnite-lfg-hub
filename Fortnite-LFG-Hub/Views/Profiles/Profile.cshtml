@@ -79,6 +79,10 @@
         <div class="list-group-item">
             <span><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@comment.SourceUser">@username</a> | @comment.TimePosted</span>
             <p>@comment.CommentText</p>
+            @if(HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == comment.SourceUser)
+            {
+                <span><a asp-controller="Profiles" asp-action="DeleteComment" asp-route-commentId="@comment.CommentId" asp-route-id="@Model.UserId">Delete</a></span>
+            }
         </div>
         <br />
     }

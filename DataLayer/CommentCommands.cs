@@ -29,7 +29,15 @@ namespace DataLayer
 
         public void DeleteComment(int commentId)
         {
-            throw new NotImplementedException();
+            using(conn)
+            {
+                conn.Open();
+                using(command = new MySqlCommand("DELETE FROM comment WHERE CommentId = @commentid",conn))
+                {
+                    command.Parameters.AddWithValue("commentid", commentId);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<CommentDTO> GetComments(int profileId)

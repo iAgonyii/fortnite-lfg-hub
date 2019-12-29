@@ -109,5 +109,13 @@ namespace Fortnite_LFG_Hub.Controllers
                 return View(comment);
             }
         }
+
+        [Route("user/{id}/comment/delete/{commentId}")]
+        public IActionResult DeleteComment(int commentId, int id)
+        {
+            CommentLogic logic = new CommentLogic();
+            logic.DeleteComment(commentId);
+            return RedirectToAction("Profile", id);
+        }
     }
 }
