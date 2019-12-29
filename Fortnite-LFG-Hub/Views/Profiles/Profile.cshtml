@@ -1,5 +1,6 @@
 ﻿@model BusinessLayer.Profile
 @using Fortnite_LFG_Hub.ViewModels
+@using BusinessLayer.Logic
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
@@ -70,6 +71,18 @@
     }
 }
 <br />
+@{
+    foreach(var comment in Model.Comments)
+    {
+        ProfileLogic logic = new ProfileLogic();
+        string username = logic.GetUsernameForId(comment.SourceUser);
+        <div class="list-group-item">
+            <span><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@comment.SourceUser">@username</a> | @comment.TimePosted</span>
+            <p>@comment.CommentText</p>
+        </div>
+        <br />
+    }
+}
 
 
 

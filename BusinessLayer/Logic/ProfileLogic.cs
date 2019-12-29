@@ -49,5 +49,12 @@ namespace BusinessLayer.Logic
             int UserId = commands.GetUserIdForName(username);
             return UserId;
         }
+
+        public string GetUsernameForId(int id)
+        {
+            commands = new ProfileCommands();
+            string Username = commands.GetUsernameForId(id);
+            return Username;
+        }
     }
 }

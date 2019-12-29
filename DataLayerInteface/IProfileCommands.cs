@@ -8,5 +8,6 @@ namespace DataLayerInterface
         void RegisterNewProfile(ProfileDTO dto);
         bool CheckCredentials(ProfileDTO dto);
         int GetUserIdForName(string username);
+        string GetUsernameForId(int id);
     }
 }

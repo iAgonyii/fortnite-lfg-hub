@@ -171,6 +171,27 @@ namespace DataLayer
             return id;
         }
 
+        public string GetUsernameForId(int id)
+        {
+            string name = "";
+            using (conn)
+            {
+                conn.Open();
+                using (command = new MySqlCommand("SELECT Username from Profile where UserId = @userid", conn))
+                {
+                    command.Parameters.AddWithValue("userid", id);
+                    using (reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            name = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            return name;
+        }
+
         private bool UsernameIsTaken(string username)
         {
             bool taken = false;
@@ -194,6 +215,8 @@ namespace DataLayer
         }
 
 
+
+
         // Data formatting methods
 
         //public List<AchievementDTO> FormatConcatDataToAchievementDtos(string concatData)
@@ -208,7 +231,7 @@ namespace DataLayer
         //    {
         //        return adtos;
         //    }
-            
+
         //    for(int i = 0; i < 10; i++)
         //    {
         //        if(i >= parts.Length)
