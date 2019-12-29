@@ -25,6 +25,7 @@ namespace Fortnite_LFG_Hub.Controllers
                 ProfileLogic logic = new ProfileLogic();
                 if (logic.Login(user.Username, user.Password))
                 {
+                    // If we logged in save the Username and UserId in the session
                     HttpContext.Session.Set("Username", user.Username);
                     HttpContext.Session.Set("UserId", logic.GetUserIdForName(user.Username));
                     return RedirectToAction("Index", "Home");
@@ -57,6 +58,7 @@ namespace Fortnite_LFG_Hub.Controllers
                     ModelState.AddModelError("Username", "This username is already taken");
                     return View(user);
                 }
+                // If we succesfully registered we 'login' and save the values in the session.
                 HttpContext.Session.Set("Username", user.Username);
                 HttpContext.Session.Set("UserId", logic.GetUserIdForName(user.Username));
                 return RedirectToAction("Index", "Home");
@@ -66,6 +68,7 @@ namespace Fortnite_LFG_Hub.Controllers
 
         public IActionResult Logout()
         {
+            // Clear all data in the session so we logout.
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }

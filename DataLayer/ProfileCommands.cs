@@ -57,6 +57,7 @@ namespace DataLayer
                 {
                     using (reader = command.ExecuteReader())
                     {
+                        // We get all profile data for each profile.
                         IAchievementCommands aCommands = new AchievementCommands();
                         ICommentContainerCommands cCommands = new CommentCommands();
                         ISocialCommands sCommands = new SocialCommands();
@@ -102,6 +103,7 @@ namespace DataLayer
             }
         }
 
+        // Check first if username isn't already taken before procceeding
         public void RegisterNewProfile(ProfileDTO dto)
         {
             if(!UsernameIsTaken(dto.Username))

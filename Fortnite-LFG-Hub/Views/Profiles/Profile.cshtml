@@ -61,10 +61,12 @@
         <br />
             if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == Model.UserId)
             {
-            <a type="button" asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Profile</a>
-            <br />
+                // If the session UserId is the same as the current profile in the view, we can edit it.
+                <a type="button" asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Profile</a>
+                <br />
             }
 
+            // If we are logged in we are allowed to comment.
             CommentViewModel comment = new CommentViewModel();
             <partial name="Comment" model="comment"/>
         }

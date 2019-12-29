@@ -27,6 +27,8 @@ namespace BusinessLayerContainer
 
             return profiles;
         }
+
+        // Get all the data of a profile. This includes: achievements, socials and comments.
         public Profile GetProfileData(int id)
         {
             aCommands = new AchievementCommands();

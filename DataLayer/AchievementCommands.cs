@@ -46,6 +46,8 @@ namespace DataLayer
 
                 command.Parameters.AddWithValue("userid", profileid);
 
+                // We have to dynamically add value parameters for every achievement that we have because we don't know how many a user will input.
+                // We do this with a little stringbuilding
                 for (int i = 0; i < dtos.Count; i++)
                 {
                     if (i == dtos.Count - 1)

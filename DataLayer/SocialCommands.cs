@@ -38,6 +38,7 @@ namespace DataLayer
             using (conn)
             {
                 conn.Open();
+                // We insert if the user had no previous social. We update if the user had a social in the database prior.
                 using (command = new MySqlCommand("INSERT INTO social (URL,UserId) VALUES (@url, @userid) ON DUPLICATE KEY UPDATE URL = @url", conn))
                 {
                     command.Parameters.AddWithValue("url", url);

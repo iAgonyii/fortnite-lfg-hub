@@ -10,6 +10,8 @@ namespace BusinessLayer.Logic
     public class ProfileLogic
     {
         private IProfileCommands commands;
+
+        // If the input matches any records in the database return true
         public bool Login(string username, string password)
         {
             commands = new ProfileCommands();

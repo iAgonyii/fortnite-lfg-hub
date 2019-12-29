@@ -66,8 +66,10 @@ namespace Fortnite_LFG_Hub.Controllers
                 }
                 ProfilesContainer container = new ProfilesContainer();
                 Profile profile = container.GetProfileData(id);
+                // We can fill the form fields with data from the database if available.
                 EditProfileViewModel vm = new EditProfileViewModel() { FreeText = profile.FreeText, Looking = profile.Looking, Picture = profile.Picture, SocialURL = profile.SocialURL, Region = profile.Region };
 
+                // Fill the achievements fields if there are records in the database.
                 for(int i = 0; i < profile.Achievements.Count; i++)
                 {
                     vm.Achievements[i] = profile.Achievements[i];
@@ -100,6 +102,7 @@ namespace Fortnite_LFG_Hub.Controllers
             if (ModelState.IsValid)
             {
                 CommentLogic logic = new CommentLogic();
+                // We can get the source profileId of the comment by getting the UserId saved in the session
                 int sourceid = HttpContext.Session.Get<int>("UserId");
                 logic.AddComment(sourceid, id, comment.CommentText);
                 return RedirectToAction("Profile", id);
@@ -110,6 +113,7 @@ namespace Fortnite_LFG_Hub.Controllers
             }
         }
 
+        
         [Route("user/{id}/comment/delete/{commentId}")]
         public IActionResult DeleteComment(int commentId, int id)
         {

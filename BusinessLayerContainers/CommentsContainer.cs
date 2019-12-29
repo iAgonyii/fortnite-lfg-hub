@@ -12,6 +12,8 @@ namespace BusinessLayerContainer
     {
         public List<Comment> comments;
         private readonly ICommentContainerCommands commentCommands = new CommentCommands();
+
+        // Get all comments for the profileid, add them to a list and return it
         public List<Comment> GetComments(int profileid)
         {
             comments = new List<Comment>();

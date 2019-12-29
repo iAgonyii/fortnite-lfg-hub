@@ -20,6 +20,7 @@ namespace Fortnite_LFG_Hub.Models.ViewModels
         public string Picture { get; set; }
         public Regions Region { get; set; }
 
+        // Initialise the list with 8 achievements that can get filled with database records if available.
         public EditProfileViewModel()
         {
             this.Achievements = new List<Achievement>() { new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(),};
