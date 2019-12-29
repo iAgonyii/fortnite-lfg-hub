@@ -106,7 +106,7 @@ namespace Fortnite_LFG_Hub.Controllers
             }
             else
             {
-                return View(comment);
+                return View("Error", new Error() { errorMessage = "Comment input is required and can not be longer than 1000 characters." });
             }
         }
 
