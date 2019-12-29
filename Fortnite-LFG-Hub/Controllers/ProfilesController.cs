@@ -99,6 +99,9 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             if (ModelState.IsValid)
             {
+                CommentLogic logic = new CommentLogic();
+                int sourceid = HttpContext.Session.Get<int>("UserId");
+                logic.AddComment(sourceid, id, comment.CommentText);
                 return RedirectToAction("Profile", id);
             }
             else

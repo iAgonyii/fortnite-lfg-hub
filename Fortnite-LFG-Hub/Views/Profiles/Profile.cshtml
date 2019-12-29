@@ -1,4 +1,5 @@
 ﻿@model BusinessLayer.Profile
+@using Fortnite_LFG_Hub.ViewModels
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
@@ -54,15 +55,19 @@
 
     if (HttpContextAccessor.HttpContext.Session != null)
     {
-        <br />
-        if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == Model.UserId)
+        if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") != 0)
         {
+        <br />
+            if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == Model.UserId)
+            {
             <a type="button" asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Profile</a>
             <br />
-        }
-        <input type="text"/>
-    }
+            }
 
+            CommentViewModel comment = new CommentViewModel();
+            <partial name="Comment" model="comment"/>
+        }
+    }
 }
 <br />
 

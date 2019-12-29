@@ -5,7 +5,6 @@ C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestData\Debug\netcoreapp2.1\UnitTestData.runtimeconfig.json
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestData\Debug\netcoreapp2.1\UnitTestData.runtimeconfig.dev.json
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestData\Debug\netcoreapp2.1\UnitTestData.dll
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestData\Debug\netcoreapp2.1\UnitTestData.csprojAssemblyReference.cache
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestData\Debug\netcoreapp2.1\UnitTestData.csproj.CoreCompileInputs.cache
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestData\Debug\netcoreapp2.1\UnitTestData.AssemblyInfoInputs.cache
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestData\Debug\netcoreapp2.1\UnitTestData.AssemblyInfo.cs

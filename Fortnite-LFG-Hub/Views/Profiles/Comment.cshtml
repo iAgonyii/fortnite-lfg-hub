@@ -11,6 +11,7 @@
 
 <form asp-action="AddComment" asp-controller="Profiles" asp-antiforgery="true">
     <div class="form-group">
+        <span asp-validation-for="CommentText" class="text-danger"></span>
         <input type="text" asp-for="CommentText" class="form-control" />
         <input type="submit" value="Post" class="btn btn-primary" />
     </div>

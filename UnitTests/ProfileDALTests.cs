@@ -80,7 +80,6 @@ namespace UnitTestData
             Assert.IsTrue(updated);
         }
 
-
         [TestMethod]
         public void GetUserIdForName()
         {
