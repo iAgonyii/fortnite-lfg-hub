@@ -43,45 +43,11 @@ namespace BusinessLayer.Logic
             commands.UpdateProfileInfo(new ProfileDTO() { UserId = id, FreeText = freeText, SocialURL = socialURL, Looking = looking.ToString(), Picture = picture, Region = region.ToString() });
         }
 
-        private IAchievementCommands achievementCommands;
-        public void UpdateProfileAchievements(List<Achievement> achievements, int id)
-        {
-            achievementCommands = new AchievementCommands();
-            List<AchievementDTO> dtos = achievementsToDtos(achievements);
-            if (dtos.Count > 0)
-            {
-                achievementCommands.UpdateAchievements(dtos, id);
-            }
-        }
-
         public int GetUserIdForName(string username)
         {
             commands = new ProfileCommands();
             int UserId = commands.GetUserIdForName(username);
             return UserId;
-        }
-
-        private List<AchievementDTO> achievementsToDtos(List<Achievement> achievements)
-        {
-            List<AchievementDTO> dtos = new List<AchievementDTO>();
-            foreach (Achievement achievement in achievements)
-            {
-                if (achievement.Rank != null && achievement.Event != Events._)
-                {
-                    dtos.Add(new AchievementDTO() { Rank = Convert.ToInt32(achievement.Rank), Event = achievement.Event.ToString() });
-                }
-            }
-            return dtos;
-        }
-
-        public List<Achievement> DtosToAchievements(List<AchievementDTO> adtos)
-        {
-            List<Achievement> achvs = new List<Achievement>();
-            foreach (AchievementDTO dto in adtos)
-            {
-                achvs.Add(new Achievement() { Rank = dto.Rank, Event = (Events)Enum.Parse(typeof(Events), dto.Event) });
-            }
-            return achvs;
         }
     }
 }

@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model Fortnite_LFG_Hub.ViewModels.CommentViewModel
+@{
+    ViewData["Title"] = "Comment";
+}
+
+<h2>Comment</h2>
+
+<form asp-action="AddComment" asp-controller="Profiles" asp-antiforgery="true">
+    <div class="form-group">
+        <input type="text" asp-for="CommentText" class="form-control" />
+        <input type="submit" value="Post" class="btn btn-primary" />
+    </div>
+</form>

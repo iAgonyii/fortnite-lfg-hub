@@ -41,7 +41,7 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             if (ModelState.IsValid)
             {
-                ProfileLogic logic = new ProfileLogic();
+                AchievementLogic logic = new AchievementLogic();
                 logic.UpdateProfileAchievements(edit, id);
                 return RedirectToAction("Profile", id);
             }
@@ -91,6 +91,20 @@ namespace Fortnite_LFG_Hub.Controllers
                 return View("Error", new Error() { errorMessage = e.Message });
             }
             return View("Profile", profile);
+        }
+
+        [HttpPost]
+        [Route("user/{id}/comment")]
+        public IActionResult AddComment(int id, CommentViewModel comment)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Profile", id);
+            }
+            else
+            {
+                return View(comment);
+            }
         }
     }
 }

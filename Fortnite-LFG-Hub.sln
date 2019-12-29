@@ -17,9 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayerInterface", "DataL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayerContainer", "BusinessLayerContainers\BusinessLayerContainer.csproj", "{505BA39D-33BF-49B2-AC12-BD2891989ACF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestView", "UnitTestView\UnitTestView.csproj", "{B1C6A1F0-13F6-4A28-9980-E323E9B7F633}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestBusiness", "UnitTestBusiness\UnitTestBusiness.csproj", "{75F5F8E3-DB78-49C9-81AE-2474D28165BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestBusiness", "UnitTestBusiness\UnitTestBusiness.csproj", "{75F5F8E3-DB78-49C9-81AE-2474D28165BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +53,6 @@ Global
 		{505BA39D-33BF-49B2-AC12-BD2891989ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{505BA39D-33BF-49B2-AC12-BD2891989ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{505BA39D-33BF-49B2-AC12-BD2891989ACF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1C6A1F0-13F6-4A28-9980-E323E9B7F633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1C6A1F0-13F6-4A28-9980-E323E9B7F633}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1C6A1F0-13F6-4A28-9980-E323E9B7F633}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1C6A1F0-13F6-4A28-9980-E323E9B7F633}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75F5F8E3-DB78-49C9-81AE-2474D28165BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75F5F8E3-DB78-49C9-81AE-2474D28165BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75F5F8E3-DB78-49C9-81AE-2474D28165BE}.Release|Any CPU.ActiveCfg = Release|Any CPU

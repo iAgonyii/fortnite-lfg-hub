@@ -38,5 +38,12 @@ namespace UnitTestData
             }
             Assert.IsTrue(caught);
         }
+
+        [TestMethod]
+        public void GetAllProfiles()
+        {
+            List<Profile> result = profilesContainer.GetProfiles();
+            Assert.AreEqual(result.Count, result.Count);
+        }
     }
 }

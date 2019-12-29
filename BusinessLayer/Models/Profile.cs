@@ -15,14 +15,14 @@ namespace BusinessLayer
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public bool LoggedIn { get; set; }
-        public List<Achievement> Achievements { get; set; }
         public string FreeText { get; set; }
         public string SocialURL { get; set; }
         public bool Looking { get; set; }
         public string Picture { get; set; }
         public Regions Region { get; set; }
-        
+        public List<Achievement> Achievements { get; set; }
+        public List<Comment> Comments { get; set; }
+
         public Profile(ProfileDTO dto)
         {
             this.UserId = dto.UserId;
@@ -40,8 +40,13 @@ namespace BusinessLayer
             }
             if (dto.achievementDTOs != null)
             {
-                ProfileLogic logic = new ProfileLogic();
+                AchievementLogic logic = new AchievementLogic();
                 this.Achievements = logic.DtosToAchievements(dto.achievementDTOs);
+            }
+            if (dto.commentDTOs != null)
+            {
+
+               // this.Comments = dto.commentDTOs;
             }
         }
     }
