@@ -33,8 +33,9 @@ namespace DataLayer
             }
         }
 
-        public void UpdateAchievements(List<AchievementDTO> dtos, int profileid)
+        public void UpdateAchievements(List<AchievementDTO> dtos, List<string> flairs, int profileid)
         {
+            UpdateFlairs(flairs, profileid);
             using (conn)
             {
                 conn.Open();
@@ -70,6 +71,30 @@ namespace DataLayer
                 command.CommandText = "BEGIN; DELETE FROM achievement WHERE UserId=@userid; " + sql + "COMMIT;";
                 command.ExecuteNonQuery();
             }
+        }
+
+        private void UpdateFlairs(List<string> flairs, int userid)
+        {
+            using(conn)
+            {
+                conn.Open();
+                using(command = new MySqlCommand("UPDATE profile SET Flairs = @flairs WHERE UserId = @userid",conn))
+                {
+                    command.Parameters.AddWithValue("userid", userid);
+                    command.Parameters.AddWithValue("flairs", listToString(flairs));
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private string listToString(List<string> flairs)
+        {
+            string flairsString = "";
+            foreach(string flair in flairs)
+            {
+                flairsString += flair + ",";
+            }
+            return flairsString;
         }
     }
 }

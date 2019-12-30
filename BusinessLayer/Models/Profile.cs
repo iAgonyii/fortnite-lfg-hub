@@ -22,6 +22,7 @@ namespace BusinessLayer
         public Regions Region { get; set; }
         public List<Achievement> Achievements { get; set; }
         public List<Comment> Comments { get; set; }
+        public List<Flairs> Flairs { get; set; }
 
         public Profile(ProfileDTO dto)
         {
@@ -40,6 +41,7 @@ namespace BusinessLayer
             }
             this.Achievements = DtosToAchievements(dto.achievementDTOs);
             this.Comments = DtosToComments(dto.commentDTOs);
+            this.Flairs = DtoFlairsToFlairs(dto.Flairs);
         }
 
 
@@ -66,6 +68,19 @@ namespace BusinessLayer
                 comments.Add(comment);
             }
             return comments;
+        }
+
+        private List<Flairs> DtoFlairsToFlairs(List<string> dtoflairs)
+        {
+            List<Flairs> flairs = new List<Flairs>();
+            if (dtoflairs.Count > 0)
+            {
+                foreach (string flair in dtoflairs)
+                {
+                    flairs.Add((Flairs)Enum.Parse(typeof(Flairs), flair));
+                }
+            }
+            return flairs;
         }
     }
 }

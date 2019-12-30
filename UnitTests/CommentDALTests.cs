@@ -16,7 +16,7 @@ namespace UnitTestData
             bool added;
             try
             {
-                logic.AddComment(66, 57, "Hello, this is a test comment");
+                logic.AddComment(66, 60, "Hello, this is a test comment");
                 added = true;
             }
             catch(Exception)
@@ -25,6 +25,23 @@ namespace UnitTestData
             }
 
             Assert.IsTrue(added);
+        }
+
+        [TestMethod]
+        public void AddCommentOver1000CharsGivesError()
+        {
+            bool added;
+            try
+            {
+                logic.AddComment(66, 62, "Hello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test commentHello, this is a test comment");
+                added = true;
+            }
+            catch (Exception)
+            {
+                added = false;
+            }
+
+            Assert.IsFalse(added);
         }
 
         [TestMethod]

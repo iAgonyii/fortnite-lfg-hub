@@ -20,7 +20,7 @@ namespace DataLayer
             using (conn)
             {
                 conn.Open();
-                using (command = new MySqlCommand("SELECT p.UserId, p.Username, p.TextInfo, p.Looking, p.Picture, p.Region FROM profile p WHERE p.UserId = @searchInput", conn))
+                using (command = new MySqlCommand("SELECT p.UserId, p.Username, p.TextInfo, p.Looking, p.Picture, p.Region, p.Flairs FROM profile p WHERE p.UserId = @searchInput", conn))
                 {
                     command.Parameters.AddWithValue("searchInput", searchInput);
                     using (reader = command.ExecuteReader())
@@ -35,6 +35,7 @@ namespace DataLayer
                                 dto.Looking = reader.GetString(3);
                                 dto.Picture = reader.GetString(4);
                                 dto.Region = reader.GetString(5);
+                                dto.Flairs = DatabaseFlairsToStringList(reader.GetString(6));
                             }
                         }
                         else
@@ -53,7 +54,7 @@ namespace DataLayer
             using (conn)
             {
                 conn.Open();
-                using (command = new MySqlCommand("SELECT p.UserId, p.Username, p.TextInfo, p.Looking, p.Picture, p.Region FROM profile p", conn))
+                using (command = new MySqlCommand("SELECT p.UserId, p.Username, p.TextInfo, p.Looking, p.Picture, p.Region, p.Flairs FROM profile p", conn))
                 {
                     using (reader = command.ExecuteReader())
                     {
@@ -73,6 +74,7 @@ namespace DataLayer
                             dto.achievementDTOs = aCommands.GetAchievements(dto.UserId);
                             dto.commentDTOs = cCommands.GetComments(dto.UserId);
                             dto.SocialURL = sCommands.GetSocial(dto.UserId);
+                            dto.Flairs = DatabaseFlairsToStringList(reader.GetString(6));
                             profileDTOs.Add(dto);
                         }
                     }
@@ -220,6 +222,15 @@ namespace DataLayer
 
 
         // Data formatting methods
+
+        private List<string> DatabaseFlairsToStringList(string flairs)
+        {
+            List<string> listFlairs = new List<string>();
+            listFlairs = flairs.Split(',').ToList();
+
+            return listFlairs;
+        }
+
 
         //public List<AchievementDTO> FormatConcatDataToAchievementDtos(string concatData)
         //{
