@@ -1,5 +1,6 @@
 ﻿@model List<BusinessLayer.Profile>
 @using BusinessLayer;
+@using Fortnite_LFG_Hub.ViewModels;
 @{
     ViewData["Title"] = "Home";
 }
@@ -12,6 +13,8 @@
 </form>
 <span>@Model.Count results found</span>
 <br />
+@{ FilterViewModel filtervm = new FilterViewModel(); }
+<partial name="Filters" model="filtervm.filters" />
 <br />
 
 @foreach (Profile profile in Model)

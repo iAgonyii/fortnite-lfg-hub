@@ -1,0 +1,16 @@
+﻿@model List<bool>
+@using BusinessLayer;
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<form asp-controller="Home" asp-action="FilterIndex" method="get">
+    @{ List<Flairs> flairs = Enum.GetValues(typeof(Flairs)).Cast<Flairs>().ToList(); }
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <span>@flairs[i].ToString()</span>
+        <input type="checkbox" asp-for="@Model[i]" />
+        <br />
+    }
+    <input type="submit" value="Apply filters" />
+</form>

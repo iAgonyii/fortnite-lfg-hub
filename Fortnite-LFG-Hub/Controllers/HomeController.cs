@@ -4,10 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Fortnite_LFG_Hub.Models;
-using Fortnite_LFG_Hub.Models.ViewModels;
 using BusinessLayerContainer;
 using BusinessLayer;
+using Fortnite_LFG_Hub.ViewModels;
 
 namespace Fortnite_LFG_Hub.Controllers
 {
@@ -26,6 +25,21 @@ namespace Fortnite_LFG_Hub.Controllers
                 profiles = profiles.Where(p => p.Username.Contains(search)).ToList();
                 return View(profiles);
             }
+        }
+
+        public IActionResult FilterIndex(List<bool> filters)
+        {
+            List<Flairs> flairs = Enum.GetValues(typeof(Flairs)).Cast<Flairs>().ToList();
+            ProfilesContainer container = new ProfilesContainer();
+            List<Profile> profiles = container.GetProfiles();
+            for (int i = 0; i < filters.Count; i++)
+            {
+                if (filters[i] == true)
+                {
+                    profiles = profiles.Where(p => p.Flairs.Contains(flairs[i])).ToList();
+                }
+            }
+            return View("Index",profiles);
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
