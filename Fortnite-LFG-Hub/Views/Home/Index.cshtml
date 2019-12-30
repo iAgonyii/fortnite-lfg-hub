@@ -5,6 +5,15 @@
 }
 
 <h2>Home</h2>
+<br />
+<form asp-controller="Home" asp-action="Index" method="get">
+    <input type="text" name="search" placeholder="Search...">
+    <input type="submit" value="Search" />
+</form>
+<span>@Model.Count results found</span>
+<br />
+<br />
+
 @foreach (Profile profile in Model)
 {
     <a asp-controller="Profiles" asp-action="Profile" asp-route-id="@profile.UserId"><h4>@profile.Username</h4></a>

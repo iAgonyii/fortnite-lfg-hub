@@ -75,7 +75,7 @@ using BusinessLayer;
             WriteLiteral("    ");
             EndContext();
             BeginContext(176, 126, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18bcbd2c0dc04d46bbafa179ac18b1d9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "deea6e5e54ce4ee4ae5f7402c0dc82d1", async() => {
                 BeginContext(260, 38, false);
 #line 10 "C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\Fortnite-LFG-Hub\Views\Profiles\ProfilesRepo.cshtml"
                                                                                   Write(Html.DisplayFor(p => profile.Username));
