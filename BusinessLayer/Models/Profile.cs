@@ -73,13 +73,11 @@ namespace BusinessLayer
         private List<Flairs> DtoFlairsToFlairs(List<string> dtoflairs)
         {
             List<Flairs> flairs = new List<Flairs>();
-            if (dtoflairs.Count > 0)
-            {
+
                 foreach (string flair in dtoflairs)
                 {
                     flairs.Add((Flairs)Enum.Parse(typeof(Flairs), flair));
                 }
-            }
             return flairs;
         }
     }

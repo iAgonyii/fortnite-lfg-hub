@@ -227,7 +227,7 @@ namespace DataLayer
         {
             List<string> listFlairs = new List<string>();
             listFlairs = flairs.Split(',').ToList();
-
+            listFlairs.RemoveAll(f => f == "");
             return listFlairs;
         }
 

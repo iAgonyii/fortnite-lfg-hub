@@ -10,9 +10,11 @@
 <h2>Comment</h2>
 
 <form asp-action="AddComment" asp-controller="Profiles" asp-antiforgery="true">
-    <div class="form-group">
-        <span asp-validation-for="CommentText" class="text-danger"></span>
-        <input type="text" asp-for="CommentText" class="form-control" />
-        <input type="submit" value="Post" class="btn btn-primary" />
-    </div>
+    <span asp-validation-for="CommentText" class="text-danger"></span>
+    <table>
+        <tr>
+            <td width="1200px"><input type="text" asp-for="CommentText" class="form-control" /></td>
+            <td><input type="submit" value="Post" class="btn btn-primary" /></td>
+        </tr>
+    </table>
 </form>

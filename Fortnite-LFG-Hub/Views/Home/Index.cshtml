@@ -8,7 +8,6 @@
 @foreach (Profile profile in Model)
 {
     <a asp-controller="Profiles" asp-action="Profile" asp-route-id="@profile.UserId"><h4>@profile.Username</h4></a>
-    <br />
     if (profile.Region != Regions._)
     {
         <span>@profile.Region.ToString()</span>
@@ -24,6 +23,15 @@
     else
     {
         <span> - NOT LFG</span>
+    }
+    <br />
+    if (profile.Flairs.Count > 0)
+    {
+        foreach (Flairs flair in profile.Flairs)
+        {
+            string cleanFlair = flair.ToString().Replace("_", " ");
+            <span class="badge badge-pill">@cleanFlair</span>
+        }
     }
     <br />
     <br />

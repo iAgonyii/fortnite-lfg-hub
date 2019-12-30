@@ -12,30 +12,43 @@
 @{
     if (Model.Region != BusinessLayer.Regions._)
     {
-        <h3>@Model.Region.ToString()</h3>
-    }
-    if (Model.Looking)
-    {
-        <h3 color="green">LFG</h3>
+        <h3 style="display:inline-block;">@Model.Region.ToString()</h3>
     }
     else
     {
-        <h3 color="red">NOT LFG</h3>
+        <h3 style="display:inline-block;">No Region</h3>
+    }
+    if (Model.Looking)
+    {
+        <h3 style="display:inline-block;" color="green"> - LFG</h3>
+    }
+    else
+    {
+        <h3 color="red"> - NOT LFG</h3>
     }
 }
 <br />
-
+@if (Model.Flairs.Count > 0)
+{
+    foreach (var flair in Model.Flairs)
+    {
+        string cleanFlair = flair.ToString().Replace("_", " ");
+        <span class="badge badge-pill">@cleanFlair</span>
+    }
+}
+<br /> <br />
 @foreach (var achievement in Model.Achievements)
 {
-    <h4>#@achievement.Rank</h4>
+    <h4 style="display:inline-block;">#@achievement.Rank - </h4>
     string replacedEvent = achievement.Event.ToString().Replace("_", " ");
-    <h4>@replacedEvent</h4>
+    <h4 style="display:inline-block;">@replacedEvent</h4>
     <br />
 }
 @{
+    <br />
     if (!string.IsNullOrWhiteSpace(Model.FreeText))
     {
-        <h5>@Model.FreeText</h5>
+        <span>@Model.FreeText</span>
     }
     else
     {
@@ -44,7 +57,7 @@
     <br />
     if (!string.IsNullOrWhiteSpace(Model.SocialURL))
     {
-    <a href="@Model.SocialURL"><h5>Twitter</h5></a>
+        <a href="@Model.SocialURL"><h5>Twitter</h5></a>
     }
     else
     {
@@ -58,30 +71,29 @@
     {
         if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") != 0)
         {
-        <br />
             if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == Model.UserId)
             {
                 // If the session UserId is the same as the current profile in the view, we can edit it.
-                <a type="button" asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Profile</a>
+                <a asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Profile</a>
                 <br />
             }
 
             // If we are logged in we are allowed to comment.
             CommentViewModel comment = new CommentViewModel();
-            <partial name="Comment" model="comment"/>
+            <partial name="Comment" model="comment" />
         }
     }
 }
 <br />
 @{
-    foreach(var comment in Model.Comments)
+    foreach (var comment in Model.Comments)
     {
         ProfileLogic logic = new ProfileLogic();
         string username = logic.GetUsernameForId(comment.SourceUser);
         <div class="list-group-item">
             <span><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@comment.SourceUser">@username</a> | @comment.TimePosted</span>
             <p>@comment.CommentText</p>
-            @if(HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == comment.SourceUser)
+            @if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == comment.SourceUser)
             {
                 <span><a asp-controller="Profiles" asp-action="DeleteComment" asp-route-commentId="@comment.CommentId" asp-route-id="@Model.UserId">Delete</a></span>
             }
