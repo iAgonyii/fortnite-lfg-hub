@@ -6,11 +6,21 @@
 
 <form asp-controller="Home" asp-action="FilterIndex" method="get">
     @{ List<Flairs> flairs = Enum.GetValues(typeof(Flairs)).Cast<Flairs>().ToList(); }
-    @for (int i = 0; i < Model.Count; i++)
-    {
-        <span>@flairs[i].ToString()</span>
-        <input type="checkbox" asp-for="@Model[i]" />
-        <br />
-    }
-    <input type="submit" value="Apply filters" />
+    <table>
+        <tr>
+            <th>Filters</th>
+        </tr>
+
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td><span>@flairs[i].ToString() &nbsp;</span></td>
+                <td><input type="checkbox" asp-for="@Model[i]"></td>
+            </tr>
+        }
+
+        <tr>
+            <td><input class="btn btn-primary btn-block btn-sm" type="submit" value="Apply filters" /></td>
+        </tr>
+    </table>
 </form>
