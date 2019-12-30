@@ -29,9 +29,10 @@ namespace Fortnite_LFG_Hub.Controllers
 
         public IActionResult FilterIndex(List<bool> filters)
         {
-            List<Flairs> flairs = Enum.GetValues(typeof(Flairs)).Cast<Flairs>().ToList();
             ProfilesContainer container = new ProfilesContainer();
             List<Profile> profiles = container.GetProfiles();
+
+            List<Flairs> flairs = Enum.GetValues(typeof(Flairs)).Cast<Flairs>().ToList();
             for (int i = 0; i < filters.Count; i++)
             {
                 if (filters[i] == true)
