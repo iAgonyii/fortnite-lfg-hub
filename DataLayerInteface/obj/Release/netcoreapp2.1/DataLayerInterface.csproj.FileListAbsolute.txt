@@ -1,0 +1,12 @@
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\bin\Release\netcoreapp2.1\DataLayerInterface.deps.json
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\bin\Release\netcoreapp2.1\DataLayerInterface.dll
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\bin\Release\netcoreapp2.1\DataLayerInterface.pdb
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\bin\Release\netcoreapp2.1\DataLayerDTO.dll
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\bin\Release\netcoreapp2.1\DataLayerDTO.pdb
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\obj\Release\netcoreapp2.1\DataLayerInterface.csprojAssemblyReference.cache
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\obj\Release\netcoreapp2.1\DataLayerInterface.csproj.CoreCompileInputs.cache
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\obj\Release\netcoreapp2.1\DataLayerInterface.AssemblyInfoInputs.cache
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\obj\Release\netcoreapp2.1\DataLayerInterface.AssemblyInfo.cs
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\obj\Release\netcoreapp2.1\DataLayerInterface.csproj.CopyComplete
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\obj\Release\netcoreapp2.1\DataLayerInterface.dll
+C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerInteface\obj\Release\netcoreapp2.1\DataLayerInterface.pdb

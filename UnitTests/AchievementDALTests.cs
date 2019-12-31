@@ -10,7 +10,7 @@ namespace UnitTestData
     [TestClass]
     public class AchievementDALTests
     {
-        private readonly AchievementLogic logic = new AchievementLogic();
+        private readonly ProfileLogic logic = new ProfileLogic();
         [TestMethod]
         public void UpdateProfileAchievementsNormal()
         {

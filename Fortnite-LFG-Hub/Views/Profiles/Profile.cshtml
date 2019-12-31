@@ -104,7 +104,7 @@
             <p>@comment.CommentText</p>
             @if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == comment.SourceUser)
             {
-                <span><a asp-controller="Profiles" asp-action="DeleteComment" asp-route-commentId="@comment.CommentId" asp-route-id="@Model.UserId">Delete</a></span>
+                <span><a asp-controller="Comment" asp-action="DeleteComment" asp-route-commentId="@comment.CommentId" asp-route-id="@Model.UserId">Delete</a></span>
             }
         </div>
         <br />

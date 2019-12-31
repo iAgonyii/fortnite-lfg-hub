@@ -41,7 +41,7 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             if (ModelState.IsValid)
             {
-                AchievementLogic logic = new AchievementLogic();
+                ProfileLogic logic = new ProfileLogic();
                 logic.UpdateProfileAchievements(edit, id);
                 return RedirectToAction("Profile", id);
             }
@@ -95,31 +95,6 @@ namespace Fortnite_LFG_Hub.Controllers
             return View("Profile", profile);
         }
 
-        [HttpPost]
-        [Route("user/{id}/comment")]
-        public IActionResult AddComment(int id, CommentViewModel comment)
-        {
-            if (ModelState.IsValid)
-            {
-                CommentLogic logic = new CommentLogic();
-                // We can get the source profileId of the comment by getting the UserId saved in the session
-                int sourceid = HttpContext.Session.Get<int>("UserId");
-                logic.AddComment(sourceid, id, comment.CommentText);
-                return RedirectToAction("Profile", id);
-            }
-            else
-            {
-                return View("Error", new Error() { errorMessage = "Comment input is required and can not be longer than 1000 characters." });
-            }
-        }
-
-        
-        [Route("user/{id}/comment/delete/{commentId}")]
-        public IActionResult DeleteComment(int commentId, int id)
-        {
-            CommentLogic logic = new CommentLogic();
-            logic.DeleteComment(commentId);
-            return RedirectToAction("Profile", id);
-        }
+       
     }
 }

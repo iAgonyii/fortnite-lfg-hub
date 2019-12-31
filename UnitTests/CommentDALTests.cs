@@ -9,7 +9,7 @@ namespace UnitTestData
     [TestClass]
     public class CommentDALTests
     {
-        private readonly CommentLogic logic = new CommentLogic();
+        private readonly ProfileLogic logic = new ProfileLogic();
         [TestMethod]
         public void AddComment()
         {
