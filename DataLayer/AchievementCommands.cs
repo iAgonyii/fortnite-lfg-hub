@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataLayer
 {
-    public class AchievementCommands : IAchievementCommands
+    public class AchievementCommands : IAchievementCommands, IAchievementContainerCommands
     {
         private MySqlConnection conn = new MySqlConnection(DbConnect.connectionstring);
         private MySqlCommand command;

@@ -5,4 +5,3 @@ C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayer\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfo.cs
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayer\Debug\netcoreapp2.1\BusinessLayer.csproj.CopyComplete
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayer\Debug\netcoreapp2.1\BusinessLayer.dll
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayer\Debug\netcoreapp2.1\BusinessLayer.csprojAssemblyReference.cache

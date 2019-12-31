@@ -21,7 +21,7 @@ namespace Fortnite_LFG_Hub.Controllers
                 // We can get the source profileId of the comment by getting the UserId saved in the session
                 int sourceid = HttpContext.Session.Get<int>("UserId");
                 logic.AddComment(sourceid, id, comment.CommentText);
-                return RedirectToAction("Profile", id);
+                return RedirectToAction("Profile", "Profiles", id);
             }
             else
             {
@@ -35,7 +35,7 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             ProfileLogic logic = new ProfileLogic();
             logic.DeleteComment(commentId);
-            return RedirectToAction("Profile", id);
+            return RedirectToAction("Profile", "Profiles", id);
         }
     }
 }

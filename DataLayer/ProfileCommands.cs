@@ -39,8 +39,6 @@ namespace DataLayer
                                 dto.Picture = reader.GetString(4);
                                 dto.Region = reader.GetString(5);
                                 dto.Flairs = DatabaseFlairsToStringList(reader.GetString(6));
-                                dto.achievementDTOs = aCommands.GetAchievements(dto.UserId);
-                                dto.commentDTOs = cCommands.GetComments(dto.UserId);
                                 dto.SocialURL = sCommands.GetSocial(dto.UserId);
                             }
                         }
@@ -78,8 +76,6 @@ namespace DataLayer
                             dto.Picture = reader.GetString(4);
                             dto.Region = reader.GetString(5);
                             dto.Flairs = DatabaseFlairsToStringList(reader.GetString(6));
-                            dto.achievementDTOs = aCommands.GetAchievements(dto.UserId);
-                            dto.commentDTOs = cCommands.GetComments(dto.UserId);
                             dto.SocialURL = sCommands.GetSocial(dto.UserId);
                             profileDTOs.Add(dto);
                         }

@@ -87,7 +87,7 @@ using Fortnite_LFG_Hub.ViewModels;
             WriteLiteral("<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-2\">\r\n            ");
             EndContext();
             BeginContext(317, 51, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "177ec75dacae473abcce4bb9ab193c65", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f8a633b417c341e5847a596881fa52c8", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -112,7 +112,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = filtervm.filters;
             WriteLiteral("\r\n        </div>\r\n        <div class=\"col-sm-2\">\r\n\r\n        </div>\r\n        <div class=\"col-lg-7\">\r\n            ");
             EndContext();
             BeginContext(480, 277, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c777164efbab49709311fc43b1d15de9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "25296d10998e4266a169c20caed60061", async() => {
                 BeginContext(560, 190, true);
                 WriteLiteral("\r\n                <input class=\"form-control\" type=\"text\" name=\"search\" placeholder=\"Search...\">\r\n                <input class=\"btn btn-primary\" type=\"submit\" value=\"Search\" />\r\n            ");
                 EndContext();
@@ -160,7 +160,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = filtervm.filters;
             WriteLiteral("                <h4>");
             EndContext();
             BeginContext(936, 102, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c65f3fe7a0e24d4b9d68a80471fce6bc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c2a964ce32624f4bb5a36ac13b1ccabf", async() => {
                 BeginContext(1018, 16, false);
 #line 30 "C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\Fortnite-LFG-Hub\Views\Home\Index.cshtml"
                                                                                                 Write(profile.Username);

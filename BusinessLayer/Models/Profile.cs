@@ -42,37 +42,12 @@ namespace BusinessLayer
                 this.Region = (Regions)Enum.Parse(typeof(Regions), dto.Region);
             }
             this.Flairs = DtoFlairsToFlairs(dto.Flairs);
-
-            this.Achievements = DtosToAchievements(dto.achievementDTOs);
-            this.Comments = DtosToComments(dto.commentDTOs);
-            
         }
 
 
 
 
         // Converting dtos to business models
-        private List<Achievement> DtosToAchievements(List<AchievementDTO> dtos)
-        {
-            List<Achievement> achvs = new List<Achievement>();
-            foreach (AchievementDTO dto in dtos)
-            {
-                achvs.Add(new Achievement() { Rank = dto.Rank, Event = (Events)Enum.Parse(typeof(Events), dto.Event) });
-            }
-            return achvs;
-        }
-
-        
-        private List<Comment> DtosToComments(List<CommentDTO> dtos)
-        {
-            List<Comment> comments = new List<Comment>();
-            foreach (CommentDTO dto in dtos)
-            {
-                Comment comment = new Comment(dto);
-                comments.Add(comment);
-            }
-            return comments;
-        }
 
         private List<Flairs> DtoFlairsToFlairs(List<string> dtoflairs)
         {
