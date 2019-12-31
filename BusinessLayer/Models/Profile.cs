@@ -20,9 +20,11 @@ namespace BusinessLayer
         public bool Looking { get; set; }
         public string Picture { get; set; }
         public Regions Region { get; set; }
+        public List<Flairs> Flairs { get; set; }
+
         public List<Achievement> Achievements { get; set; }
         public List<Comment> Comments { get; set; }
-        public List<Flairs> Flairs { get; set; }
+        
 
         public Profile(ProfileDTO dto)
         {
@@ -39,9 +41,11 @@ namespace BusinessLayer
             {
                 this.Region = (Regions)Enum.Parse(typeof(Regions), dto.Region);
             }
+            this.Flairs = DtoFlairsToFlairs(dto.Flairs);
+
             this.Achievements = DtosToAchievements(dto.achievementDTOs);
             this.Comments = DtosToComments(dto.commentDTOs);
-            this.Flairs = DtoFlairsToFlairs(dto.Flairs);
+            
         }
 
 

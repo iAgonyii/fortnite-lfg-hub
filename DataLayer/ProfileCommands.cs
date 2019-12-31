@@ -27,6 +27,9 @@ namespace DataLayer
                     {
                         if(reader.HasRows)
                         {
+                            IAchievementCommands aCommands = new AchievementCommands();
+                            ICommentContainerCommands cCommands = new CommentCommands();
+                            ISocialCommands sCommands = new SocialCommands();
                             while (reader.Read())
                             {
                                 dto.UserId = reader.GetInt32(0);
@@ -36,6 +39,9 @@ namespace DataLayer
                                 dto.Picture = reader.GetString(4);
                                 dto.Region = reader.GetString(5);
                                 dto.Flairs = DatabaseFlairsToStringList(reader.GetString(6));
+                                dto.achievementDTOs = aCommands.GetAchievements(dto.UserId);
+                                dto.commentDTOs = cCommands.GetComments(dto.UserId);
+                                dto.SocialURL = sCommands.GetSocial(dto.UserId);
                             }
                         }
                         else
@@ -71,10 +77,10 @@ namespace DataLayer
                             dto.Looking = reader.GetString(3);
                             dto.Picture = reader.GetString(4);
                             dto.Region = reader.GetString(5);
+                            dto.Flairs = DatabaseFlairsToStringList(reader.GetString(6));
                             dto.achievementDTOs = aCommands.GetAchievements(dto.UserId);
                             dto.commentDTOs = cCommands.GetComments(dto.UserId);
                             dto.SocialURL = sCommands.GetSocial(dto.UserId);
-                            dto.Flairs = DatabaseFlairsToStringList(reader.GetString(6));
                             profileDTOs.Add(dto);
                         }
                     }

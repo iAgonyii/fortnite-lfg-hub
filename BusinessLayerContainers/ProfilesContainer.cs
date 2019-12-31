@@ -10,9 +10,6 @@ namespace BusinessLayerContainer
     {
         public List<Profile> profiles;
         private readonly IProfileContainerCommands commands = new ProfileCommands();
-        private readonly IAchievementCommands aCommands = new AchievementCommands();
-        private readonly ICommentContainerCommands cCommands = new CommentCommands();
-        private readonly ISocialCommands sCommands = new SocialCommands();
 
         public List<Profile> GetProfiles()
         {
@@ -31,12 +28,7 @@ namespace BusinessLayerContainer
         // Get all the data of a profile. This includes: achievements, socials and comments.
         public Profile GetProfileData(int id)
         {
-
             ProfileDTO dto = commands.GetProfileData(id);
-            dto.achievementDTOs = aCommands.GetAchievements(id);
-            dto.commentDTOs = cCommands.GetComments(id);
-            dto.SocialURL = sCommands.GetSocial(id);
-
             Profile profile = new Profile(dto);
             return profile;
         }
