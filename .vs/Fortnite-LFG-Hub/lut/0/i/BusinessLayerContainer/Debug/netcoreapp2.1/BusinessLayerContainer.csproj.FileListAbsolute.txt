@@ -1,7 +1,0 @@
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\BusinessLayerContainer\Debug\netcoreapp2.1\BusinessLayerContainer.deps.json
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\b\BusinessLayerContainer\Debug\netcoreapp2.1\BusinessLayerContainer.dll
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayerContainer\Debug\netcoreapp2.1\BusinessLayerContainer.csproj.CoreCompileInputs.cache
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayerContainer\Debug\netcoreapp2.1\BusinessLayerContainer.AssemblyInfoInputs.cache
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayerContainer\Debug\netcoreapp2.1\BusinessLayerContainer.AssemblyInfo.cs
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayerContainer\Debug\netcoreapp2.1\BusinessLayerContainer.csproj.CopyComplete
-C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayerContainer\Debug\netcoreapp2.1\BusinessLayerContainer.dll

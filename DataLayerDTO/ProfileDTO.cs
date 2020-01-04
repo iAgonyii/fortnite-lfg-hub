@@ -14,8 +14,6 @@ namespace DataLayerDTO
         public string Looking { get; set; }
         public string Picture { get; set; }
         public string Region { get; set; }
-        public List<AchievementDTO> achievementDTOs { get; set; }
-        public List<CommentDTO> commentDTOs { get; set; }
         public List<string> Flairs { get; set; }
     }
 }
