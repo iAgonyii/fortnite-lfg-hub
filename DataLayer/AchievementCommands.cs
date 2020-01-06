@@ -41,6 +41,7 @@ namespace DataLayer
                 conn.Open();
 
                 command = new MySqlCommand();
+                MySqlTransaction transaction;
 
                 string sql = "insert into achievement(Rank,Tourney,UserId) values ";
                 string valueSQL = "";
@@ -65,11 +66,24 @@ namespace DataLayer
                     }
                 }
 
-                sql += valueSQL + ";";
+                sql += valueSQL;
 
+                transaction = conn.BeginTransaction();
                 command.Connection = conn;
-                command.CommandText = "BEGIN; DELETE FROM achievement WHERE UserId=@userid; " + sql + "COMMIT;";
-                command.ExecuteNonQuery();
+                command.Transaction = transaction;
+                try
+                {
+                    command.CommandText = "DELETE FROM achievement WHERE UserId = @userid";
+                    command.ExecuteNonQuery();
+                    command.CommandText = sql;
+                    command.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch(Exception)
+                {
+                    transaction.Rollback();
+                    throw new Exception("Error trying to update achievements. Data not updated");
+                }
             }
         }
 

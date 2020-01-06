@@ -1,0 +1,310 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayerContainers\\BusinessLayerContainer.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayerContainers\\BusinessLayerContainer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayerContainers\\BusinessLayerContainer.csproj",
+        "projectName": "BusinessLayerContainer",
+        "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayerContainers\\BusinessLayerContainer.csproj",
+        "packagesPath": "C:\\Users\\Roy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayerContainers\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Roy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj"
+              },
+              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj": {
+                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj"
+              },
+              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerInteface\\DataLayerInterface.csproj": {
+                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerInteface\\DataLayerInterface.csproj"
+              },
+              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayer\\DataLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj",
+        "projectName": "BusinessLayer",
+        "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\BusinessLayer.csproj",
+        "packagesPath": "C:\\Users\\Roy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\BusinessLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Roy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj": {
+                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj"
+              },
+              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerInteface\\DataLayerInterface.csproj": {
+                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerInteface\\DataLayerInterface.csproj"
+              },
+              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayer\\DataLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj",
+        "projectName": "DataLayerDTO",
+        "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj",
+        "packagesPath": "C:\\Users\\Roy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Roy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerInteface\\DataLayerInterface.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerInteface\\DataLayerInterface.csproj",
+        "projectName": "DataLayerInterface",
+        "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerInteface\\DataLayerInterface.csproj",
+        "packagesPath": "C:\\Users\\Roy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerInteface\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Roy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj": {
+                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayer\\DataLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayer\\DataLayer.csproj",
+        "projectName": "DataLayer",
+        "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayer\\DataLayer.csproj",
+        "packagesPath": "C:\\Users\\Roy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Roy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj": {
+                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerDTO\\DataLayerDTO.csproj"
+              },
+              "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerInteface\\DataLayerInterface.csproj": {
+                "projectPath": "C:\\Users\\Roy\\Documents\\Skool\\HBO-ICT\\S2\\Individueel\\! Project File\\Fortnite-LFG-Hub\\DataLayerInteface\\DataLayerInterface.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.18, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
