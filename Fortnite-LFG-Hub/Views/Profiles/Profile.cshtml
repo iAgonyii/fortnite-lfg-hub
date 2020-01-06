@@ -1,6 +1,7 @@
 ﻿@model BusinessLayer.Profile
 @using Fortnite_LFG_Hub.ViewModels
 @using BusinessLayer.Logic
+@using BusinessLayer
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
@@ -33,10 +34,18 @@
     foreach (var flair in Model.Flairs)
     {
         string cleanFlair = flair.ToString().Replace("_", " ");
-        <span class="badge badge-pill">@cleanFlair</span>
+        if (flair == Flairs.Top_50 || flair == Flairs.Top_25)
+        {
+            <span class="label label-success">@cleanFlair</span>
+        }
+        else
+        {
+        <span class="label label-primary">@cleanFlair</span>
+        }
     }
 }
-<br /> <br />
+<br />
+<br />
 @foreach (var achievement in Model.Achievements)
 {
     <h4 style="display:inline-block;">#@achievement.Rank - </h4>
@@ -91,7 +100,7 @@
 }
 <br />
 @{
-    if(Model.Comments.Count == 0)
+    if (Model.Comments.Count == 0)
     {
         <span>No comments yet</span>
     }

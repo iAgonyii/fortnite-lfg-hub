@@ -13,8 +13,8 @@ namespace BusinessLayer
         Top_100,
         Top_50,
         Top_25,
-        LAN_Experience,
-        FNCS_Heats,
-        FNCS_Grand_Finals,
+        //LAN_Experience,
+        //FNCS_Heats,
+        //FNCS_Grand_Finals,
     }
 }

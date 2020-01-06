@@ -47,10 +47,17 @@
                 <br />
                 @if (profile.Flairs.Count > 0)
                 {
-                    foreach (Flairs flair in profile.Flairs)
+                    foreach (var flair in profile.Flairs)
                     {
                         string cleanFlair = flair.ToString().Replace("_", " ");
-                        <span class="badge badge-pill">@cleanFlair</span>
+                        if (flair == Flairs.Top_50 || flair == Flairs.Top_25)
+                        {
+                            <span class="label label-success">@cleanFlair</span>
+                        }
+                        else
+                        {
+                            <span class="label label-primary">@cleanFlair</span>
+                        }
                     }
                 }
                 <br />
