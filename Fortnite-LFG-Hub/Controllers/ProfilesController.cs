@@ -65,13 +65,16 @@ namespace Fortnite_LFG_Hub.Controllers
                 {
                     return View("Error", new Error() { errorMessage = "You are not allowed to edit this profile." });
                 }
+
                 ProfilesContainer container = new ProfilesContainer();
                 AchievementsContainer aContainer = new AchievementsContainer();
+
                 Profile profile = container.GetProfileData(id);
+
                 // We can fill the form fields with data from the database if available.
                 EditProfileViewModel vm = new EditProfileViewModel() { FreeText = profile.FreeText, Looking = profile.Looking, Picture = profile.Picture, SocialURL = profile.SocialURL, Region = profile.Region };
-
                 vm.avm.events = new SelectList(aContainer.GetEvents(), "Key", "Value");
+
                 // Fill the achievements fields if there are records in the database.
                 for(int i = 0; i < profile.Achievements.Count; i++)
                 {
