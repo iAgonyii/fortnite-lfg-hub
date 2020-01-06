@@ -1,0 +1,12 @@
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestContainer\Release\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestContainer\Release\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestContainer\Release\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestContainer\Release\netcoreapp2.1\UnitTestContainer.deps.json
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestContainer\Release\netcoreapp2.1\UnitTestContainer.runtimeconfig.json
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestContainer\Release\netcoreapp2.1\UnitTestContainer.runtimeconfig.dev.json
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\UnitTestContainer\Release\netcoreapp2.1\UnitTestContainer.dll
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestContainer\Release\netcoreapp2.1\UnitTestContainer.csproj.CoreCompileInputs.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestContainer\Release\netcoreapp2.1\UnitTestContainer.AssemblyInfoInputs.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestContainer\Release\netcoreapp2.1\UnitTestContainer.AssemblyInfo.cs
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestContainer\Release\netcoreapp2.1\UnitTestContainer.csproj.CopyComplete
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\UnitTestContainer\Release\netcoreapp2.1\UnitTestContainer.dll

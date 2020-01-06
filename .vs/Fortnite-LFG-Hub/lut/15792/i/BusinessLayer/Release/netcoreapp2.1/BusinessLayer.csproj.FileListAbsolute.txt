@@ -1,0 +1,8 @@
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\BusinessLayer\Release\netcoreapp2.1\BusinessLayer.deps.json
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\BusinessLayer\Release\netcoreapp2.1\BusinessLayer.dll
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayer\Release\netcoreapp2.1\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayer\Release\netcoreapp2.1\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayer\Release\netcoreapp2.1\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayer\Release\netcoreapp2.1\BusinessLayer.AssemblyInfo.cs
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayer\Release\netcoreapp2.1\BusinessLayer.csproj.CopyComplete
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\BusinessLayer\Release\netcoreapp2.1\BusinessLayer.dll

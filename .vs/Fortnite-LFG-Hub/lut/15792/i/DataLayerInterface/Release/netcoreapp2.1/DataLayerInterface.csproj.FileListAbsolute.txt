@@ -1,0 +1,8 @@
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\DataLayerInterface\Release\netcoreapp2.1\DataLayerInterface.deps.json
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\b\DataLayerInterface\Release\netcoreapp2.1\DataLayerInterface.dll
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\DataLayerInterface\Release\netcoreapp2.1\DataLayerInterface.csprojAssemblyReference.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\DataLayerInterface\Release\netcoreapp2.1\DataLayerInterface.csproj.CoreCompileInputs.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\DataLayerInterface\Release\netcoreapp2.1\DataLayerInterface.AssemblyInfoInputs.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\DataLayerInterface\Release\netcoreapp2.1\DataLayerInterface.AssemblyInfo.cs
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\DataLayerInterface\Release\netcoreapp2.1\DataLayerInterface.csproj.CopyComplete
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\.vs\Fortnite-LFG-Hub\lut\0\i\DataLayerInterface\Release\netcoreapp2.1\DataLayerInterface.dll
