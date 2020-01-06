@@ -93,9 +93,9 @@ namespace BusinessLayer.Logic
             List<AchievementDTO> dtos = new List<AchievementDTO>();
             foreach (Achievement achievement in achievements)
             {
-                if (achievement.Rank != null && achievement.Event != Events._)
+                if (achievement.Rank != null && achievement.EventId != "1")
                 {
-                    dtos.Add(new AchievementDTO() { Rank = Convert.ToInt32(achievement.Rank), Event = achievement.Event.ToString() });
+                    dtos.Add(new AchievementDTO() { Rank = Convert.ToInt32(achievement.Rank), Event = achievement.EventId });
                 }
             }
             return dtos;
@@ -109,19 +109,19 @@ namespace BusinessLayer.Logic
             HashSet<string> flairs = new HashSet<string>();
             foreach (Achievement achv in achievements)
             {
-                if (lanEvents.Contains(achv.Event))
-                {
-                    flairs.Add(Flairs.LAN_Experience.ToString());
-                }
-                else if (fncsHeatEvents.Contains(achv.Event))
-                {
-                    flairs.Add(Flairs.FNCS_Heats.ToString());
-                }
-                else if (fncsGrandFinalEvents.Contains(achv.Event))
-                {
-                    flairs.Add(Flairs.FNCS_Grand_Finals.ToString());
-                }
-                else if (achv.Rank <= 1000 && achv.Rank >= 501)
+                //if (lanEvents.Contains(achv.Event))
+                //{
+                //    flairs.Add(Flairs.LAN_Experience.ToString());
+                //}
+                //else if (fncsHeatEvents.Contains(achv.Event))
+                //{
+                //    flairs.Add(Flairs.FNCS_Heats.ToString());
+                //}
+                //else if (fncsGrandFinalEvents.Contains(achv.Event))
+                //{
+                //    flairs.Add(Flairs.FNCS_Grand_Finals.ToString());
+                //}
+                if (achv.Rank <= 1000 && achv.Rank >= 501)
                 {
                     flairs.Add(Flairs.Top_1000.ToString());
                 }

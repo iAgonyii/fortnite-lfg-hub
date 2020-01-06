@@ -313,7 +313,7 @@ WriteAttributeValue("", 1533, Model.SocialURL, 1533, 16, false);
             WriteLiteral("                ");
             EndContext();
             BeginContext(2070, 99, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eef985db129741769a9692c64593fa38", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "764dc8db7d154270bef85ace53126966", async() => {
                 BeginContext(2153, 12, true);
                 WriteLiteral("Edit Profile");
                 EndContext();
@@ -361,7 +361,7 @@ WriteAttributeValue("", 1533, Model.SocialURL, 1533, 16, false);
             WriteLiteral("            ");
             EndContext();
             BeginContext(2351, 42, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "46aa44807dd948eba7c92e0c06e25211", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "50ff0440eefd4b7abda1855be85dd546", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -427,7 +427,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = comment;
             WriteLiteral("        <div class=\"list-group-item\">\r\n            <span>");
             EndContext();
             BeginContext(2850, 98, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5cd74a2efa2a4d5a8c9eb357b201a1e9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b923e9822d084b468e797d77e01d1ff3", async() => {
                 BeginContext(2936, 8, false);
 #line 103 "C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\Views\Profiles\Profile.cshtml"
                                                                                                   Write(username);
@@ -497,7 +497,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = comment;
             WriteLiteral("                <span>");
             EndContext();
             BeginContext(3157, 135, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da522f36aca9440f8933e5e14f83a852", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c969b916af04a458f8cfe9d9f5f6f66", async() => {
                 BeginContext(3282, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

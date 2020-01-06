@@ -22,6 +22,14 @@ namespace BusinessLayerContainer
 
             return achievements;
         }
+    
+
+        public IDictionary<string, string> GetEvents()
+        {
+            IDictionary<string, string> events = new Dictionary<string, string>();
+            events = aCommands.GetEvents();
+            return events;
+        }
 
         private List<Achievement> DtosToAchievements(List<AchievementDTO> dtos)
         {

@@ -1,5 +1,6 @@
 ﻿using DataLayerDTO;
 using DataLayerInterface;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace DataLayer
             using (conn)
             {
                 conn.Open();
-                using(command = new MySqlCommand("SELECT Rank, Tourney FROM achievement WHERE UserId = @profileid", conn))
+                using(command = new MySqlCommand("SELECT a.Rank, e.Event, e.EventId FROM achievement a LEFT JOIN event e ON (a.Tourney = e.EventId) WHERE UserId = @profileid", conn))
                 {
                     command.Parameters.AddWithValue("profileid", profileid);
                     using(reader = command.ExecuteReader())
@@ -25,12 +26,32 @@ namespace DataLayer
                         List<AchievementDTO> dtos = new List<AchievementDTO>();
                         while(reader.Read())
                         {
-                            dtos.Add(new AchievementDTO() { Rank = reader.GetInt32(0), Event = reader.GetString(1) });
+                            dtos.Add(new AchievementDTO() { Rank = reader.GetInt32(0), Event = reader.GetString(1), EventId = reader.GetInt32(2).ToString() });
                         }
                         return dtos;
                     }
                 }
             }
+        }
+
+        public IDictionary<string, string> GetEvents()
+        {
+            IDictionary<string, string> events = new Dictionary<string, string>();
+            using (conn)
+            {
+                conn.Open();
+                using (command = new MySqlCommand("SELECT * FROM event", conn))
+                {
+                    using(reader = command.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            events.Add(reader.GetInt32(0).ToString(), reader.GetString(1));
+                        }
+                    }
+                }
+            }
+            return events;
         }
 
         public void UpdateAchievements(List<AchievementDTO> dtos, List<string> flairs, int profileid)
@@ -56,13 +77,13 @@ namespace DataLayer
                     {
                         valueSQL += "(@rank" + i + ",@ev" + i + ",@userid)";
                         command.Parameters.AddWithValue("rank" + i, dtos[i].Rank);
-                        command.Parameters.AddWithValue("ev" + i, dtos[i].Event);
+                        command.Parameters.AddWithValue("ev" + i, Convert.ToInt32(dtos[i].Event));
                     }
                     else
                     {
                         valueSQL += "(@rank" + i + ",@ev" + i + ",@userid),";
                         command.Parameters.AddWithValue("rank" + i, dtos[i].Rank);
-                        command.Parameters.AddWithValue("ev" + i, dtos[i].Event);
+                        command.Parameters.AddWithValue("ev" + i, Convert.ToInt32(dtos[i].Event));
                     }
                 }
 
@@ -79,10 +100,10 @@ namespace DataLayer
                     command.ExecuteNonQuery();
                     transaction.Commit();
                 }
-                catch(Exception)
+                catch(Exception e)
                 {
                     transaction.Rollback();
-                    throw new Exception("Error trying to update achievements. Data not updated");
+                    throw new Exception(e.ToString());
                 }
             }
         }

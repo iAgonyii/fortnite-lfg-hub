@@ -11,7 +11,8 @@
           "DataLayerDTO": "1.0.0",
           "DataLayerInterface": "1.0.0",
           "MySql.Data": "8.0.18",
-          "System.Data.SqlClient": "4.7.0"
+          "System.Data.SqlClient": "4.7.0",
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.1.1.0"
         },
         "runtime": {
           "DataLayer.dll": {}
@@ -832,6 +833,14 @@
         "runtime": {
           "DataLayerInterface.dll": {}
         }
+      },
+      "Microsoft.AspNetCore.Mvc.ViewFeatures/2.1.1.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.Mvc.ViewFeatures.dll": {
+            "assemblyVersion": "2.1.1.0",
+            "fileVersion": "2.1.1.18157"
+          }
+        }
       }
     }
   },
@@ -1338,6 +1347,11 @@
     },
     "DataLayerInterface/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Mvc.ViewFeatures/2.1.1.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

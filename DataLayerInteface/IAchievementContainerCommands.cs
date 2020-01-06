@@ -8,5 +8,6 @@ namespace DataLayerInterface
     public interface IAchievementContainerCommands
     {
         List<AchievementDTO> GetAchievements(int profileid);
+        IDictionary<string, string> GetEvents();
     }
 }
