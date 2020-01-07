@@ -20,8 +20,8 @@ namespace BusinessLayerContainer
 
             List<AchievementDTO> dtos = aCommands.GetAchievements(profileid);
             achievements = DtosToAchievements(dtos);
-            achievements.OrderBy(a => a.Rank);
-            return achievements;
+            List<Achievement> orderedAchievements = achievements.OrderBy(a => a.Rank).ToList();
+            return orderedAchievements;
         }
     
 
