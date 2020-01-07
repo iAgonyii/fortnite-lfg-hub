@@ -4,6 +4,7 @@ using DataLayerDTO;
 using DataLayerInterface;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BusinessLayerContainer
@@ -19,7 +20,7 @@ namespace BusinessLayerContainer
 
             List<AchievementDTO> dtos = aCommands.GetAchievements(profileid);
             achievements = DtosToAchievements(dtos);
-
+            achievements.OrderBy(a => a.Rank);
             return achievements;
         }
     
