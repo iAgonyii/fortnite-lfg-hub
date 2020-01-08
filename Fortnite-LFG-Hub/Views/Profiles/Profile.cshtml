@@ -10,7 +10,6 @@
 
 <h1 style="border-bottom:solid 1px;padding-bottom:3px">@Model.Username</h1> <!-- Picture should come here too -->
 <br />
-<br />
 
 <div class="container">
     <div class="row">
@@ -44,7 +43,7 @@
                         <th colspan="2" class="text-center bg-info h4"><b>Achievements</b></th>
                     </tr>
                     <tr>
-                        <th>#</th>
+                        <th class="text-center">#</th>
                         <th>Event</th>
                     </tr>
                     @foreach (var achievement in Model.Achievements)
@@ -108,13 +107,12 @@
                         <br />
                         @if (!string.IsNullOrWhiteSpace(Model.FreeText))
                         {
-                            <span>@Model.FreeText</span>
+                            <p>@Model.FreeText</p>
                         }
                         else
                         {
-                            <span>This user has not shared any additional information</span>
+                            <p>This user has not shared any additional information</p>
                         }
-                        <br />
                         <br />
                     </td>
                 </tr>
@@ -134,11 +132,10 @@
                     </td>
                 </tr>
             </table>
-            <br/>
             @if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == Model.UserId)
             {
                 // If the session UserId is the same as the current profile in the view, we can edit it.
-                <a asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Profile</a>
+                <a asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Profile Details</a>
             }
         </div>
     </div>
