@@ -14,94 +14,111 @@
         <div class="col-sm-2">
             <partial name="Filters" model="filtervm.filters" />
         </div>
-        <div class="col-sm-2">
+        @*<div class="col-sm-1">
 
-        </div>
-        <div class="col-lg-7">
-            <form class="form-inline" asp-controller="Home" asp-action="Index" method="get">
-                <input class="form-control" type="text" name="search" placeholder="Search...">
-                <input class="btn btn-primary" type="submit" value="Search" />
-            </form>
-            <span>@Model.Count results found</span>
-            <br />
-            <br />
-            @foreach (Profile profile in Model)
-            {
-                <div class="list-group-item">
-                    <h4><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@profile.UserId">@profile.Username</a></h4>
-                    @if (profile.Region != Regions._)
+        </div>*@
+    <div class="col-lg-7" style="margin-left:5%">
+        <form class="form-inline" asp-controller="Home" asp-action="Index" method="get" style="float:right">
+            <input class="form-control" type="text" name="search" placeholder="Search...">
+            <input class="btn btn-primary" type="submit" value="Search" />
+        </form>
+        <span>@Model.Count results found</span>
+        <br />
+        <br />
+        @foreach (Profile profile in Model)
+        {
+            <div class="list-group-item">
+                <h4><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@profile.UserId">@profile.Username</a></h4>
+                @if (profile.Region != Regions._)
+                {
+                    <span>@profile.Region.ToString()</span>
+                }
+                else
+                {
+                    <span>Region Unknown</span>
+                }
+                @if (profile.Looking)
+                {
+                    <span> - LFG</span>
+                }
+                else
+                {
+                    <span> - NOT LFG</span>
+                }
+                <br />
+                @if (profile.Flairs.Count > 0)
+                {
+                    foreach (var flair in profile.Flairs)
                     {
-                        <span>@profile.Region.ToString()</span>
-                    }
-                    else
-                    {
-                        <span>Region Unknown</span>
-                    }
-                    @if (profile.Looking)
-                    {
-                        <span> - LFG</span>
-                    }
-                    else
-                    {
-                        <span> - NOT LFG</span>
-                    }
-                    <br />
-                    @if (profile.Flairs.Count > 0)
-                    {
-                        foreach (var flair in profile.Flairs)
+                        string cleanFlair = flair.ToString().Replace("_", " ");
+                        if (flair == Flairs.Top_50 || flair == Flairs.Top_25)
                         {
-                            string cleanFlair = flair.ToString().Replace("_", " ");
-                            if (flair == Flairs.Top_50 || flair == Flairs.Top_25)
-                            {
-                                <span class="label label-success">@cleanFlair</span>
-                            }
-                            else
-                            {
-                                <span class="label label-primary">@cleanFlair</span>
-                            }
+                            <span class="label label-success">@cleanFlair</span>
+                        }
+                        else
+                        {
+                            <span class="label label-primary">@cleanFlair</span>
                         }
                     }
-                    <br />
-                    <br />
-                    @if (profile.Achievements.Count > 0)
-                    {
-                        foreach (Achievement achievement in profile.Achievements)
-                        {
-                            string replacedEvent = achievement.Event.ToString().Replace("_", " ");
-                            @Html.DisplayFor(a => achievement.Rank) <span> - </span> @Html.DisplayFor(e => replacedEvent)
-                            <br />
-                        }
-                    }
-                    else
-                    {
-                        <span>This user has not shared any achievements</span>
-                        <br />
-                    }
-                    <br />
-                    @if (!string.IsNullOrWhiteSpace(profile.FreeText))
-                    {
-                        <span>@profile.FreeText</span>
-                    }
-                    else
-                    {
-                        <span>This user has not shared any additional information</span>
-                    }
-                    <br />
-                    <br />
-                    @if (!string.IsNullOrWhiteSpace(profile.SocialURL))
-                    {
-                        <a href="@profile.SocialURL">Twitter</a>
-                    }
-                    else
-                    {
-                        <span>This user has not linked a social platform</span>
-                    }
-                </div>
+                }
                 <br />
                 <br />
-            }
-        </div>
+                @if (profile.Achievements.Count > 0)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Achievements</div>
 
+                        <table class="table-striped table-bordered table-hover">
+                            @foreach (Achievement achievement in profile.Achievements)
+                            {
+                                <tr>
+                                    @if (achievement.Rank <= 50)
+                                    {
+                                        <td class="col-md-1 text-center" style="background-color: #FFD739;">@achievement.Rank</td>
+                                    }
+                                    else if (achievement.Rank > 50 && achievement.Rank <= 500)
+                                    {
+                                        <td class="col-md-1 text-center" style="background-color: #0094B2;color:white">@achievement.Rank</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="col-md-1 text-center bg-primary" style="color:white; margin-left:10px">@achievement.Rank</td>
+                                    }
+                                    <td><h5>@achievement.Event</h5></td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <span>This user has not shared any achievements</span>
+                    <br />
+                }
+                <br />
+                @if (!string.IsNullOrWhiteSpace(profile.FreeText))
+                {
+                    <span>@profile.FreeText</span>
+                }
+                else
+                {
+                    <span>This user has not shared any additional information</span>
+                }
+                <br />
+                <br />
+                @if (!string.IsNullOrWhiteSpace(profile.SocialURL))
+                {
+                    <a href="@profile.SocialURL">Twitter</a>
+                }
+                else
+                {
+                    <span>This user has not linked a social platform</span>
+                }
+            </div>
+            <br />
+            <br />
+        }
+    </div>
     </div>
 </div>
 <br />

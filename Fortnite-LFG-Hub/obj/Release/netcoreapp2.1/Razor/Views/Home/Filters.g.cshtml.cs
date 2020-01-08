@@ -64,7 +64,7 @@ using BusinessLayer;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(166, 699, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7f17c13c71124bb1ad834d63872f51dc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a7fd1711bd64a5abe97d9c4e1225c51", async() => {
                 BeginContext(232, 2, true);
                 WriteLiteral("\r\n");
                 EndContext();
@@ -97,7 +97,7 @@ using BusinessLayer;
                 WriteLiteral(" &nbsp;</span></td>\r\n                <td>");
                 EndContext();
                 BeginContext(624, 43, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a4a6fee60574403d9380641c934835c0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c111892b8a044abdb0c6370c000022a9", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
