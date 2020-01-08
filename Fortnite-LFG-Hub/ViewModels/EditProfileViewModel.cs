@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Fortnite_LFG_Hub.ViewModels;
 using BusinessLayer;
 
 namespace Fortnite_LFG_Hub.Models.ViewModels
 {
     public class EditProfileViewModel
     { 
-        public List<Achievement> Achievements { get; set; }
+        public AchievementsViewModel avm { get; set; }
+        //public List<Achievement> Achievements { get; set; }
         [StringLength(1000, ErrorMessage = "Additional text input can not be longer than 1000 characters")]
         [Display(Name = "Additional Information")]
         public string FreeText { get; set; }
@@ -23,7 +25,8 @@ namespace Fortnite_LFG_Hub.Models.ViewModels
         // Initialise the list with 8 achievements that can get filled with database records if available.
         public EditProfileViewModel()
         {
-            this.Achievements = new List<Achievement>() { new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(),};
+            this.avm = new AchievementsViewModel();
+            this.avm.Achievements = new List<Achievement>() { new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(), new Achievement(),};
         }
     }   
 }

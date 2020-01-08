@@ -4,6 +4,7 @@ using DataLayerDTO;
 using DataLayerInterface;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BusinessLayerContainer
@@ -19,8 +20,16 @@ namespace BusinessLayerContainer
 
             List<AchievementDTO> dtos = aCommands.GetAchievements(profileid);
             achievements = DtosToAchievements(dtos);
+            List<Achievement> orderedAchievements = achievements.OrderBy(a => a.Rank).ToList();
+            return orderedAchievements;
+        }
+    
 
-            return achievements;
+        public IDictionary<string, string> GetEvents()
+        {
+            IDictionary<string, string> events = new Dictionary<string, string>();
+            events = aCommands.GetEvents();
+            return events;
         }
 
         private List<Achievement> DtosToAchievements(List<AchievementDTO> dtos)

@@ -7,3 +7,12 @@ C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerDTO\obj\Debug\netcoreapp2.1\DataLayerDTO.AssemblyInfo.cs
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerDTO\obj\Debug\netcoreapp2.1\DataLayerDTO.dll
 C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\DataLayerDTO\obj\Debug\netcoreapp2.1\DataLayerDTO.pdb
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\DataLayerDTO\bin\Debug\netcoreapp2.1\netcoreapp2.1\DataLayerDTO.deps.json
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\DataLayerDTO\bin\Debug\netcoreapp2.1\netcoreapp2.1\DataLayerDTO.dll
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\DataLayerDTO\bin\Debug\netcoreapp2.1\netcoreapp2.1\DataLayerDTO.pdb
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\DataLayerDTO\obj\Debug\netcoreapp2.1\DataLayerDTO.csprojAssemblyReference.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\DataLayerDTO\obj\Debug\netcoreapp2.1\DataLayerDTO.csproj.CoreCompileInputs.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\DataLayerDTO\obj\Debug\netcoreapp2.1\DataLayerDTO.AssemblyInfoInputs.cache
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\DataLayerDTO\obj\Debug\netcoreapp2.1\DataLayerDTO.AssemblyInfo.cs
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\DataLayerDTO\obj\Debug\netcoreapp2.1\DataLayerDTO.dll
+C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\DataLayerDTO\obj\Debug\netcoreapp2.1\DataLayerDTO.pdb

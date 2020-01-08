@@ -27,8 +27,6 @@ namespace DataLayer
                     {
                         if(reader.HasRows)
                         {
-                            IAchievementCommands aCommands = new AchievementCommands();
-                            ICommentContainerCommands cCommands = new CommentCommands();
                             ISocialCommands sCommands = new SocialCommands();
                             while (reader.Read())
                             {
@@ -63,8 +61,6 @@ namespace DataLayer
                     using (reader = command.ExecuteReader())
                     {
                         // We get all profile data for each profile.
-                        IAchievementCommands aCommands = new AchievementCommands();
-                        ICommentContainerCommands cCommands = new CommentCommands();
                         ISocialCommands sCommands = new SocialCommands();
                         while (reader.Read())
                         {

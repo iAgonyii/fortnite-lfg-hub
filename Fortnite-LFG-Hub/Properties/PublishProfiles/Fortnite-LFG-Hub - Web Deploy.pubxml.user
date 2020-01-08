@@ -8,6 +8,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>
     </EncryptedPassword>
-    <_PublishTargetUrl>C:\Users\iAgonyii\Documents\Skool\S2\Individueel\Project Files\fortnite-lfg-hub\Fortnite-LFG-Hub\bin\Release\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Roy\Documents\Skool\HBO-ICT\S2\Individueel\! Project File\Fortnite-LFG-Hub\Fortnite-LFG-Hub\bin\Release\Publish</_PublishTargetUrl>
   </PropertyGroup>
 </Project>

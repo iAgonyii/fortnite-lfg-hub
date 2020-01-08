@@ -93,9 +93,9 @@ namespace BusinessLayer.Logic
             List<AchievementDTO> dtos = new List<AchievementDTO>();
             foreach (Achievement achievement in achievements)
             {
-                if (achievement.Rank != null && achievement.Event != Events._)
+                if (achievement.Rank != null && achievement.EventId != "1")
                 {
-                    dtos.Add(new AchievementDTO() { Rank = Convert.ToInt32(achievement.Rank), Event = achievement.Event.ToString() });
+                    dtos.Add(new AchievementDTO() { Rank = Convert.ToInt32(achievement.Rank), Event = achievement.EventId });
                 }
             }
             return dtos;
@@ -103,25 +103,10 @@ namespace BusinessLayer.Logic
 
         private List<string> flairsForAchievements(List<Achievement> achievements)
         {
-            List<Events> lanEvents = Enum.GetValues(typeof(Events)).Cast<Events>().ToList().Where(e => e.ToString().Contains("LAN")).ToList();
-            List<Events> fncsHeatEvents = Enum.GetValues(typeof(Events)).Cast<Events>().ToList().Where(e => e.ToString().Contains("Champion_Series_Heats")).ToList();
-            List<Events> fncsGrandFinalEvents = Enum.GetValues(typeof(Events)).Cast<Events>().ToList().Where(e => e.ToString().Contains("Champion_Series_Grand_Finals")).ToList();
             HashSet<string> flairs = new HashSet<string>();
             foreach (Achievement achv in achievements)
             {
-                if (lanEvents.Contains(achv.Event))
-                {
-                    flairs.Add(Flairs.LAN_Experience.ToString());
-                }
-                else if (fncsHeatEvents.Contains(achv.Event))
-                {
-                    flairs.Add(Flairs.FNCS_Heats.ToString());
-                }
-                else if (fncsGrandFinalEvents.Contains(achv.Event))
-                {
-                    flairs.Add(Flairs.FNCS_Grand_Finals.ToString());
-                }
-                else if (achv.Rank <= 1000 && achv.Rank >= 501)
+                if (achv.Rank <= 1000 && achv.Rank >= 501)
                 {
                     flairs.Add(Flairs.Top_1000.ToString());
                 }

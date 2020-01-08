@@ -17,7 +17,7 @@ namespace UnitTestData
             bool updated;
             try
             {
-                logic.UpdateProfileAchievements(new List<Achievement>() { new Achievement() { Rank = 23, Event = Events.Katowice_Royale_2019_SOLOS_LAN }, new Achievement() { Rank = 123, Event = Events.Scallywag_Cup_Finals } }, 66);
+                logic.UpdateProfileAchievements(new List<Achievement>() { new Achievement() { Rank = 23, EventId = "2" }, new Achievement() { Rank = 123, EventId = "3" } }, 66);
                 updated = true;
             }
             catch (Exception)

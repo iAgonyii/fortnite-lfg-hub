@@ -9,12 +9,14 @@ namespace BusinessLayer
     public class Achievement
     {
         public int? Rank { get; set; }
-        public Events Event { get; set; }
+        public string EventId { get; set; }
+        public string Event { get; set; }
 
         public Achievement(AchievementDTO dto)
         {
             Rank = dto.Rank;
-            Event = (Events)Enum.Parse(typeof(Events), dto.Event);
+            EventId = dto.EventId;
+            Event = dto.Event;
         }
         public Achievement()
         {

@@ -1,82 +1,149 @@
 ﻿@model BusinessLayer.Profile
 @using Fortnite_LFG_Hub.ViewModels
 @using BusinessLayer.Logic
+@using BusinessLayer
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
     ViewData["Title"] = "Profile";
 }
 
-<h1>@Model.Username</h1> <!-- Picture should come here too -->
+<h1 style="border-bottom:solid 1px;padding-bottom:3px">@Model.Username</h1> <!-- Picture should come here too -->
 <br />
-@{
-    if (Model.Region != BusinessLayer.Regions._)
-    {
-        <h3 style="display:inline-block;">@Model.Region.ToString()</h3>
-    }
-    else
-    {
-        <h3 style="display:inline-block;">No Region</h3>
-    }
-    if (Model.Looking)
-    {
-        <h3 style="display:inline-block;" color="green"> - LFG</h3>
-    }
-    else
-    {
-        <h3 style="display:inline-block;" color="red"> - NOT LFG</h3>
-    }
-}
-<br />
-@if (Model.Flairs.Count > 0)
-{
-    foreach (var flair in Model.Flairs)
-    {
-        string cleanFlair = flair.ToString().Replace("_", " ");
-        <span class="badge badge-pill">@cleanFlair</span>
-    }
-}
-<br /> <br />
-@foreach (var achievement in Model.Achievements)
-{
-    <h4 style="display:inline-block;">#@achievement.Rank - </h4>
-    string replacedEvent = achievement.Event.ToString().Replace("_", " ");
-    <h4 style="display:inline-block;">@replacedEvent</h4>
-    <br />
-}
-@{
-    <br />
-    if (!string.IsNullOrWhiteSpace(Model.FreeText))
-    {
-        <span>@Model.FreeText</span>
-    }
-    else
-    {
-        <span>This user has not shared any additional information</span>
-    }
-    <br />
-    if (!string.IsNullOrWhiteSpace(Model.SocialURL))
-    {
-        <a href="@Model.SocialURL"><h5>Twitter</h5></a>
-    }
-    else
-    {
-        <span>This user has not linked a social platform</span>
-    }
-}
-<br />
-@{
 
-    if (HttpContextAccessor.HttpContext.Session != null)
-    {
-        if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") != 0)
-        {
-            if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == Model.UserId)
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            @if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == Model.UserId)
             {
                 // If the session UserId is the same as the current profile in the view, we can edit it.
-                <a asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Profile</a>
-                <br />
+                <a asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Achievements</a>
+            }<br />
+            @if (Model.Flairs.Count > 0)
+            {
+                foreach (var flair in Model.Flairs)
+                {
+                    string cleanFlair = flair.ToString().Replace("_", " ");
+                    if (flair == Flairs.Top_50 || flair == Flairs.Top_25)
+                    {
+                        <span class="label label-success">@cleanFlair</span>
+                    }
+                    else
+                    {
+                        <span class="label label-primary">@cleanFlair</span>
+                    }
+                }
             }
+            <br />
+            <br />
+            @if (Model.Achievements.Count > 0)
+            {
+                <table class="table table-bordered table-hover table table-striped">
+                    <tr>
+                        <th colspan="2" class="text-center bg-info h4"><b>Achievements</b></th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Event</th>
+                    </tr>
+                    @foreach (var achievement in Model.Achievements)
+                    {
+                        <tr>
+                            @if (achievement.Rank <= 50)
+                            {
+                                <td class="col-md-1 text-center" style="background-color: #FFD739;">@achievement.Rank</td>
+                            }
+                            else if(achievement.Rank > 50 && achievement.Rank <= 500)
+                            {
+                                <td class="col-md-1 text-center" style="background-color: #0094B2;color:white">@achievement.Rank</td>
+                            }
+                            else
+                            {
+                            <td class="col-md-1 text-center bg-primary" style="color:white">@achievement.Rank</td>
+                            }
+                            <td>@achievement.Event</td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <h3>This user has not shared any achievements</h3>
+            }
+        </div>
+        <div class="col-lg-2">
+            <table class="table-bordered">
+                <tr>
+                    <th colspan="2" class="text-center bg-info h4"><b>@Model.Username</b></th>
+                </tr>
+                <tr>
+                    <td colspan="2"><div class="center-block"><img src="~/images/Profile/Player.png" /></div></td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-center bg-info h4"><b>Additional Information</b></th>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                        <b>Region: &nbsp; &nbsp;</b>
+                        @if (Model.Region != BusinessLayer.Regions._)
+                        {
+                            <span>@Model.Region.ToString()</span>
+                        }
+                        else
+                        {
+                            <span>Region unknown</span>
+                        }
+                        <br />
+                        @if (Model.Looking)
+                        {
+                            <span><b>Looking For Group</b></span>
+                        }
+                        else
+                        {
+                            <span><b>Not Looking For Group</b></span>
+                        }
+                        <br />
+                        <br />
+                        @if (!string.IsNullOrWhiteSpace(Model.FreeText))
+                        {
+                            <p>@Model.FreeText</p>
+                        }
+                        else
+                        {
+                            <p>This user has not shared any additional information</p>
+                        }
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-center bg-info h4"><b>Social Media</b></th>
+                </tr>
+                <tr>
+                    <td class="text-center">
+                        @if (!string.IsNullOrWhiteSpace(Model.SocialURL))
+                        {
+                            <a href="@Model.SocialURL"><span>Twitter</span></a>
+                        }
+                        else
+                        {
+                            <span>This user has not linked a social platform</span>
+                        }
+                    </td>
+                </tr>
+            </table>
+            @if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") == Model.UserId)
+            {
+                // If the session UserId is the same as the current profile in the view, we can edit it.
+                <a asp-controller="Profiles" asp-action="EditProfile" asp-route-id="@Model.UserId">Edit Profile Details</a>
+            }
+        </div>
+    </div>
+</div>
+
+@{
+        if (HttpContextAccessor.HttpContext.Session.Get<int>("UserId") != 0)
+        {
 
             // If we are logged in we are allowed to comment.
             CommentViewModel comment = new CommentViewModel();
@@ -87,11 +154,10 @@
             <br />
             <span>Login to post comments</span>
         }
-    }
 }
 <br />
 @{
-    if(Model.Comments.Count == 0)
+    if (Model.Comments.Count == 0)
     {
         <span>No comments yet</span>
     }

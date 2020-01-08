@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -37,12 +38,12 @@ namespace Fortnite_LFG_Hub.Controllers
 
         [HttpPost]
         [Route("user/{id}/edit/achievements")]
-        public IActionResult EditProfileAchievements(int id, List<Achievement> edit)
+        public IActionResult EditProfileAchievements(int id, AchievementsViewModel edit)
         {
             if (ModelState.IsValid)
             {
                 ProfileLogic logic = new ProfileLogic();
-                logic.UpdateProfileAchievements(edit, id);
+                logic.UpdateProfileAchievements(edit.Achievements, id);
                 return RedirectToAction("Profile", id);
             }
             else
@@ -64,15 +65,20 @@ namespace Fortnite_LFG_Hub.Controllers
                 {
                     return View("Error", new Error() { errorMessage = "You are not allowed to edit this profile." });
                 }
+
                 ProfilesContainer container = new ProfilesContainer();
+                AchievementsContainer aContainer = new AchievementsContainer();
+
                 Profile profile = container.GetProfileData(id);
+
                 // We can fill the form fields with data from the database if available.
                 EditProfileViewModel vm = new EditProfileViewModel() { FreeText = profile.FreeText, Looking = profile.Looking, Picture = profile.Picture, SocialURL = profile.SocialURL, Region = profile.Region };
+                vm.avm.events = new SelectList(aContainer.GetEvents(), "Key", "Value");
 
                 // Fill the achievements fields if there are records in the database.
                 for(int i = 0; i < profile.Achievements.Count; i++)
                 {
-                    vm.Achievements[i] = profile.Achievements[i];
+                    vm.avm.Achievements[i] = profile.Achievements[i];
                 }
 
                 return View("Index", vm);
