@@ -40,8 +40,8 @@ namespace BusinessLayer.Logic
 
         public string GetUsernameForId(int id)
         {
-            string Username = profileCommands.GetUsernameForId(id);
-            return Username;
+            string username = profileCommands.GetUsernameForId(id);
+            return username;
         }
 
         // General profile info
