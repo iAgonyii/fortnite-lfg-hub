@@ -19,8 +19,8 @@
         </div>*@
     <div class="col-lg-7" style="margin-left:5%">
         <form class="form-inline" asp-controller="Home" asp-action="Index" method="get" style="float:right">
-            <input class="form-control" type="text" name="search" placeholder="Search...">
-            <input class="btn btn-primary" type="submit" value="Search" />
+            <input id="searchInput" class="form-control" type="text" name="search" placeholder="Search...">
+            <input id="searchSubmit" class="btn btn-primary" type="submit" value="Search" />
         </form>
         <span>@Model.Count results found</span>
         <br />

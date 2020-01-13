@@ -44,7 +44,7 @@
                         else
                         {
                             <li><a asp-controller="Profiles" asp-action="Profile" asp-route-id="@UserId">@Username</a></li>
-                            <li><a asp-controller="Auth" asp-action="Logout">Log out</a></li>
+                            <li><a id="logout" asp-controller="Auth" asp-action="Logout">Log out</a></li>
                         }
                     }
                 </ul>

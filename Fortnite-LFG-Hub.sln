@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.102
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fortnite_LFG_Hub", "Fortnite-LFG-Hub\Fortnite_LFG_Hub.csproj", "{F99E10D0-D696-42CF-9B33-0BF8A25182BC}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayerContainer", "BusinessLayerContainers\BusinessLayerContainer.csproj", "{505BA39D-33BF-49B2-AC12-BD2891989ACF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestContainer", "UnitTestBusiness\UnitTestContainer.csproj", "{75F5F8E3-DB78-49C9-81AE-2474D28165BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fortnite_LFG_Hub.IntegrationTest", "Fortnite_LFG_Hub.IntegrationTest\Fortnite_LFG_Hub.IntegrationTest.csproj", "{3A0177C8-BCE6-4BF8-8FBE-E227B46CE519}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{75F5F8E3-DB78-49C9-81AE-2474D28165BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75F5F8E3-DB78-49C9-81AE-2474D28165BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75F5F8E3-DB78-49C9-81AE-2474D28165BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0177C8-BCE6-4BF8-8FBE-E227B46CE519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0177C8-BCE6-4BF8-8FBE-E227B46CE519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0177C8-BCE6-4BF8-8FBE-E227B46CE519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0177C8-BCE6-4BF8-8FBE-E227B46CE519}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
