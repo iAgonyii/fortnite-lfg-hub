@@ -17,11 +17,10 @@ namespace BusinessLayerContainer
         public List<Comment> GetComments(int profileid)
         {
             comments = new List<Comment>();
-            foreach (CommentDTO dto in commentCommands.GetComments(profileid))
-            {
-                Comment comment = new Comment(dto);
-                comments.Add(comment);
-            }
+
+            List<CommentDTO> commentDtos = commentCommands.GetComments(profileid);
+            commentDtos.ForEach(cdto => comments.Add(new Comment(cdto)));
+
             return comments;
         }
     }

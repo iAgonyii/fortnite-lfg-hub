@@ -17,14 +17,14 @@ namespace BusinessLayerContainer
             CommentsContainer cContainer = new CommentsContainer();
             AchievementsContainer aContainer = new AchievementsContainer();
 
-            // Make profiles from dtos
-            foreach (ProfileDTO pdto in commands.GetProfiles())
+            List<ProfileDTO> profileDtos = commands.GetProfiles();
+            profileDtos.ForEach(pdto =>
             {
                 Profile profile = new Profile(pdto);
                 profile.Comments = cContainer.GetComments(profile.UserId);
                 profile.Achievements = aContainer.GetAchievementsForProfile(profile.UserId);
                 profiles.Add(profile);
-            }
+            });
 
             return profiles;
         }

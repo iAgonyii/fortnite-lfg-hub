@@ -35,10 +35,7 @@ namespace BusinessLayerContainer
         private List<Achievement> DtosToAchievements(List<AchievementDTO> dtos)
         {
             List<Achievement> achvs = new List<Achievement>();
-            foreach (AchievementDTO dto in dtos)
-            {
-                achvs.Add(new Achievement(dto));
-            }
+            dtos.ForEach(dto => achvs.Add(new Achievement(dto)));
             return achvs;
         }
     }
