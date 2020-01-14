@@ -31,7 +31,13 @@ namespace Fortnite_LFG_Hub.Controllers
         {
             ProfilesContainer container = new ProfilesContainer();
             List<Profile> profiles = container.GetProfiles();
+            List<Profile> filteredProfiles = FilterProfiles(filters, profiles);
 
+            return View("Index", filteredProfiles);
+        } 
+
+        private List<Profile> FilterProfiles(List<bool> filters, List<Profile> profiles)
+        {
             List<Flairs> flairs = Enum.GetValues(typeof(Flairs)).Cast<Flairs>().ToList();
             for (int i = 0; i < filters.Count; i++)
             {
@@ -40,7 +46,8 @@ namespace Fortnite_LFG_Hub.Controllers
                     profiles = profiles.Where(p => p.Flairs.Contains(flairs[i])).ToList();
                 }
             }
-            return View("Index",profiles);
+
+            return profiles;
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
