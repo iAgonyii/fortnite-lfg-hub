@@ -24,11 +24,8 @@ namespace Fortnite_LFG_Hub.Controllers
             {
                 ProfileLogic logic = new ProfileLogic();
                 if (logic.Login(user.Username, user.Password))
-
                 {
-                    // If we logged in save the Username and UserId in the session
-                    HttpContext.Session.Set("Username", user.Username);
-                    HttpContext.Session.Set("UserId", logic.GetUserIdForName(user.Username));
+                    SetSessionValues(logic, user);
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("Username", "Credentials do not match any registered user");
@@ -59,9 +56,7 @@ namespace Fortnite_LFG_Hub.Controllers
                     ModelState.AddModelError("Username", "This username is already taken");
                     return View(user);
                 }
-                // If we succesfully registered we 'login' and save the values in the session.
-                HttpContext.Session.Set("Username", user.Username);
-                HttpContext.Session.Set("UserId", logic.GetUserIdForName(user.Username));
+                SetSessionValues(logic, user);
                 return RedirectToAction("Index", "Home");
             }
             return View(user);
@@ -72,6 +67,12 @@ namespace Fortnite_LFG_Hub.Controllers
             // Clear all data in the session so we logout.
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
+        }
+
+        private void SetSessionValues(ProfileLogic logic, AuthProfileViewModel values)
+        {
+            HttpContext.Session.Set("Username", values.Username);
+            HttpContext.Session.Set("UserId", logic.GetUserIdForName(values.Username));
         }
     }
 }
