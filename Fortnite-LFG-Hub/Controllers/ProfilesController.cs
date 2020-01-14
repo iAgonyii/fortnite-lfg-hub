@@ -59,28 +59,13 @@ namespace Fortnite_LFG_Hub.Controllers
             {
                 return View("Error", new Error() { errorMessage = "You are not logged in." });
             }
+            else if(HttpContext.Session.Get<int>("UserId") != id)
+            {
+                return View("Error", new Error() { errorMessage = "You are not allowed to edit this profile." });
+            }
             else
             {
-                if (HttpContext.Session.Get<int>("UserId") != id)
-                {
-                    return View("Error", new Error() { errorMessage = "You are not allowed to edit this profile." });
-                }
-
-                ProfilesContainer container = new ProfilesContainer();
-                AchievementsContainer aContainer = new AchievementsContainer();
-
-                Profile profile = container.GetProfileData(id);
-
-                // We can fill the form fields with data from the database if available.
-                EditProfileViewModel vm = new EditProfileViewModel() { FreeText = profile.FreeText, Looking = profile.Looking, Picture = profile.Picture, SocialURL = profile.SocialURL, Region = profile.Region };
-                vm.avm.events = new SelectList(aContainer.GetEvents(), "Key", "Value");
-
-                // Fill the achievements fields if there are records in the database.
-                for(int i = 0; i < profile.Achievements.Count; i++)
-                {
-                    vm.avm.Achievements[i] = profile.Achievements[i];
-                }
-
+                EditProfileViewModel vm = LoadProfileDataIntoEditViewModel(id);
                 return View("Index", vm);
             }
         }
@@ -101,6 +86,25 @@ namespace Fortnite_LFG_Hub.Controllers
             return View("Profile", profile);
         }
 
-       
+
+        private EditProfileViewModel LoadProfileDataIntoEditViewModel(int id)
+        {
+            ProfilesContainer container = new ProfilesContainer();
+            AchievementsContainer aContainer = new AchievementsContainer();
+
+            Profile profile = container.GetProfileData(id);
+            EditProfileViewModel vm = new EditProfileViewModel() { FreeText = profile.FreeText, Looking = profile.Looking, Picture = profile.Picture, SocialURL = profile.SocialURL, Region = profile.Region };
+            vm.avm.events = new SelectList(aContainer.GetEvents(), "Key", "Value");
+
+            // Fill the achievements fields if there are records in the database.
+            for (int i = 0; i < profile.Achievements.Count; i++)
+            {
+                vm.avm.Achievements[i] = profile.Achievements[i];
+            }
+
+            return vm;
+        }
+
+
     }
 }

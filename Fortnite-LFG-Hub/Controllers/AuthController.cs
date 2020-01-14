@@ -24,6 +24,7 @@ namespace Fortnite_LFG_Hub.Controllers
             {
                 ProfileLogic logic = new ProfileLogic();
                 if (logic.Login(user.Username, user.Password))
+
                 {
                     // If we logged in save the Username and UserId in the session
                     HttpContext.Session.Set("Username", user.Username);

@@ -13,6 +13,7 @@ namespace Fortnite_LFG_Hub.IntegrationTest
         public AuthenticationTests()
         {
             _driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+            _driver.Manage().Window.Maximize();
         }
 
         public void Dispose()
@@ -92,18 +93,6 @@ namespace Fortnite_LFG_Hub.IntegrationTest
 
             Assert.Equal("Your username has to be between 3 and 32 characters long", usernameError);
             Assert.Equal("Your password must be atleast 5 characters long", passwordError);
-        }
-
-        [Fact]
-        public void RegisterSuccess()
-        {
-            _driver.Navigate().GoToUrl(baseUrl + "register");
-
-            _driver.FindElement(By.Id("Username")).SendKeys("IntegrationTest");
-            _driver.FindElement(By.Id("Password")).SendKeys("inttest321");
-            _driver.FindElement(By.Id("submit")).Click();
-
-            Assert.Contains("Home", _driver.Title);
         }
 
         [Fact]
