@@ -9,5 +9,6 @@ namespace DataLayerDTO
         public int Rank { get; set; }
         public string EventId { get; set; }
         public string Event { get; set; }
+        public string EventIconUrl { get; set; }
     }
 }

@@ -119,4 +119,10 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\Event\Default\" />
+    <Folder Include="wwwroot\images\Event\Y-2018\" />
+    <Folder Include="wwwroot\images\Event\Y-2020\" />
+  </ItemGroup>
+
 </Project>

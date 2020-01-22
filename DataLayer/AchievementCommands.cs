@@ -18,7 +18,7 @@ namespace DataLayer
             using (conn)
             {
                 conn.Open();
-                using(command = new MySqlCommand("SELECT a.Rank, e.Event, e.EventId FROM achievement a LEFT JOIN event e ON (a.Tourney = e.EventId) WHERE UserId = @profileid", conn))
+                using(command = new MySqlCommand("SELECT a.Rank, e.Event, e.EventId, e.EventIconUrl FROM achievement a LEFT JOIN event e ON (a.Tourney = e.EventId) WHERE UserId = @profileid", conn))
                 {
                     command.Parameters.AddWithValue("profileid", profileid);
                     using(reader = command.ExecuteReader())
@@ -26,7 +26,7 @@ namespace DataLayer
                         List<AchievementDTO> dtos = new List<AchievementDTO>();
                         while(reader.Read())
                         {
-                            dtos.Add(new AchievementDTO() { Rank = reader.GetInt32(0), Event = reader.GetString(1), EventId = reader.GetInt32(2).ToString() });
+                            dtos.Add(new AchievementDTO() { Rank = reader.GetInt32(0), Event = reader.GetString(1), EventId = reader.GetInt32(2).ToString(), EventIconUrl = reader.GetString(3) });
                         }
                         return dtos;
                     }
