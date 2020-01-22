@@ -19,6 +19,7 @@ namespace UnitTestContainer
             int id = 66;
             Profile result = profilesContainer.GetProfileData(id);
             Assert.AreEqual("UnitTest1", result.Username);
+            Assert.AreEqual(23, result.Achievements[0].Rank);
         }
 
         [TestMethod]

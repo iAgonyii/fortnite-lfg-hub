@@ -15,6 +15,7 @@ namespace Fortnite_LFG_Hub.IntegrationTest
         public ProfileTests()
         {
             _driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+            _driver.Manage().Window.Maximize();
         }
 
         public void Dispose()
